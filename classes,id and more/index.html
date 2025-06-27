@@ -22,6 +22,27 @@
             margin: 20px;
             background-color: rgb(158, 39, 0);
         }
+        .container{
+              border: 2px slid black;
+            width: 50vw;
+            height: 50vh;
+            background-color: rgba(103, 205, 134, 0.81);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box{
+                border: 2px slid black;
+                color: #f6f1f1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            width: 70px;
+            height: 70px;
+            margin: 20px;
+            background-color: rgb(74, 68, 119);
+        }
+
     </style>
 </head>
 
@@ -40,8 +61,15 @@
     <p>This is paragraph 2</p>
     <p>This is paragraph 3</p>
 
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div  class="box" id="target-box">Box 2</div>
+    </div>
+
+
     <!-- <script src="script.js"></script> -->
     <script src="script2.js"></script>
+
 </body>
 
 </html>
