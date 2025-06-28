@@ -62,8 +62,7 @@ boxes[3].style.backgroundColor = "black";
 
 // 🔹 Target element by ID
 // `getElementById()` is called directly on `document`, not on another element
-document.getElementById("box2").style.backgroundColor = "white";
-// ✅ Use ID when you want to target a specific element uniquely,
+/// ✅ Use ID when you want to target a specific element uniquely,
 // so changes don't affect others with the same class
 
 // 🔸 Use `querySelector()` to apply a style to the first element with a specific class
@@ -84,3 +83,52 @@ document.getElementsByTagName("div");
 // 🎯 getElementsByName()
 // Targets elements with a specific `name` attribute (commonly used in forms)
 document.getElementsByName("first");
+
+// matches,closest,contains method
+
+// MATCHES : we use this method to check if that css property matches the
+// element css property then give answer in boolen
+
+let el = document.getElementsByClassName("child")[2]; // or [2] for third one
+console.log(el.matches("#child3"));
+
+// CLOSEST : Finds the nearest ancestor (including the element itself) that matches the selector.
+// it does not give answer in boolen
+
+let closestdiv = document.getElementById("target-box")
+console.log(closestdiv.closest(".container"))
+
+// contain: we use this method to check of that elemen contains  his child element or not
+// remember that getElementsByClassName return html collection thats why we have
+// to add [0] because we can apply contains preperty to one element
+//  but .contains() only works with actual DOM elements, not strings.
+let container = document.getElementsByClassName("container")[0]
+let target = document.getElementById("target-box");
+console.log(container.contains(target))
+
+
+
+
+// .closest("selector"):
+// Finds the nearest parent (including itself) that matches the given selector.
+// Used to search upward in the DOM tree.
+
+// .matches("selector"):
+// Checks if the element itself matches the given CSS selector.
+// Returns true or false.
+
+// .contains(element):
+// Checks if one element exists inside another (as child, grandchild, etc.).
+// Takes a real DOM element, not a selector string.
+
+// You can now easily copy and paste this into your notes ✅ Let me know if you want Urdu version too!
+
+// .contains() is about real DOM structure — not CSS rules — so it works with actual elements, not selectors.
+
+
+
+
+
+
+
+

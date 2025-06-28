@@ -24,3 +24,4 @@ document.body.children[5].lastElementChild.previousElementSibling.style.backgrou
 // Method 2: Recommended — using previousElementSibling
 document.getElementById("target-box").previousElementSibling.style.backgroundColor = "orange";
 
+
