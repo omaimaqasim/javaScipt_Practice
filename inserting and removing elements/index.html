@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inserting and Removing Elements</title>
+  <style>
+    .box {
+      width: 50px;
+      height: 50px;
+      border: 2px solid black;
+      margin-top: 10px;
+    }
+
+    #myBtn {
+      width: 20vw;
+      height: 20vh;
+      margin: 10px;
+      padding: 10px;
+      border: solid black;
+      background-color: brown;
+      color: white;
+      font-size: larger;
+    }
+
+    #box2 {
+      width: 200px;
+      height: 200px;
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="box" data-createdby="harry" style="display: flex;"><b>box</b></div>
+    <div class="box" id="box2"><b>box 2</b></div>
+  </div>
+
+  <button id="myBtn">Click Me</button>
+
+  <div id="box"><b>Hello, how are you</b></div>
+
+  <input type="text" id="name" placeholder="Enter your name" />
+
+  <script>
+    // Inspecting a button
+    let btn = document.getElementById("myBtn");
+    console.log(btn);         // Shows HTML element
+    console.dir(btn);         // Shows object properties
+
+    // tagName vs nodeName
+    let box = document.getElementById("box");
+    console.log(box.tagName);  // DIV
+    console.log(box.nodeName); // DIV
+
+    let textNode = box.firstChild;
+    console.log(textNode);                // #text node
+    console.log(textNode.nodeName);       // "#text"
+
+    // Content inspection
+    console.log("innerHTML:", box.innerHTML);     // HTML inside box
+    console.log("outerHTML:", box.outerHTML);     // Whole element including box
+    console.log("textContent:", box.textContent); // Plain text only
+    console.log(box.hidden);                      // false
+
+    // Attribute operations
+    let input = document.getElementById("name");
+    console.log(input.getAttribute("placeholder"));   // Get
+    input.setAttribute("placeholder", "Type here..."); // Set
+    console.log(input.hasAttribute("type"));          // true
+
+    // Creating and inserting elements
+    let div = document.createElement("div");
+    div.setAttribute("class", "box3");
+    div.innerHTML = "Hey I am third box <b>created by mam</b>";
+    document.querySelector(".container").prepend(div); // Insert at start
+
+    let btn2 = document.createElement("button");
+    btn2.setAttribute("id", "btn2");
+    btn2.innerHTML = "click here plz";
+    btn2.style.backgroundColor = "blue";
+    btn2.style.width = "200px";
+    btn2.style.height = "150px";
+    document.querySelector("#myBtn").after(btn2);
+
+    div.replaceWith(btn2); // Replace div with button
+
+    // insertAdjacent methods
+    let box2 = document.getElementById("box2");
+
+    box2.insertAdjacentHTML("afterend", "<b>I am after box 2</b>");
+    box2.insertAdjacentText("beforebegin", "<b> I am before box 2</b>"); // As plain text
+    box2.insertAdjacentHTML("afterbegin", "<b>I am inside the beginning of box 2</b>");
+    box2.insertAdjacentText("beforeend", "<b> I am inside end of box 2</b>"); // Plain text
+
+    // Remove previous sibling of box2
+    box2.previousElementSibling.remove();
+
+    // Accessing custom data attributes
+    console.log(document.querySelector(".box").dataset);  // {createdby: 'harry'}
+
+    // Turn on design mode to allow editing on page (for dev tools/testing only)
+    // document.designMode = "on";
+
+  </script>
+
+</body>
+
+</html>
