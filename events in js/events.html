@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Different Events Practice</title>
+  <style>
+    /* Styling for main button */
+    #myButton {
+      color: white;
+      border: solid rgb(17, 12, 12);
+      background-color: blue;
+      width: 20vw;
+      height: 20vw;
+    }
+
+    /* Styling for hoverable div */
+    #mydiv {
+      width: 200px;
+      height: 100px;
+      background-color: lightgray;
+      margin-top: 20px;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    /* Styling for the box div */
+    .box {
+      margin-top: 20px;
+      padding: 10px;
+      border: 2px solid black;
+    }
+
+    /* Styling for button that changes box content */
+    #btn {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: lightcoral;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Button with inline alert on click -->
+  <button id="myButton" onclick="alert('Hey! Don\'t click me')">Click here</button>
+
+  <!-- Div that responds to mouse events -->
+  <div id="mydiv">Hover over me</div>
+
+  <!-- Paragraph that shows alert on right-click -->
+  <p id="myParagraph">Right-click on me!</p>
+
+  <!-- Box to be changed by JS and its trigger button -->
+  <div class="box">Hey I am a box</div>
+  <button id="btn">Change box HTML</button>
+
+  <script>
+    // DOMContentLoaded ensures the JS runs after the page is fully loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM Content Loaded!');
+    });
+
+    // Mouseover changes background and text of div when mouse enters
+    const div = document.getElementById('mydiv');
+    div.addEventListener('mouseover', () => {
+      div.style.backgroundColor = 'lightblue';
+      div.innerHTML = "You hovered me 🤞";
+    });
+
+    // Mouseout resets background and text when mouse leaves the div
+    div.addEventListener('mouseout', () => {
+      div.style.backgroundColor = 'lightgray';
+      div.innerHTML = "Hover over me";
+    });
+
+    // Right-clicking the paragraph triggers an alert
+    const paragraph = document.getElementById('myParagraph');
+    paragraph.addEventListener('contextmenu', () => {
+      alert('You right-clicked the paragraph!');
+    });
+
+    // this will show alert when we hover on div and left click without leaving the mouse
+    div.addEventListener('mousedown', () => {
+      alert('Mouse button pressed down on the div!');
+    });
+
+    // This changes the main button color and text when clicked
+    const button = document.getElementById('myButton');
+    button.addEventListener('click', () => {
+      button.style.backgroundColor = "red";
+      button.textContent = "❤"; // Sets text as heart emoji
+    });
+
+    // Selecting the second button that modifies the box
+    const btn = document.getElementById("btn");
+
+    // Single click changes the innerHTML of the box div
+    btn.addEventListener("click", () => {
+      document.querySelector(".box").innerHTML = "<b>Yay! Button is clicked 💖</b>";
+    });
+
+    // Double-click changes the button style and content
+    btn.addEventListener("dblclick", () => {
+      btn.style.backgroundColor = "blue";
+      btn.style.width = "150px";
+      btn.style.height = "150px";
+      btn.innerHTML = "YOU DOUBLE CLICKED ME 😁";
+    });
+  </script>
+
+</body>
+</html>
