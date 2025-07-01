@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,8 +33,8 @@
 <body>
 
   <!-- 
-    Event Bubbling means when we click on a child box, 
-    the event also triggers the parent box's event.
+    Event Bubbling means when we click on a child element, 
+    the event also triggers its parent element's event listeners.
     To prevent this, we use stopPropagation().
   -->
 
@@ -48,23 +47,62 @@
   </div>
 
   <script>
-    // Event Bubbling means if we add a listener to an element,
-    // the event also bubbles up to its parents.
-    // To stop this behavior, use stopPropagation().
-
+    // Handle click on childContainer and prevent bubbling to container
     document.querySelector(".childContainer").addEventListener("click", (e) => {
-      e.stopPropagation(); // prevents event from bubbling to container
+      e.stopPropagation();
       alert("childContainer Was clicked");
     });
 
-    document.querySelector(".child").addEventListener("click", (e) => {
-      e.stopPropagation(); // prevents event from bubbling to childContainer or container
+    // Create a named function for the child click event
+    function childClickHandler(e) {
+      e.stopPropagation();
       alert("Child Was clicked");
+    }
+
+    // Add event listener to child element
+    const childElement = document.querySelector(".child");
+    childElement.addEventListener("click", childClickHandler);
+
+    // Remove child click event after 5 seconds
+    setTimeout(() => {
+      childElement.removeEventListener("click", childClickHandler);
+      console.log("Child click event listener removed");
+    }, 5000);
+
+    // Handle click on container
+    document.querySelector(".container").addEventListener("click", () => {
+      alert("container Was clicked");
     });
 
-    document.querySelector(".container").addEventListener("click", (e) => {
-      alert("container Was clicked"); // this will run only if propagation isn't stopped
-    });
+    // SETTIMEOUT AND SETINTERVAL
+
+// setInterval:
+// Use this if you want to run a set of code repeatedly after every few milliseconds
+
+function getRandomColor() {
+  let val1 = Math.ceil(Math.random() * 255);
+  let val2 = Math.ceil(Math.random() * 255);
+  let val3 = Math.ceil(Math.random() * 255);
+  return `rgb(${val1}, ${val2}, ${val3})`;
+}
+
+// Changes background color of .childContainer every 500ms
+let colorChanger = setInterval(() => {
+  document.querySelector(".childContainer").style.backgroundColor = getRandomColor();
+}, 500);
+
+// To stop setInterval, use clearInterval(colorChanger);
+
+
+// SETTIMEOUT:
+// Use this if you want to run a set of code once after a delay
+
+let timeoutAlert = setTimeout(() => {
+  alert("Alert after 3 seconds");
+}, 3000);
+
+// To stop setTimeout, use clearTimeout(timeoutAlert);
+
   </script>
 
 </body>

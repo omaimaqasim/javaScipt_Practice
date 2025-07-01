@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Different Events Practice</title>
   <style>
     /* Styling for main button */
@@ -16,12 +16,15 @@
 
     /* Styling for hoverable div */
     #mydiv {
-      width: 200px;
-      height: 100px;
+      width: 250px;
+      height: 200px;
       background-color: lightgray;
       margin-top: 20px;
       text-align: center;
       line-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Styling for the box div */
@@ -41,6 +44,26 @@
       font-weight: bold;
       cursor: pointer;
     }
+
+    #box2 {
+      width: 250px;
+      height: 200px;
+      margin-top: 20px;
+      text-align: center;
+      line-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .blue {
+      background-color: rgb(16, 222, 208);
+    }
+
+    .square {
+      background-color: rgb(20, 14, 93); /* makes the toggle very visible */
+      border: black;
+    }
   </style>
 </head>
 <body>
@@ -57,6 +80,9 @@
   <!-- Box to be changed by JS and its trigger button -->
   <div class="box">Hey I am a box</div>
   <button id="btn">Change box HTML</button>
+
+  <div id="box" class="red square"></div>
+  <div id="box2" class="blue box square"></div>
 
   <script>
     // DOMContentLoaded ensures the JS runs after the page is fully loaded
@@ -83,7 +109,7 @@
       alert('You right-clicked the paragraph!');
     });
 
-    // this will show alert when we hover on div and left click without leaving the mouse
+    // This will show alert when we hover on div and left click without leaving the mouse
     div.addEventListener('mousedown', () => {
       alert('Mouse button pressed down on the div!');
     });
@@ -110,7 +136,40 @@
       btn.style.height = "150px";
       btn.innerHTML = "YOU DOUBLE CLICKED ME 😁";
     });
-  </script>
 
+    // CLASSNAME
+    let box = document.getElementById("box");
+
+    // Get current classes
+    console.log(box.className); // "red square"
+
+    // Set a new class (⚠️ will replace all existing classes)
+    box.className = "blue"; // Now only "blue" class remains
+    console.log(box.className);
+
+    // CLASSLIST
+    let box2 = document.getElementById("box2");
+    console.log(box2.classList);
+
+    // Adding class
+    box2.classList.add("shadow");
+    console.log(box2.classList); // it gives us class list and shows added class value
+
+    // Removing class
+    box2.classList.remove("box");
+    console.log(box2.classList);
+
+    // Using toggle: adds if not present, removes if already present
+    // setInterval(() => {
+    //   box2.classList.toggle("square");
+    // }, 500);
+
+    // Using replace to replace one class with another
+    box2.classList.replace("square", "circle");
+    console.log(box2.classList);
+
+    // Check if class exists
+    console.log(box2.classList.contains("circle"));
+  </script>
 </body>
 </html>
