@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks</title>
+
+  <!-- ✅ Internal CSS for styling elements used in tasks -->
+  <style>
+    /* 🔷 Input box styling */
+    #input {
+      width: 35vw;
+      height: 30px;
+      border: 2px solid black;
+      font-size: larger;
+      background-color: rgb(222, 222, 231);
+      border-radius: 5px;
+    }
+
+    /* 🔷 Button for input */
+    .btn {
+      width: 75px;
+      height: 33px;
+      font-size: larger;
+      border-radius: 5px;
+    }
+
+    /* 🔷 Paragraph to display input value */
+    .para {
+      width: 70vw;
+      height: 30vh;
+      background-color: aliceblue;
+    }
+
+    /* 🔷 Box for task 3 */
+    .box {
+      width: 250px;
+      height: 200px;
+      border: solid black;
+      background-color: rgb(162, 87, 87);
+      margin: 10px;
+      border-radius: 5px;
+      font-size: larger;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 🔷 Button for box task */
+    .btn2 {
+      width: 120px;
+      height: 50px;
+      border: solid black;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: large;
+      margin-left: 70px;
+    }
+
+    /* 🔷 Hover effect on second button */
+    .btn2:hover {
+      background-color: rgba(70, 71, 72, 0.408);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Task 2: Show input value in paragraph -->
+  <input id="input" type="text" placeholder="Enter something">
+  <button class="btn">Enter</button>
+  <p class="para"></p>
+
+  <!-- ✅ Task 3: Click to change box content and style -->
+  <div class="box"></div>
+  <button class="btn2">Click Me</button>
+
+  <!-- ✅ External JS file for all tasks -->
+  <script src="task.js"></script>
+</body>
+</html>
