@@ -51,3 +51,14 @@ btn2.addEventListener("click", () => {
   box.style.backgroundColor = "rgb(67, 77, 187)";
   box.innerHTML = "Yey! You clicked it 👍";
 });
+
+
+//  Task 5: Display Key Pressed by User
+// Description: Create a <p> tag. When the user
+//  types on the keyboard, show the last key they
+//  pressed inside the <p>. 
+
+let para2 = document.querySelector(".para2")
+document.body.addEventListener("keydown",()=>{
+   para2.innerHTML = `You pressed: ${event.key}`
+})
