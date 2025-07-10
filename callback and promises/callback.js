@@ -46,10 +46,11 @@ const loadScript = (src, callback) => {
   let sc = document.createElement("script");
   sc.src = src;
   sc.onload = () => callback("Script is loaded!");
+  sc.onerror = ()=> callback ("something went wrong pla try later")
   document.head.append(sc);
 };
 
-// loadScript("https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js", callback);
+loadScript("https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js", callback);
 
 // ---------------------------------------------
 
