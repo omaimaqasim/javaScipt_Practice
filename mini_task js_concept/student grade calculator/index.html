@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student grade calculator</title>
+</head>
+
+<body>
+
+    <script>
+        /* 🎯 Task: Student Grade Calculator
+📝 Instructions:
+Create a function called calculateGrade that:
+Takes 3 subject marks as input (e.g., Math, English, Science).
+Calculates:
+Total marks
+Average percentage
+Uses if/else to determine the grade:
+>= 90 → Grade A+
+>= 80 → Grade A
+>= 70 → Grade B
+>= 60 → Grade C
+< 60 → Fail
+Uses a loop to display subject-wise marks.
+Displays everything using console.log. */
+
+        /* creating calculate grade function */
+        function calculategrade() {
+            let marks1 = prompt("enter marks of science subject")
+            let marks2 = prompt("enter marks of math subject")
+            let marks3 = prompt("enter marks of computer subject")
+            marks1 = parseInt(marks1)
+            marks2 = parseInt(marks2)
+            marks3 = parseInt(marks3)
+            if (isNaN(marks1) || isNaN(marks2) || isNaN(marks3)) {
+                throw SyntaxError (" please enter your marks correctly");
+                
+            }
+            console.log("Math : " + marks2 + ", science : " + marks1 + " , computer :" + marks3  )
+          
+            let totalmarks = marks1+marks2+marks3
+        }
+
+
+
+    </script>
+</body>
+
+</html>

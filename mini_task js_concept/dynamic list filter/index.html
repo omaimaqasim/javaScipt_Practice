@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DYNAMIC LIST FILTER</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    .input {
+      width: 250px;
+      height: 30px;
+      border: 2px solid black;
+      margin-top: 20px;
+      font-size: 20px;
+      padding: 4px;
+    }
+
+    .h2 {
+      margin-top: 10px;
+      font-size: 25px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>DYNAMIC LIST FILTER</h1>
+    <input type="text" class="input" placeholder="Type to search" />
+    <div class="list">
+      <h2 class="h2">LIST OF NAMES:</h2>
+      <ul id="namelist"></ul>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
