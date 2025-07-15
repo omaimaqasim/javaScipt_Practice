@@ -16,9 +16,9 @@ for (let i = 0; i <=12; i += 2) {
 console.log("");
 console.log("for in loop");
 
-// print no if even or odd bet 1 tp 15
+// print no if even or odd btw 1 tp 15
 
-for (let i = 0; i <10 ; i++) {
+for (let i = 1; i <10 ; i++) {
     if (i%2==0) {
         console.log( i+" its even")
     }
@@ -59,7 +59,7 @@ for (const index in fruits) {
 console.log("");
 console.log("for of loop");
 
-// we use for of loop to print iteration of values of objecr
+// we use for of loop to print iteration of values of object
 const arr = ["omaima","sadia","sara","sakina"];
 
 for (const value of arr) {
@@ -72,6 +72,7 @@ for (const value of arr) {
 console.log("");
 console.log("while loop");
 
+// means loop will repeat until condition will false
  let  no=3;
 while (no<=8) {
     console.log(no);

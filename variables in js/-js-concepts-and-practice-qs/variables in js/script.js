@@ -1,174 +1,170 @@
-// let a = 2;
-//     console.log(a);
-//     // we use let to make var global
-//     // constant ko hum change nahi kar sakte
-// const c=3;
-// // we use console.log to write it on console
+// ✅ VARIABLE DECLARATIONS
 
-// console.log(c)
-// // var global hai 
-// {
-//     let a=77
-//     console.log(a)
-//     // let is block scope jo block hai us main hi let chale 
-//     // ga aghar var hoga to wo globaly scope hai to last main var hoga wo hii likha hoga
-// // is liye ho let ko use karte hai tk hum a ko diff jaga pper use karte hai
+let a = 2;
+console.log(a); // Output: 2
 
-// }
-let k = num
-// let k=null;
-// let d =44;
-// let z="zain bhai";
-// // we use "" we there is gap between string ;
-// let x = undefined;
-// const v = true;
-// // that mean we cant change v but if we use let then we can change v
-// console.log (k,d,z,x,v);
-// console.log (typeof k,typeof d,typeof z,typeof x,typeof v);
+const c = 3;
+console.log(c); // Output: 3
 
-// let o ={
-//     // key : value
-//      name : "omaima" ,
-//     //  we use , after one key in object
-//      "job code" : 4500 
-//     //  we write keys in "" if there is gap 
+// ✅ BLOCK SCOPE DEMO
+{
+    let a = 77;
+    console.log(a); // Output: 77
+    // 'let' is block-scoped, only accessible inside this block
+}
 
-// }
-// console.log(o);
-// // we we want to ad d some values in o then we can add it like below
-// o.salary = "560crores";
-// console.log(o);
+// ❌ This will cause an error if num is not defined
+// let k = num; 
+// Correct usage:
+let k = null;
+let d = 44;
+let z = "zain bhai";
+let x = undefined;
+const v = true;
 
-// // we can change values like below
-// o.salary = "700crores";
-// console.log(o);
+console.log(k, d, z, x, v);
+console.log(typeof k, typeof d, typeof z, typeof x, typeof v);
+
+// ✅ OBJECTS
+let o = {
+    name: "omaima",
+    "job code": 4500 // Key with space must be in quotes
+};
+console.log(o);
+
+// Add new property
+o.salary = "560crores";
+console.log(o);
+
+// Update property
+o.salary = "700crores";
+console.log(o);
 
 
-// VAR ==== VARIABLE
-// console.log("var variable uses")
+// ✅ VAR VS LET
 
-// // hum var ko ese bhi likh sakte hai or var global ahi to jo last wala
-// // ho ga wo hi aye ga is main 'hey' likha aye ga
-// var greeting = "hi how are you"
-//  greeting = "hey"
-// //  if we do this then yeh humain undefine dikhay ga
-// console.log(greeter)
-// greeter= "ohoo"
+// 🔹 VAR is function/global scoped
+var greeting = "hi how are you";
+greeting = "hey";
+
+console.log(greeter); // undefined due to hoisting
+var greeter = "ohoo";
+
+// 🔹 LET is block-scoped and cannot be re-declared
+let greet = "say hi";
+greet = "say hello";
+console.log(greet);
+
+// Example showing block scope of LET
+let greeting2 = "say Hi";
+if (true) {
+    let greeting2 = "say Hello instead";
+    console.log(greeting2); // Output: say Hello instead
+}
+console.log(greeting2); // Output: say Hi
 
 
+// 🧠 TASKS 🧠
 
-// LET ==== VARIABLE
-// let ko update karsakte hai lekin redeclare nahi 
+// 🟢 TASK 1: BASIC
+let myname = "omaima";
+console.log(myname);
+let myage = 10;
+console.log(myage);
+let isStudent = true;
+console.log(isStudent);
 
-// example 1
-// let  greet ="say hi"
-//    greet ="say hello"
-// console.log(greet)
 
-// example 2
-// let greeting = "say Hi";
-// if (true) {
-//     let greeting = "say Hello instead";
-//     console.log(greeting); // "say Hello instead"
-// }
-// console.log(greeting); // "say Hi"
+// 🟡 TASK 2: MEDIUM
+let score = 0;
+let finalScore = score + 5;
+console.log(finalScore);
 
-//   TASK NO # 1 --- BASIC
+var mycity = "karachi";
+mycity = "lahore";
+console.log(mycity);
 
-//    let myname = "omaima";
-//    console.log(myname)
-//    let myage= 10;
-//    console.log(myage)
-//    let istudent = true;
-//    console.log(istudent)
 
-//    TASK NO #2----- MEDIUM LEVEL
+// 🔴 TASK 3: INTERMEDIATE
 
-// let score = 0;
-// let finalscore = score + 5
-// console.log(finalscore)
+// 🔹 Sub Task 1 - HOISTING
+console.log(message); // Output: undefined (due to hoisting)
+var message = "Hello!";
 
-// var mycity = "karachi"
-//     mycity = "lahore"
-// console.log(mycity)
+function greet() {
+    if (true) {
+        var greeting = "Hi";
+        let farewell = "Bye";
+        console.log(greeting); // Hi
+        console.log(farewell); // Bye
+    }
+    console.log(greeting); // Hi
+    // console.log(farewell); ❌ ReferenceError (block scoped)
+}
+greet();
 
-// TASK NO # 3 ------ INTERMEDIATE LEVEL
- 
-// sub task 1
 
-// console.log(message);
-// var message = "Hello!";  // output = undefined 
+// 🔹 Sub Task 2 - CONST BEHAVIOR
+const PI = 3.14159;
+console.log("Initial PI:", PI);
+// PI = 3.14; ❌ Error: Assignment to constant variable
 
-// function greet() {
-//   if (true) {
-//     var greeting = "Hi";
-//     let farewell = "Bye";
-//     console.log(greeting);
-//     console.log(farewell);
-//   }
-//   console.log(greeting);
-//   // console.log(farewell); // Uncommenting this line will cause an error. Why?
-// //   because let is block variable and it wikk give error if we  console it outside of block
+const user = { name: "Alice", age: 30 };
+console.log("Initial user:", user);
+user.age = 31;
+console.log("Updated user:", user); // Allowed because object properties can change
 
-// }
+const numbers = [1, 2, 3];
+console.log("Initial numbers:", numbers);
+numbers.push(4); // Allowed
+console.log("After push:", numbers);
+// numbers = [5, 6]; ❌ Error: Reassignment not allowed
 
-// greet();
-// // output = hi
-// //          bye
-// //           hi
-// //           reference error 
 
-// sub task 2
+// 🔹 Sub Task 3 - PRIMITIVE vs REFERENCE TYPES
+let value = 10;
+console.log("Value 1:", value, typeof value);
 
-// const PI = 3.14159;
-// console.log("Initial PI:", PI); // output = 3.14159
-// PI = 3.14; // Attempt 1
-// console.log("Attempt 1 PI:", PI); // This line might not execute due to error
-// // yes it will show error that pi is already declare as const cant be redelare and reinitailize
+value = "Hello";
+console.log("Value 2:", value, typeof value);
 
-// const user = { name: "Alice", age: 30 };
-// console.log("Initial user:", user); 
-// // output=  name: "Alice", age: 30
-// user.age = 31; // Attempt 2
+let anotherValue = value;
+console.log("Value 3:", anotherValue, typeof anotherValue);
 
-// console.log("Attempt 2 user:", user);
-// // output=  name: "Alice", age: 31
-// const numbers = [1, 2, 3];
-// console.log("Initial numbers:", numbers);
-// // output = [1, 2, 3]
-// numbers.push(4); // Attempt 3
-// console.log("Attempt 3 numbers:", numbers);
-// // output = [1, 2, 3,4]
-// numbers = [5, 6]; // Attempt 4
-// console.log("Attempt 4 numbers:", numbers); // This line might not execute due to error
-// // it will sho error as const can be reassingn
+anotherValue = 5;
+console.log("Value 4:", anotherValue, typeof anotherValue);
+console.log("Value 5:", value, typeof value); // Still "Hello"
 
-// sub task 3
-// let value = 10;
-// console.log("Value 1:", value, typeof value);
-// // output = value 1 : 10 , int
+let obj1 = { key: "first" };
+let obj2 = obj1;
+obj2.key = "second";
 
-// value = "Hello";
-// console.log("Value 2:", value, typeof value);
-// // output = value 2 : hello , string
+console.log("Obj1:", obj1); // key: "second"
+console.log("Obj2:", obj2); // key: "second"
 
-// let anotherValue = value;
-// console.log("Value 3:", anotherValue, typeof anotherValue);
-// // output = value 3 : hello , string
 
-// anotherValue = 5;
-// console.log("Value 4:", anotherValue, typeof anotherValue);
-// // output = value 4 : 5 , int
-// console.log("Value 5:", value, typeof value);
-// // output : hello ,string
-// // anotherValue = 5;: anotherValue is reassigned to a new primitive (number) with the value 5. This does not affect the value of the independent variable value.
-// // console.log("Value 5:", value, typeof value);: At this point, value still holds the string "Hello", as it was only reassigned once. The changes 
-// // to anotherValue did not impact value.
+// ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+// 🔁 IMPORTANT POINTS FOR REVISION 🔁
+// ✅ var → function/global scope. Can be re-declared & updated.
+// ✅ let → block scope. Can be updated but NOT re-declared.
+// ✅ const → block scope. Cannot be updated or re-declared.
+//     - BUT for arrays & objects → values can change (mutation allowed)
 
-// let obj1 = { key: "first" };
-// let obj2 = obj1;
-// obj2.key = "second";
-// console.log("Obj1:", obj1);
-// // output = obj1 : key : second
-// console.log("Obj2:", obj2);
-// // output = obj1 : key : second
+// ✅ var is hoisted → initialized as undefined
+// ✅ let & const are hoisted but in Temporal Dead Zone (TDZ) → accessing before declaration = ❌ error
+
+// ✅ typeof → shows the data type (typeof x)
+
+// ✅ Primitive types (string, number, boolean, etc) → copied by VALUE
+// ✅ Reference types (object, array, function) → copied by REFERENCE
+
+// ✅ const does not mean "constant value", it means "constant binding" — you can't reassign, but you can modify contents of objects/arrays
+
+// ✅ Always prefer let and const over var
+// ✅ Use const when you don't need to reassign
+// ✅ Use let when you need to update value
+
+// ✅ "undefined" → declared but not assigned
+// ✅ "null" → assigned as empty on purpose
+// ✅ "true/false" → Boolean values
+// ✅ console.log() → used for debugging / output to console
