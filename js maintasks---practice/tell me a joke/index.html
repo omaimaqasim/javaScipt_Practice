@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>😂 TELL ME A JOKE -- GAME</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: cursive;
+    }
+
+    body {
+      background-color: rgb(134, 107, 179);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 70vh;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: 45px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .randomjoke {
+      padding: 15px;
+      width: 70%;
+      min-height: 80px;
+      margin: auto;
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: white;
+      font-size: 35px;
+    }
+
+    .btn {
+      text-align: center;
+      width: 200px;
+      height: 55px;
+      margin-top: 30px;
+      padding: 5px;
+      border: solid black;
+      border-radius: 5px;
+      color: white;
+      background-color: rgb(43, 41, 45);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: rgba(43, 41, 45, 0.6);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>😂 Random Joke Generator</h1>
+
+  <div class="randomjoke">
+    Click the button to hear a joke! 😄
+  </div>
+
+  <button class="btn">
+    🤣 Tell me a joke!
+  </button>
+
+  <script>
+    // 🎯 Exercise 3 – Tell me a Joke
+
+    // 📌 Goal:
+    // Display a random joke in the box each time the user clicks the button.
+
+    let btn = document.querySelector(".btn");
+
+    btn.addEventListener("click", create_randomjoke);
+
+    function create_randomjoke() {
+      const jokes = [
+        "😂 Why don’t scientists trust atoms?<br>Because they make up everything!",
+        "📘 Why did the math book look sad?<br>Because it had too many problems.",
+        "💀 Why don't skeletons fight each other?<br>They don't have the guts.",
+        "💻 I told my computer I needed a break.<br>It said 'No problem, I’ll go to sleep.'",
+        "🌾 Why did the scarecrow win an award?<br>Because he was outstanding in his field!",
+        "🐮 Why do cows wear bells?<br>Because their horns don’t work.",
+        "🐶 I asked my dog what’s two minus two.<br>He said nothing.",
+        "👃 Why can't your nose be 12 inches long?<br>Because then it would be a foot!",
+        "📏 Parallel lines have so much in common…<br>It’s a shame they’ll never meet.",
+        "🧱 What did one wall say to the other wall?<br>I’ll meet you at the corner."
+      ];
+
+      let index_randomjoke = Math.floor(Math.random() * jokes.length);
+
+      let joke_box = document.querySelector(".randomjoke");
+      joke_box.innerHTML = jokes[index_randomjoke];
+    }
+
+    /*
+    💡 TIPS TO REMEMBER:
+    ✅ innerHTML is used to insert HTML content inside an element. 🧠
+    ✅ Math.floor(Math.random() * n) gives a random number from 0 to n-1. 🔢
+    ✅ Always use jokes.length for dynamic array support. 🧮
+    ✅ \n does NOT work in HTML → use <br> instead for line breaks. 🧾
+    ✅ Use event listeners (click) to interact with HTML buttons. 🖱️
+    ✅ Structure code clearly: HTML, CSS, JS for clean design. 🧹
+    ✅ Use meaningful class names and avoid magic numbers. 🔍
+    ✅ Refresh browser after updates to test changes. 🔄
+    ✅ Keep UI fun and responsive with hover effects. ✨
+    ✅ Keep learning and laughing! 😁
+    */
+  </script>
+
+</body>
+
+</html>
