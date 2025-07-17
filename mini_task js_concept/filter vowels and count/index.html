@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Vowels and Count -- JS</title>
+</head>
+<body>
+    <script>
+        // 🎯 Task: Filter vowels from user input and count them
+
+        // 1️⃣ Take user input through prompt
+        let user_input = prompt("Enter a word or sentence:");
+        console.log("User input:", user_input);
+
+        // 2️⃣ Convert string to lowercase and then to array of characters
+        let arr = Array.from(user_input.toLowerCase());
+        console.log("Character Array:", arr);
+
+        // 3️⃣ Use filter() to get only vowels from the array
+        let vowels = arr.filter((char) => {
+            return "aeiou".includes(char); // checks if char is a vowel
+        });
+
+        // 4️⃣ Print the result
+        console.log("Vowels Array:", vowels);
+        console.log("Total Vowels:", vowels.length);
+
+    </script>
+
+    <!-- ✅ MISTAKES TO AVOID:
+        1. Forgetting to use toLowerCase() before checking vowels → will miss capital letters.
+        2. Using multiple OR conditions (a || e || ...) instead of "aeiou".includes() → less clean.
+        3. Not converting the string to an array → filter() won't work on string directly.
+        4. Forgetting to test edge cases like empty input.
+    -->
+</body>
+</html>
