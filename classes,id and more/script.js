@@ -121,8 +121,6 @@ console.log(container.contains(target))
 // Checks if one element exists inside another (as child, grandchild, etc.).
 // Takes a real DOM element, not a selector string.
 
-// You can now easily copy and paste this into your notes ✅ Let me know if you want Urdu version too!
-
 // .contains() is about real DOM structure — not CSS rules — so it works with actual elements, not selectors.
 
 
