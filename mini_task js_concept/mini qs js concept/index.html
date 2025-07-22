@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js qs</title>
+</head>
+<body>
+    <script>
+        // qno 1
+//         Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+// Return your answer as a number.
+
+   let num = [10,"20",30,"40",50]
+
+  let sum =  num.reduce((total,currentvalue)=>{
+
+    // this Number method convert string into number 
+    return total + Number(currentvalue)
+   })
+
+   console.log(sum)
+   
+// convert numver to binary digit
+//    let num = 10;
+// let binary = num.toString(2);
+// console.log(binary); // Output: "1010"
+// .toString(2) converts the number into base 2, which is binary.
+
+// QNO2
+// Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. You can guarantee that input is non-negative.
+// Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
+
+   let user_inp = prompt("enter any numbers")
+     
+   numberr = parseInt(user_inp)
+  let binary =  numberr.toString(2)
+
+  let count ;
+binary.filter((num)=>{
+   count = 0;
+   
+})
+
+
+
+
+
+
+    </script>
+</body>
+</html>
