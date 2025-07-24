@@ -8,44 +8,68 @@
 <body>
 
   <script>
-    // ============================
+ // ============================
     // Part 01 – JavaScript Practice Exercises
     // ============================
 
-
     // ✅ Q1: Check Two Numbers for 100
-    // Write a JavaScript program to check two numbers and return true 
-    // if one of the numbers is 100 or if the sum of the two numbers is 100.
+    // 🧠 Logic: Check if either number is 100 or if their sum is 100
 
     console.log("Q1: Lengthy way");
 
     function checkhundred(num1, num2) {
       let sum = num1 + num2;
 
+      // if any number is 100
       if (num1 === 100 || num2 === 100) {
         return true;
-      } else if (sum === 100) {
+      }
+      // if sum of both is 100
+      else if (sum === 100) {
         return true;
-      } else {
+      } 
+      else {
         return false;
       }
     }
 
-    console.log(checkhundred(100, 1));
+    console.log(checkhundred(100, 1)); // Output: true
 
 
-    // ✅ Q1: Smarter way
+    // ✅ Q1: Smarter way using arrow function
     console.log("Q1: Smarter way");
 
     let isequalto100 = (no1, no2) => {
+      // one line condition using || operator
       return no1 === 100 || no2 === 100 || (no1 + no2) === 100;
     }
 
-    console.log(isequalto100(10, 10));
+    console.log(isequalto100(10, 10)); // Output: false
 
 
     // ✅ Q2: Get File Extension
-    // Write a JavaScript exercise to get the extension of a filename.
+    // 🧠 Logic: Extract file extension from a filename
+
+    // METHOD 1: Using split
+    let file = "style.css";
+
+    // split method makes string into array separated by "."
+    let parts = file.split("."); // ["style", "css"]
+
+    // last element is the extension
+    let extension = parts[parts.length - 1];
+    console.log(extension); // Output: css
+
+
+    // METHOD 2: Using slice + lastIndexOf
+    let getFileExtention = (str) => {
+      // lastIndexOf gives the position of last "."
+      // slice returns substring from that index
+      return str.slice(str.lastIndexOf('.'));
+    }
+
+    console.log(getFileExtention("index.html")); // Output: .html
+
 
 
     // ✅ Q3: Shift Characters in a String
