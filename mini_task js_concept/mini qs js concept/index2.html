@@ -8,7 +8,7 @@
 <body>
 
   <script>
- // ============================
+    // ============================
     // Part 01 – JavaScript Practice Exercises
     // ============================
 
@@ -35,7 +35,6 @@
 
     console.log(checkhundred(100, 1)); // Output: true
 
-
     // ✅ Q1: Smarter way using arrow function
     console.log("Q1: Smarter way");
 
@@ -45,7 +44,6 @@
     }
 
     console.log(isequalto100(10, 10)); // Output: false
-
 
     // ✅ Q2: Get File Extension
     // 🧠 Logic: Extract file extension from a filename
@@ -60,7 +58,6 @@
     let extension = parts[parts.length - 1];
     console.log(extension); // Output: css
 
-
     // METHOD 2: Using slice + lastIndexOf
     let getFileExtention = (str) => {
       // lastIndexOf gives the position of last "."
@@ -71,11 +68,34 @@
     console.log(getFileExtention("index.html")); // Output: .html
 
 
-
     // ✅ Q3: Shift Characters in a String
     // Write a JavaScript program to replace every character in a given string 
     // with the character following it in the alphabet.
 
+    // 🔍 Why use String.fromCharCode?
+    // String.fromCharCode(number) converts an ASCII code into a character.
+    // It's a static method of the global String object, not of string values like 'a' or 'b'.
+    // Example: String.fromCharCode(98) ➡️ 'b'
+    // So to shift characters forward, we:
+    // 1. Get ASCII value using char.charCodeAt(0)
+    // 2. Add 1 to move to the next character
+    // 3. Convert back using String.fromCharCode
+
+    function movesCharForwards(str) {
+      // Step 1: Split string to array of characters
+      return str
+        .split('') // ['a', 'b', 'c', 'd']
+        .map(char => {
+          // Step 2: Convert char to ASCII → shift → convert back
+          let ascii = char.charCodeAt(0);     // e.g. 'a' = 97
+          let nextAscii = ascii + 1;          // 98
+          let nextChar = String.fromCharCode(nextAscii); // 'b'
+          return nextChar; // return new char to replace original
+        })
+        .join(''); // Step 3: Join array back to string
+    }
+
+    console.log(movesCharForwards("abcd")); // Output: "bcde"
 
     // ✅ Q4: Get Current Date
     // Write a JavaScript program to get the current date.
