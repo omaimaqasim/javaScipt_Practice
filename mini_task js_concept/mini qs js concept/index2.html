@@ -15,6 +15,7 @@
     // ✅ Q1: Check Two Numbers for 100
     // 🧠 Logic: Check if either number is 100 or if their sum is 100
 
+    console.log("\n NUMBER CHECK :")
     console.log("Q1: Lengthy way");
 
     function checkhundred(num1, num2) {
@@ -48,6 +49,7 @@
     // ✅ Q2: Get File Extension
     // 🧠 Logic: Extract file extension from a filename
 
+    console.log("\n GET FILE EXTENSION:")
     // METHOD 1: Using split
     let file = "style.css";
 
@@ -67,7 +69,6 @@
 
     console.log(getFileExtention("index.html")); // Output: .html
 
-
     // ✅ Q3: Shift Characters in a String
     // Write a JavaScript program to replace every character in a given string 
     // with the character following it in the alphabet.
@@ -81,6 +82,7 @@
     // 2. Add 1 to move to the next character
     // 3. Convert back using String.fromCharCode
 
+    console.log("\n MOVE CHAR FORWARD :")
     function movesCharForwards(str) {
       // Step 1: Split string to array of characters
       return str
@@ -101,10 +103,34 @@
     // Write a JavaScript program to get the current date.
     // Expected Output formats: mm‑dd‑yyyy, mm/dd/yyyy or dd‑mm‑yyyy, dd/mm/yyyy
 
+    console.log("\nGET CURRENT DATE :");
+
+   function getDate() {
+  let now = new Date();
+  let date = now.getDate();
+  let month = now.getMonth() + 1; // +1 because months are 0-indexed
+  let year = now.getFullYear();
+  
+  return `${date}/${month}/${year}`; // Return as a string
+}
+
+console.log(`Current date:`, getDate());
 
     // ✅ Q5: Add “New!” Prefix
     // Write a JavaScript program to create a new string by adding "New!" in front of a given string.
     // If the given string already begins with "New!", return the original string.
+
+   console.log("\nADD PREFIX :")
+    let baby = "born";
+    let prefix = "New!";
+    let check = baby.startsWith(prefix);
+
+    if (check === true) {
+      console.log(baby);
+    } else {
+      console.log(prefix.concat(baby));
+      console.log(prefix + baby);
+    }
 
   </script>
 
