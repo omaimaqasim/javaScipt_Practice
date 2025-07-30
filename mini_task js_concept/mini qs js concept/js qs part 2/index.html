@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Questions</title>
+</head>
+<body>
+
+    <script>
+        // JS QS PART 2
+
+        // ----------------------
+        // Qno 1: Sum all elements (including strings) in an array
+        // ----------------------
+
+        let num = [10, "20", 30, "40", 50];
+
+        let sum = num.reduce((total, currentvalue) => {
+            // This Number() method converts both strings and numbers to numbers
+            // So "20" becomes 20 before adding to total
+            return total + Number(currentvalue);
+        });
+
+        console.log("==== Question 1: Sum of mixed array ====");
+        console.log("Input:", num);
+        console.log("Sum:", sum);  // Output should be 150
+
+
+
+        // ----------------------
+        // Qno 2: Create new string from first 3 + last 3 chars
+        // ----------------------
+
+        console.log("\n==== Question 2: Create new string ====");
+
+        // Method 1: Using if-else
+        function creatingNewString(string) {
+            if (string.length < 3) {
+                // If string is too short, return it unchanged
+                return string;
+            } else {
+                let first3 = string.slice(0, 3);    // Get first 3 characters
+                let last3 = string.slice(-3);       // Get last 3 characters
+                return first3 + last3;              // Combine both
+            }
+        }
+
+        console.log("Method 1 Result:", creatingNewString("hello1234"));
+
+        // Method 2: Short form using arrow function and ternary
+        let makeNewString = (str) =>
+            str.length < 3 ? str : str.slice(0, 3) + str.slice(-3);
+
+        console.log("Method 2 Result:", makeNewString("hello1234"));
+
+
+
+        // ----------------------
+        // Qno 3: Extract first half of even-length string
+        // ----------------------
+
+        // This function checks if the string length is even
+        // If so, it slices from 0 to half the length
+        // Otherwise, it returns the full string as-is
+
+        let extractedString = (str) => {
+            return str.length % 2 === 0 
+                ? str.slice(0, str.length / 2)     // Extract first half
+                : str;                             // Return original if odd length
+        }
+
+        console.log("==== Question 3: First half of even-length string ====");
+        console.log("Original:", "hello!");
+        console.log("Extracted:", extractedString("hello!"));  // Output: "hel"
+
+    </script>
+
+</body>
+</html>
