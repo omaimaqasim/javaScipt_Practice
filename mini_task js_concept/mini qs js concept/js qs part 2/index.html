@@ -1,80 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Questions</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JS Questions</title>
 </head>
 <body>
 
-    <script>
-        // JS QS PART 2
-
-        // ----------------------
-        // Qno 1: Sum all elements (including strings) in an array
-        // ----------------------
-
-        let num = [10, "20", 30, "40", 50];
-
-        let sum = num.reduce((total, currentvalue) => {
-            // This Number() method converts both strings and numbers to numbers
-            // So "20" becomes 20 before adding to total
-            return total + Number(currentvalue);
-        });
-
-        console.log("==== Question 1: Sum of mixed array ====");
-        console.log("Input:", num);
-        console.log("Sum:", sum);  // Output should be 150
+  <script>
+    // =====================================
+    // ✅ JS QUESTIONS - PART 2
+    // =====================================
 
 
+    // ------------------------------
+    // Q1: Sum all elements (including strings) in an array
+    // ------------------------------
+    console.log("==== Question 1: Sum of mixed array ====");
 
-        // ----------------------
-        // Qno 2: Create new string from first 3 + last 3 chars
-        // ----------------------
+    let num = [10, "20", 30, "40", 50];
 
-        console.log("\n==== Question 2: Create new string ====");
+    let sum = num.reduce((total, currentValue) => {
+      // Convert string to number using Number()
+      return total + Number(currentValue);
+    });
 
-        // Method 1: Using if-else
-        function creatingNewString(string) {
-            if (string.length < 3) {
-                // If string is too short, return it unchanged
-                return string;
-            } else {
-                let first3 = string.slice(0, 3);    // Get first 3 characters
-                let last3 = string.slice(-3);       // Get last 3 characters
-                return first3 + last3;              // Combine both
-            }
-        }
-
-        console.log("Method 1 Result:", creatingNewString("hello1234"));
-
-        // Method 2: Short form using arrow function and ternary
-        let makeNewString = (str) =>
-            str.length < 3 ? str : str.slice(0, 3) + str.slice(-3);
-
-        console.log("Method 2 Result:", makeNewString("hello1234"));
+    console.log("Input:", num);
+    console.log("Sum:", sum);  // Output: 150
 
 
 
-        // ----------------------
-        // Qno 3: Extract first half of even-length string
-        // ----------------------
+    // ------------------------------
+    // Q2: Create new string from first 3 + last 3 characters
+    // ------------------------------
+    console.log("\n==== Question 2: Create new string ====");
 
-        // This function checks if the string length is even
-        // If so, it slices from 0 to half the length
-        // Otherwise, it returns the full string as-is
+    // Method 1: Using if-else
+    function createNewString(str) {
+      if (str.length < 3) {
+        return str;
+      } else {
+        let first3 = str.slice(0, 3);
+        let last3 = str.slice(-3);
+        return first3 + last3;
+      }
+    }
 
-        let extractedString = (str) => {
-            return str.length % 2 === 0 
-                ? str.slice(0, str.length / 2)     // Extract first half
-                : str;                             // Return original if odd length
-        }
+    console.log("Method 1 Result:", createNewString("hello1234"));
 
-        console.log("==== Question 3: First half of even-length string ====");
-        console.log("Original:", "hello!");
-        console.log("Extracted:", extractedString("hello!"));  // Output: "hel"
+    // Method 2: Using arrow function + ternary
+    const createNewStringShort = (str) =>
+      str.length < 3 ? str : str.slice(0, 3) + str.slice(-3);
 
-    </script>
+    console.log("Method 2 Result:", createNewStringShort("hello1234"));
+
+
+
+    // ------------------------------
+    // Q3: Extract first half of even-length string
+    // ------------------------------
+    console.log("\n==== Question 3: First half of even-length string ====");
+
+    const extractFirstHalf = (str) =>
+      str.length % 2 === 0 ? str.slice(0, str.length / 2) : str;
+
+    console.log("Original:", "hello!");
+    console.log("Extracted:", extractFirstHalf("hello!"));  // Output: "hel"
+
+
+
+    // ------------------------------
+    // Q4: Concatenate two strings excluding their first characters
+    // ------------------------------
+    console.log("\n==== Question 4: Concatenate after removing first char ====");
+
+    // Method 1: Using array and shift
+    function concatWithoutFirstChar(str1, str2) {
+      let arr1 = str1.split("");
+      let arr2 = str2.split("");
+      arr1.shift();
+      arr2.shift();
+      return arr1.join("") + arr2.join("");
+    }
+
+    console.log("Method 1 Result:", concatWithoutFirstChar("omaima", "khan"));  // "maimahan"
+
+    // Method 2: Using slice
+    const concatUsingSlice = (str1, str2) =>
+      str1.slice(1) + str2.slice(1);
+
+    console.log("Method 2 Result:", concatUsingSlice("hello", "world"));  // "elloworld"
+
+
+
+    // ------------------------------
+    // Q5: Find which value is nearest to 100
+    // ------------------------------
+    console.log("\n==== Question 5: Nearest to 100 ====");
+
+    function nearestTo100(val1, val2) {
+      if (isNaN(val1) || isNaN(val2)) {
+        return "Please enter valid numbers";
+      }
+
+      // Math.abs(x) returns the absolute value of x (i.e., removes any minus sign).
+      const diff1 = Math.abs(val1 - 100);
+      const diff2 = Math.abs(val2 - 100);
+
+      if (diff1 === diff2) {
+        return "Both values are equally close to 100";
+      }
+
+      return diff1 < diff2
+        ? `${val1} is nearest to 100`
+        : `${val2} is nearest to 100`;
+    }
+
+    console.log(nearestTo100(70, 60));    // Output: 70 is nearest to 100
+    console.log(nearestTo100(95, 105));   // Output: 95 is nearest to 100
+    console.log(nearestTo100(90, 110));   // Output: Both values are equally close to 100
+
+  </script>
 
 </body>
 </html>
