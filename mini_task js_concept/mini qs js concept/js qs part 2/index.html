@@ -6,12 +6,10 @@
   <title>JS Questions</title>
 </head>
 <body>
-
   <script>
     // =====================================
-    // ✅ JS QUESTIONS - PART 2
+    // ✅ JS QUESTIONS - PART 2 
     // =====================================
-
 
     // ------------------------------
     // Q1: Sum all elements (including strings) in an array
@@ -19,23 +17,18 @@
     console.log("==== Question 1: Sum of mixed array ====");
 
     let num = [10, "20", 30, "40", 50];
-
     let sum = num.reduce((total, currentValue) => {
-      // Convert string to number using Number()
       return total + Number(currentValue);
-    });
+    }, 0);
 
     console.log("Input:", num);
     console.log("Sum:", sum);  // Output: 150
-
-
 
     // ------------------------------
     // Q2: Create new string from first 3 + last 3 characters
     // ------------------------------
     console.log("\n==== Question 2: Create new string ====");
 
-    // Method 1: Using if-else
     function createNewString(str) {
       if (str.length < 3) {
         return str;
@@ -48,13 +41,10 @@
 
     console.log("Method 1 Result:", createNewString("hello1234"));
 
-    // Method 2: Using arrow function + ternary
     const createNewStringShort = (str) =>
       str.length < 3 ? str : str.slice(0, 3) + str.slice(-3);
 
     console.log("Method 2 Result:", createNewStringShort("hello1234"));
-
-
 
     // ------------------------------
     // Q3: Extract first half of even-length string
@@ -65,16 +55,13 @@
       str.length % 2 === 0 ? str.slice(0, str.length / 2) : str;
 
     console.log("Original:", "hello!");
-    console.log("Extracted:", extractFirstHalf("hello!"));  // Output: "hel"
-
-
+    console.log("Extracted:", extractFirstHalf("hello!"));  // "hel"
 
     // ------------------------------
     // Q4: Concatenate two strings excluding their first characters
     // ------------------------------
     console.log("\n==== Question 4: Concatenate after removing first char ====");
 
-    // Method 1: Using array and shift
     function concatWithoutFirstChar(str1, str2) {
       let arr1 = str1.split("");
       let arr2 = str2.split("");
@@ -85,13 +72,10 @@
 
     console.log("Method 1 Result:", concatWithoutFirstChar("omaima", "khan"));  // "maimahan"
 
-    // Method 2: Using slice
     const concatUsingSlice = (str1, str2) =>
       str1.slice(1) + str2.slice(1);
 
     console.log("Method 2 Result:", concatUsingSlice("hello", "world"));  // "elloworld"
-
-
 
     // ------------------------------
     // Q5: Find which value is nearest to 100
@@ -103,7 +87,6 @@
         return "Please enter valid numbers";
       }
 
-      // Math.abs(x) returns the absolute value of x (i.e., removes any minus sign).
       const diff1 = Math.abs(val1 - 100);
       const diff2 = Math.abs(val2 - 100);
 
@@ -120,7 +103,37 @@
     console.log(nearestTo100(95, 105));   // Output: 95 is nearest to 100
     console.log(nearestTo100(90, 110));   // Output: Both values are equally close to 100
 
-  </script>
+    // ------------------------------
+    // Q6: Check if a string contains 2 to 4 occurrences of a specific char
+    // ------------------------------
+    console.log("\n==== Question 6: 2 to 4 occurrences of a char ====");
 
+    function checkString(str, char) {
+      if (typeof char !== "string" || char.length !== 1) {
+        throw new Error("Character to check must be a single character.");
+      }
+
+      let count = 0;
+      str.split("").forEach((alpha) => {
+        if (alpha === char) {
+          count++;
+        }
+      });
+
+      return count >= 2 && count <= 4;
+    }
+
+    // Examples:
+    console.log(checkString("zoniyeshe", "e")); // true (2 e's)
+    console.log(checkString("apple", "p"));      // true (2 p's)
+    console.log(checkString("banana", "a"));     // true (3 a's)
+    console.log(checkString("aaaaa", "a"));      // false (5 a's))
+    try {
+      console.log(checkString("abc", "ab"));     // error: invalid char
+    } catch (e) {
+      console.error("Error:", e.message);
+    }
+
+  </script>
 </body>
 </html>
