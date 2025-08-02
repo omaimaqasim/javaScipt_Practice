@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JS Qs — Part 3</title>
+</head>
+<body>
+  <script>
+    // Q1: Count total even digits across all numbers in the array.
+    function countEvenDigitsInArray(arr) {
+      const digits = arr
+        .map(n => Math.abs(n)) // 1. Remove minus sign
+        .join('')              // 2. Combine numbers into a single string
+        .split('');            // 3. Split into individual digit characters
+
+      let count = 0;
+      for (const d of digits) {
+        const digit = Number(d); // 4. Convert string to number
+        if (!isNaN(digit) && digit % 2 === 0) {
+          count++; // 5. Increase count if digit is even
+        }
+      }
+      return count;
+    }
+
+    console.log("Total even digits:", countEvenDigitsInArray([123, 406, -82])); // 6
+
+    // Q2: Count how many numbers in the array are themselves even.
+    const countEvenNumbersInArray = (arr) =>
+      arr.filter(n => n % 2 === 0).length;
+
+    console.log("Count of even numbers:", countEvenNumbersInArray([12, 1, 4, 66])); // 3
+  </script>
+</body>
+</html>
