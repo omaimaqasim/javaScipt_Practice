@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JS Qs — Part 3</title>
 </head>
+
 <body>
   <script>
+    // =====================================
     // Q1: Count total even digits across all numbers in the array.
+    // =====================================
     function countEvenDigitsInArray(arr) {
       const digits = arr
-        .map(n => Math.abs(n)) // 1. Remove minus sign
-        .join('')              // 2. Combine numbers into a single string
-        .split('');            // 3. Split into individual digit characters
+        .map(n => Math.abs(n))  // 1. Remove minus sign
+        .join('')               // 2. Combine numbers into a single string
+        .split('');             // 3. Split into individual digit characters
 
       let count = 0;
       for (const d of digits) {
         const digit = Number(d); // 4. Convert string to number
         if (!isNaN(digit) && digit % 2 === 0) {
-          count++; // 5. Increase count if digit is even
+          count++;               // 5. Increase count if digit is even
         }
       }
       return count;
@@ -26,11 +30,45 @@
 
     console.log("Total even digits:", countEvenDigitsInArray([123, 406, -82])); // 6
 
+    // =====================================
     // Q2: Count how many numbers in the array are themselves even.
+    // =====================================
     const countEvenNumbersInArray = (arr) =>
       arr.filter(n => n % 2 === 0).length;
 
     console.log("Count of even numbers:", countEvenNumbersInArray([12, 1, 4, 66])); // 3
+
+    // =====================================
+    // Q3: Write a JS program to find the number of even values up to given num
+    // =====================================
+
+    // Function to create array up to given number
+    let makearrUpToNumber = (number) => {
+      if (typeof number !== "number" || !Number.isInteger(number)) {
+        throw new Error("Enter a valid integer number (not a string)");
+      }
+
+      let arr = [];
+      for (let i = 1; i <= n; i++) {
+        arr.push(i); // push numbers into array
+      }
+      return arr; // return array
+    }
+
+    // Function to count even numbers in an array
+    let counterOfEvenNumber = (arr) => {
+      return arr.filter(n => n % 2 === 0).length; // return count
+    }
+    console.log(counterOfEvenNumber(makearrUpToNumber("20")));
+    // isNaN(number): if you write this in if condition, and number is "10"
+    // isNaN automatically removes "" and then 10 is number, so it is not showing error.
+    // If you want to throw an error for "10" at this point, then use Number.isNaN(number)
+
+    // =====================================
+    // Q4: Write a JS program to check whether a given array of integers is sorted in ascending order
+    // =====================================
+
   </script>
 </body>
+
 </html>
