@@ -98,6 +98,39 @@ console.log(largestEvenNo(getEvenArray([1, 22, 4, 5, 66]))); // 66
 console.log(largestEvenNo(getEvenArray([1, 3, -2])));        // -2
 console.log(largestEvenNo(getEvenArray([1, 3, 5])));         // null
 
+// =====================================
+// Q6: Write a JS function to replace the first digit in a string 
+// (should contain at least one digit) with $ character
+// =====================================
+
+function replacefirstdig(str) {
+  // Check if the string contains at least one digit using .match() with regex
+  if (!str.match(/\d/)) {
+    throw SyntaxError("String should contain at least one digit");
+  } else {
+    // As you know, the replace() method will only replace the first digit.
+    // If you want to replace all digits, use replaceAll() or replace with /g flag.
+
+    // Example:
+    // return str.replace(/\d/g, "$"); 
+    // 'g' means global — this would replace ALL digits with $
+
+    // Below replaces ONLY the FIRST digit (as required in this question):
+    return str.replace(/\d/, "$");
+  }
+}
+
+console.log(replacefirstdig("helloworld123"));
+
+// -------------------------------------
+// Notes for Reference:
+// -------------------------------------
+
+// Use .test() → when you just want yes/no answer with a pattern.
+// Regex means regular expression — for example, digits, alphabets, etc.
+// Use .match() → when you need to get the actual match.
+// Use .includes() → when you're checking for an exact value, not a pattern.
+
       </script>
 </body>
 </html>
