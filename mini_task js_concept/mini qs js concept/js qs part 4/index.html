@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js qs part 4
+    </title>
+</head>
+
+<body>
+    <script>
+
+
+        // =====================================
+        // Q1: give a year report if it leap year
+        // =====================================
+
+        // leap year is year that comes after four year in that there is 366 days instead of 365
+        let checkLeapYear = (year) => {
+
+            if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+                console.log(year + " is a Leap Year.");
+            } else {
+                console.log(year + " is Not a Leap Year.");
+            }
+        }
+
+        console.log(checkLeapYear("2022"))
+
+        // =====================================
+        // Q2: write a js program to compare two objects to determine if the
+        // first one comtains the same properties as the second(which may also have
+        // additional properties ) 
+        // =====================================
+
+        let obj1 = {
+            name: "zara",
+            age: 22,
+            status: "unmarried"
+
+        }
+        let obj2 = {
+            name: "zara",
+            age: 22,
+            status: "unmarried",
+            birthday: "12 december"
+
+        }
+
+        let isContained = (obj1, obj2) => {
+            for (let key in obj1) {
+                if (obj1[key] !== obj2[key]) {
+                    return false; // If any key-value pair doesn't match, return false
+                }
+            }
+            return true; // All key-value pairs matched
+        };
+        console.log(isContained(obj1, obj2)); // Output: true ✅
+
+
+
+    </script>
+</body>
+
+</html>
