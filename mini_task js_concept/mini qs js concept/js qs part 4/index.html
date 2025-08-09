@@ -59,7 +59,20 @@
         console.log(isContained(obj1, obj2)); // Output: true ✅
 
 
+        // qno 3 : write a js function to convert comma saparated values string
+        // to 2d array a new line indicates a new row in array
+        //   for example : abc,def,ghi
+        //                 jkl,mno,pqr
+        //                 sstu,vwx,yza
 
+    
+        let convertCsvToArr = (str)=>{
+              return   str.split("\n").map(row=>row.split(","))
+        }
+
+        console.log(convertCsvToArr("abc,def,ghi\njkl,mno,pqr\nstu,vwx,yza"))
+        
+     
     </script>
 </body>
 
