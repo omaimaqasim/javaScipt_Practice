@@ -4,49 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js qs part 4
-    </title>
+    <title>JS Questions Part 4</title>
 </head>
 
 <body>
     <script>
 
-
         // =====================================
-        // Q1: give a year report if it leap year
+        // Q1: Give a year report if it is a leap year
         // =====================================
 
-        // leap year is year that comes after four year in that there is 366 days instead of 365
+        // Leap year is a year that comes after four years in which there are 366 days instead of 365
         let checkLeapYear = (year) => {
-
             if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
                 console.log(year + " is a Leap Year.");
             } else {
                 console.log(year + " is Not a Leap Year.");
             }
-        }
+        };
 
-        console.log(checkLeapYear("2022"))
+        console.log(checkLeapYear("2022"));
+
 
         // =====================================
-        // Q2: write a js program to compare two objects to determine if the
-        // first one comtains the same properties as the second(which may also have
-        // additional properties ) 
+        // Q2: Compare two objects to determine if the first one
+        // contains the same properties as the second
+        // (the second may also have additional properties)
         // =====================================
 
         let obj1 = {
             name: "zara",
             age: 22,
             status: "unmarried"
+        };
 
-        }
         let obj2 = {
             name: "zara",
             age: 22,
             status: "unmarried",
             birthday: "12 december"
-
-        }
+        };
 
         let isContained = (obj1, obj2) => {
             for (let key in obj1) {
@@ -56,23 +53,44 @@
             }
             return true; // All key-value pairs matched
         };
+
         console.log(isContained(obj1, obj2)); // Output: true ✅
 
 
-        // qno 3 : write a js function to convert comma saparated values string
-        // to 2d array a new line indicates a new row in array
-        //   for example : abc,def,ghi
-        //                 jkl,mno,pqr
-        //                 sstu,vwx,yza
+        // =====================================
+        // Q3: Convert comma-separated values string to 2D array
+        // A new line indicates a new row in the array
+        // Example:
+        // abc,def,ghi
+        // jkl,mno,pqr
+        // stu,vwx,yza
+        // =====================================
 
-    
-        let convertCsvToArr = (str)=>{
-              return   str.split("\n").map(row=>row.split(","))
-        }
+        let convertCsvToArr = (str) => {
+            return str.split("\n").map(row => row.split(","));
+        };
 
-        console.log(convertCsvToArr("abc,def,ghi\njkl,mno,pqr\nstu,vwx,yza"))
-        
-     
+        console.log(convertCsvToArr("abc,def,ghi\njkl,mno,pqr\nstu,vwx,yza"));
+
+
+        // =====================================
+        // Q4: Generate a random hexadecimal color code
+        // =====================================
+
+        let randomColorGenerate = () => {
+            let hexChars = "0123456789ABCDEF";
+            let color = '#';
+
+            for (let i = 1; i <= 6; i++) {
+                let randomIndex = Math.floor(Math.random() * 16);
+                color += hexChars[randomIndex];
+            }
+
+            return color;
+        };
+
+        console.log(randomColorGenerate());
+
     </script>
 </body>
 
