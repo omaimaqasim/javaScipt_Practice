@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Questions - Part 5</title>
+</head>
+<body>
+    <script>
+        // Q1: Write a JS function that returns the passed string 
+        // with its letters arranged in alphabetical order.
+
+      
+        let arrange = (str) => {
+            return str
+                .split("")  // Convert string into array of characters
+                .sort()     // Sort characters in alphabetical order
+                .join("");  // Join them back into a single string
+        };
+
+        // Example usage:
+        console.log(arrange("zeydenkhan")); // Output: adeehknnyz
+    </script>
+</body>
+</html>

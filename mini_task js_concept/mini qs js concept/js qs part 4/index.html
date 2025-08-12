@@ -91,6 +91,19 @@
 
         console.log(randomColorGenerate());
 
+           // =====================================
+        // Q5: write a js function that return true if the provided predicate function
+        // return truefor all elements in the collection ,false otherwise
+        // =====================================
+
+        // we use .every fuction to check some condition on an array or other and if all true
+        // condition then it will return true or if false even one it will return false
+
+       let checkCondition = arr => arr.every(value => value % 7 === 0);
+
+          console.log(checkCondition([7,14,21,28,35]))
+
+          
     </script>
 </body>
 
