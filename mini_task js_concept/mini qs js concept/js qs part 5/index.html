@@ -20,6 +20,31 @@
 
         // Example usage:
         console.log(arrange("zeydenkhan")); // Output: adeehknnyz
+
+        // write a js function that accept a string as parameter and 
+        // counts the no of vowels within the string
+    
+       let countVowels = (str) => {
+    let vowels = "aeiouAEIOU";
+    let count = 0;
+
+    for (let char of str) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+
+    return count === 0
+        ? "This string does not contain any vowels"
+        : count;
+};
+
+console.log(countVowels("zeydenkhan")); // 3
+
+
+// qno 3 : write a js function an amount to coins
+// example input : 46 and possible coins 25,10,5,2,1
+// output : 25,10,10 1
     </script>
 </body>
 </html>
