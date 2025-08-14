@@ -45,6 +45,22 @@ console.log(countVowels("zeydenkhan")); // 3
 // qno 3 : write a js function an amount to coins
 // example input : 46 and possible coins 25,10,5,2,1
 // output : 25,10,10 1
+
+   let coinsNeeded = (amount,coins)=>{
+       result = []
+       for (const coin of coins) {
+           while (amount>=coin) {
+               amount-=coin
+               result.push(coin)
+           }
+       }
+       return result
+   }
+
+   console.log(coinsNeeded(46, [25, 10, 5, 2, 1]));
+   
+   console.log(coinsNeeded(55, [25, 10, 5, 2, 1])); 
+
     </script>
 </body>
 </html>
