@@ -7,76 +7,71 @@
 </head>
 <body>
     <script>
-        // Q1: Write a JS function that returns the passed string 
-        // with its letters arranged in alphabetical order.
-
-      
+        /* ==========================================================
+           Q1: Arrange letters of a string in alphabetical order
+        ========================================================== */
         let arrange = (str) => {
             return str
                 .split("")  // Convert string into array of characters
-                .sort()     // Sort characters in alphabetical order
+                .sort()     // Sort characters alphabetically
                 .join("");  // Join them back into a single string
         };
-
-        // Example usage:
         console.log(arrange("zeydenkhan")); // Output: adeehknnyz
 
-        // write a js function that accept a string as parameter and 
-        // counts the no of vowels within the string
-    
-       let countVowels = (str) => {
-    let vowels = "aeiouAEIOU";
-    let count = 0;
 
-    for (let char of str) {
-        if (vowels.includes(char)) {
-            count++;
-        }
-    }
+        /* ==========================================================
+           Q2: Count the number of vowels in a given string
+        ========================================================== */
+        let countVowels = (str) => {
+            let vowels = "aeiouAEIOU";
+            let count = 0;
 
-    return count === 0
-        ? "This string does not contain any vowels"
-        : count;
-};
+            for (let char of str) {
+                if (vowels.includes(char)) {
+                    count++;
+                }
+            }
 
-console.log(countVowels("zeydenkhan")); // 3
+            return count === 0
+                ? "This string does not contain any vowels"
+                : count;
+        };
+        console.log(countVowels("zeydenkhan")); // Output: 3
 
 
-// qno 3 : write a js function an amount to coins
-// example input : 46 and possible coins 25,10,5,2,1
-// output : 25,10,10 1
+        /* ==========================================================
+           Q3: Convert an amount into coins
+           Example: amount = 46, coins = [25,10,5,2,1]
+           Output: [25, 10, 10, 1]
+        ========================================================== */
+        let coinsNeeded = (amount, coins) => {
+            let result = [];
+            for (const coin of coins) {
+                while (amount >= coin) {
+                    amount -= coin;
+                    result.push(coin);
+                }
+            }
+            return result;
+        };
+        console.log(coinsNeeded(46, [25, 10, 5, 2, 1])); 
+        console.log(coinsNeeded(55, [25, 10, 5, 2, 1])); 
 
-   let coinsNeeded = (amount,coins)=>{
-       result = []
-       for (const coin of coins) {
-           while (amount>=coin) {
-               amount-=coin
-               result.push(coin)
-           }
-       }
-       return result
-   }
 
-   console.log(coinsNeeded(46, [25, 10, 5, 2, 1]));
-   
-   console.log(coinsNeeded(55, [25, 10, 5, 2, 1])); 
-
-//    qno 4 : write a js function to extract unique chars from the string
-// for example : inp = abccccddddeee
-                //  output = abcde
-let extractUniqueChar = (str) => {
-    let result = [];
-    let arr = str.split("");
-    for (const char of arr) {
-        if (!result.includes(char)) {  // only add if not already there
-            result.push(char);
-        }
-    }
-    return result.join("");
-}
-
-console.log(extractUniqueChar("zenzenyenyen")); // "zeny"
-
+        /* ==========================================================
+           Q4: Extract unique characters from a string
+           Example: "abccccddddeee" → "abcde"
+        ========================================================== */
+        let extractUniqueChar = (str) => {
+            let result = [];
+            for (const char of str) {
+                if (!result.includes(char)) { // Add only if not already in result
+                    result.push(char);
+                }
+            }
+            return result.join("");
+        };
+        console.log(extractUniqueChar("zenzenyenyen")); // Output: "zeny"
 
     </script>
 </body>
