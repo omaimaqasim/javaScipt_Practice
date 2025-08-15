@@ -61,6 +61,23 @@ console.log(countVowels("zeydenkhan")); // 3
    
    console.log(coinsNeeded(55, [25, 10, 5, 2, 1])); 
 
+//    qno 4 : write a js function to extract unique chars from the string
+// for example : inp = abccccddddeee
+                //  output = abcde
+let extractUniqueChar = (str) => {
+    let result = [];
+    let arr = str.split("");
+    for (const char of arr) {
+        if (!result.includes(char)) {  // only add if not already there
+            result.push(char);
+        }
+    }
+    return result.join("");
+}
+
+console.log(extractUniqueChar("zenzenyenyen")); // "zeny"
+
+
     </script>
 </body>
 </html>
