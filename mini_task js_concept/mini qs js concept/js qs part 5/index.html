@@ -116,6 +116,19 @@
 
     console.log(uniqueFirstChar("zenzeny"))
 
+
+    /* ==========================================================
+       Q6: Palindrome check
+    ========================================================== */
+    let word = (str)=>{
+      let reverseStr = str.split("").reverse().join("")
+      return str === reverseStr
+    }
+    console.log(word("hello"))
+
+    //  in js we compare primitive values like str numbers etc with values direct
+    // but we compare non primitive like array or object with refrence (refrence is like unique
+  // address in the memory where array is store thats why array cant be compare )
   </script>
 </body>
 </html>
