@@ -106,6 +106,16 @@
     console.log(firstUniqueChar("ssaadia")); // d
     console.log(firstUniqueChar("zonayshe")); // z
 
+    // smarter way
+    let uniqueFirstChar = (str)=>{
+       return  str.split("")
+         .filter((char,index,arr)=>{
+           return  arr.filter(arrchars => arrchars === char).length===1
+         })[0]|| null
+    }
+
+    console.log(uniqueFirstChar("zenzeny"))
+
   </script>
 </body>
 </html>
