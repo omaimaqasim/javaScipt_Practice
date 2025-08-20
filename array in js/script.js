@@ -65,6 +65,9 @@ console.log("Original colors:", colors);
 colors.splice(1, 0, "light-green", "purple");
 console.log("Updated colors:", colors);
 
+// mean slice does not change original array just it take part of an array and 
+// make that slice partan array on other hand splice add remove do something with original array
+
 // Replace elements
 let nums = [1, 2, 3, 4];
 nums.splice(1, 2, 9, 8);

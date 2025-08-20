@@ -135,14 +135,48 @@
 // Write a function that returns the missing number.
 // findMissingNumber([1,2,4,5,6])  // Output: 3
 
-// let missingNo = (arr)=>{
-  // }
+let missingNo = (arr)=>{
   
-  let arr = [1,3]
-  let biggestno = arr.slice(-1).join("")
-  console.log(biggestno)
+    let N = arr.slice(-1)[0]
+    console.log(N)
+  
+    let expectedSum =(N*(N+1))/2
+  
+  let actualsum = arr.reduce((a,b) => a+b, 0);
+    let missingNum = expectedSum - actualsum
+  return missingNum
 
-// console.log(missingNo([1,2,4]))
+  }
+  
+console.log(missingNo([1,2,4]))
+
+
+// second way
+
+let missingNoP2 = (arr)=>{
+  
+  
+    let biggestNo= arr.slice(-1)[0]
+    console.log(biggestNo)
+  let reverseArr = arr.reverse()
+
+for (let i = 0; i < reverseArr.length; i++) {
+  const element = reverseArr[i];
+      if (!reverseArr.includes(element-1)) {
+        return element-1
+      }
+
+  
+}
+
+
+}
+
+console.log(missingNoP2([1,2,3,5]))
+
+
+
+
 
 
  </script>
