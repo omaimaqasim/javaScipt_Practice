@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS Practice Qs</title>
 </head>
+
 <body>
 
   <script>
@@ -28,7 +30,7 @@
       // if sum of both is 100
       else if (sum === 100) {
         return true;
-      } 
+      }
       else {
         return false;
       }
@@ -105,22 +107,22 @@
 
     console.log("\nGET CURRENT DATE :");
 
-   function getDate() {
-  let now = new Date();
-  let date = now.getDate();
-  let month = now.getMonth() + 1; // +1 because months are 0-indexed
-  let year = now.getFullYear();
-  
-  return `${date}/${month}/${year}`; // Return as a string
-}
+    function getDate() {
+      let now = new Date();
+      let date = now.getDate();
+      let month = now.getMonth() + 1; // +1 because months are 0-indexed
+      let year = now.getFullYear();
 
-console.log(`Current date:`, getDate());
+      return `${date}/${month}/${year}`; // Return as a string
+    }
+
+    console.log(`Current date:`, getDate());
 
     // ✅ Q5: Add “New!” Prefix
     // Write a JavaScript program to create a new string by adding "New!" in front of a given string.
     // If the given string already begins with "New!", return the original string.
 
-   console.log("\nADD PREFIX :")
+    console.log("\nADD PREFIX :")
     let baby = "born";
     let prefix = "New!";
     let check = baby.startsWith(prefix);
@@ -132,7 +134,31 @@ console.log(`Current date:`, getDate());
       console.log(prefix + baby);
     }
 
+    // qno 6 :Write a function longestWord(sentence) that takes a string and returns the longest word in it.
+    // longestWord("I love le J")
+    // Ignore punctuation (like ! , . ?).
+    // If two words are the same length, return the first one.
+    let longestWord = (str) => {
+      let arr = str.split(" ")
+      let longword = ""
+      for (const word of arr) {
+        if (word.length > longword.length) {
+          longword = word
+        }
+
+      }
+      return longword
+
+    }
+
+    console.log(longestWord("my name is zeyden zeyd"))
+    console.log(longestWord("my name "))
+    console.log(longestWord("hey serr"))
+
+
+
   </script>
 
 </body>
+
 </html>
