@@ -134,10 +134,7 @@
       console.log(prefix + baby);
     }
 
-    // qno 6 :Write a function longestWord(sentence) that takes a string and returns the longest word in it.
-    // longestWord("I love le J")
-    // Ignore punctuation (like ! , . ?).
-    // If two words are the same length, return the first one.
+    // qno 6 : longest word
     let longestWord = (str) => {
       let arr = str.split(" ")
       let longword = ""
@@ -154,6 +151,18 @@
     console.log(longestWord("my name is zeyden zeyd"))
     console.log(longestWord("my name "))
     console.log(longestWord("hey serr"))
+// pending previous qn
+
+//  qno 7 : anagram words check 
+let isAnagram = (a, b) =>
+  a.toLowerCase().replaceAll(" ", "").split("").sort().join("") ===
+  b.toLowerCase().replaceAll(" ", "").split("").sort().join("");
+
+
+console.log(isAnagram("listen", "silent")); // true
+console.log(isAnagram("hay mu name is zeyden", "nedyez is amen umhay"));   // true
+console.log(isAnagram("rat", "car"));       // false
+
 
 
 
