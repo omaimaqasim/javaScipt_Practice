@@ -14,115 +14,93 @@
     // Part 01 – JavaScript Practice Exercises
     // ============================
 
+
     // ✅ Q1: Check Two Numbers for 100
-    // 🧠 Logic: Check if either number is 100 or if their sum is 100
+    // 🧠 Logic: Return true if (num1 === 100) OR (num2 === 100) OR (sum === 100)
 
     console.log("\n NUMBER CHECK :")
-    console.log("Q1: Lengthy way");
 
+    // Method 1: Long version
     function checkhundred(num1, num2) {
       let sum = num1 + num2;
 
-      // if any number is 100
       if (num1 === 100 || num2 === 100) {
-        return true;
-      }
-      // if sum of both is 100
-      else if (sum === 100) {
-        return true;
-      }
-      else {
+        return true;  // any number is 100
+      } else if (sum === 100) {
+        return true;  // sum is 100
+      } else {
         return false;
       }
     }
+    console.log("Q1: Lengthy way");
+    console.log(checkhundred(100, 1)); // true
 
-    console.log(checkhundred(100, 1)); // Output: true
-
-    // ✅ Q1: Smarter way using arrow function
-    console.log("Q1: Smarter way");
-
+    // Method 2: Short arrow function
     let isequalto100 = (no1, no2) => {
-      // one line condition using || operator
       return no1 === 100 || no2 === 100 || (no1 + no2) === 100;
     }
+    console.log("Q1: Smarter way");
+    console.log(isequalto100(10, 10)); // false
 
-    console.log(isequalto100(10, 10)); // Output: false
 
     // ✅ Q2: Get File Extension
-    // 🧠 Logic: Extract file extension from a filename
+    // 🧠 Logic: Get last part after "." in filename
 
     console.log("\n GET FILE EXTENSION:")
-    // METHOD 1: Using split
+
+    // Method 1: Using split
     let file = "style.css";
+    let parts = file.split(".");          // ["style", "css"]
+    let extension = parts[parts.length - 1]; // last element
+    console.log(extension); // css
 
-    // split method makes string into array separated by "."
-    let parts = file.split("."); // ["style", "css"]
-
-    // last element is the extension
-    let extension = parts[parts.length - 1];
-    console.log(extension); // Output: css
-
-    // METHOD 2: Using slice + lastIndexOf
+    // Method 2: Using slice + lastIndexOf
     let getFileExtention = (str) => {
-      // lastIndexOf gives the position of last "."
-      // slice returns substring from that index
-      return str.slice(str.lastIndexOf('.'));
+      return str.slice(str.lastIndexOf('.')); // cut from last "."
     }
+    console.log(getFileExtention("index.html")); // .html
 
-    console.log(getFileExtention("index.html")); // Output: .html
 
     // ✅ Q3: Shift Characters in a String
-    // Write a JavaScript program to replace every character in a given string 
-    // with the character following it in the alphabet.
-
-    // 🔍 Why use String.fromCharCode?
-    // String.fromCharCode(number) converts an ASCII code into a character.
-    // It's a static method of the global String object, not of string values like 'a' or 'b'.
-    // Example: String.fromCharCode(98) ➡️ 'b'
-    // So to shift characters forward, we:
-    // 1. Get ASCII value using char.charCodeAt(0)
-    // 2. Add 1 to move to the next character
-    // 3. Convert back using String.fromCharCode
+    // 🧠 Logic: Replace each character with next one in alphabet
+    // Steps: char -> ASCII (charCodeAt) -> +1 -> back to char (fromCharCode)
 
     console.log("\n MOVE CHAR FORWARD :")
-    function movesCharForwards(str) {
-      // Step 1: Split string to array of characters
-      return str
-        .split('') // ['a', 'b', 'c', 'd']
-        .map(char => {
-          // Step 2: Convert char to ASCII → shift → convert back
-          let ascii = char.charCodeAt(0);     // e.g. 'a' = 97
-          let nextAscii = ascii + 1;          // 98
-          let nextChar = String.fromCharCode(nextAscii); // 'b'
-          return nextChar; // return new char to replace original
-        })
-        .join(''); // Step 3: Join array back to string
-    }
 
-    console.log(movesCharForwards("abcd")); // Output: "bcde"
+    function movesCharForwards(str) {
+      return str
+        .split('') // make array of chars
+        .map(char => {
+          let ascii = char.charCodeAt(0);         // ASCII of current char
+          let nextAscii = ascii + 1;              // move forward
+          return String.fromCharCode(nextAscii);  // convert back to char
+        })
+        .join(''); // join back into string
+    }
+    console.log(movesCharForwards("abcd")); // "bcde"
+
 
     // ✅ Q4: Get Current Date
-    // Write a JavaScript program to get the current date.
-    // Expected Output formats: mm‑dd‑yyyy, mm/dd/yyyy or dd‑mm‑yyyy, dd/mm/yyyy
+    // 🧠 Logic: Use Date() object and format manually
 
     console.log("\nGET CURRENT DATE :");
 
     function getDate() {
       let now = new Date();
       let date = now.getDate();
-      let month = now.getMonth() + 1; // +1 because months are 0-indexed
+      let month = now.getMonth() + 1; // +1 because months start at 0
       let year = now.getFullYear();
 
-      return `${date}/${month}/${year}`; // Return as a string
+      return `${date}/${month}/${year}`;
     }
-
     console.log(`Current date:`, getDate());
 
+
     // ✅ Q5: Add “New!” Prefix
-    // Write a JavaScript program to create a new string by adding "New!" in front of a given string.
-    // If the given string already begins with "New!", return the original string.
+    // 🧠 Logic: If word already starts with "New!", keep it. Otherwise add prefix.
 
     console.log("\nADD PREFIX :")
+
     let baby = "born";
     let prefix = "New!";
     let check = baby.startsWith(prefix);
@@ -130,41 +108,57 @@
     if (check === true) {
       console.log(baby);
     } else {
-      console.log(prefix.concat(baby));
-      console.log(prefix + baby);
+      console.log(prefix.concat(baby)); // method 1
+      console.log(prefix + baby);       // method 2
     }
 
-    // qno 6 : longest word
+
+    // ✅ Q6: Longest Word in a String
+    // 🧠 Logic: Split sentence → check lengths → keep longest
+
     let longestWord = (str) => {
-      let arr = str.split(" ")
-      let longword = ""
+      let arr = str.split(" ");
+      let longword = "";
+
       for (const word of arr) {
         if (word.length > longword.length) {
-          longword = word
+          longword = word;
         }
-
       }
-      return longword
-
+      return longword;
     }
-
-    console.log(longestWord("my name is zeyden zeyd"))
-    console.log(longestWord("my name "))
-    console.log(longestWord("hey serr"))
-// pending previous qn
-
-//  qno 7 : anagram words check 
-let isAnagram = (a, b) =>
-  a.toLowerCase().replaceAll(" ", "").split("").sort().join("") ===
-  b.toLowerCase().replaceAll(" ", "").split("").sort().join("");
+    console.log(longestWord("my name is zeyden zeyd")); // "zeyden"
+    console.log(longestWord("my name "));               // "name"
+    console.log(longestWord("hey serr"));               // "serr"
 
 
-console.log(isAnagram("listen", "silent")); // true
-console.log(isAnagram("hay mu name is zeyden", "nedyez is amen umhay"));   // true
-console.log(isAnagram("rat", "car"));       // false
+    // ✅ Q7: Anagram Words Check
+    // 🧠 Logic: Sort both words after removing spaces → compare
+
+    let isAnagram = (a, b) =>
+      a.toLowerCase().replaceAll(" ", "").split("").sort().join("") ===
+      b.toLowerCase().replaceAll(" ", "").split("").sort().join("");
+
+    console.log(isAnagram("listen", "silent"));   // true
+    console.log(isAnagram("hay mu name is zeyden", "nedyez is amen umhay")); // true
+    console.log(isAnagram("rat", "car"));         // false
 
 
+    // ✅ Q8: Remove Duplicates from Array
+    // 🧠 Logic: filter() keeps an item only if its first occurrence index === current index
+    // Example: [1,2,3,3,4,5,5]
+    // - First 3 (index 2) keeps, second 3 (index 3) removed
+    // - First 5 (index 5) keeps, second 5 (index 6) removed
 
+    let removeDuplicates = (arr) => {
+      return arr.filter((item, index, arr) => {
+        return arr.indexOf(item) === index;
+        // arr.indexOf(item) → position of FIRST occurrence of item
+        // if that matches current index → it's the first time, keep it
+        // otherwise → duplicate, skip it
+      })
+    }
+    console.log(removeDuplicates([1, 2, 3, 3, 4, 5, 5])); // [1,2,3,4,5]
 
   </script>
 
