@@ -151,3 +151,15 @@ console.log("array from method:");
 console.log(Array.from("zeynen"));
 
 
+// SORT WITH COMPARE FUNCTION
+
+let numbers = [3, 10, 2, 8];
+
+// Compare function rules:
+// If (a - b) < 0 → a comes before b
+// If (a - b) > 0 → b comes before a
+// If (a - b) = 0 → no change (equal)
+
+let ascending = numbers.sort((a, b) => a - b);
+console.log("Ascending:", ascending); // [2, 3, 8, 10]
+

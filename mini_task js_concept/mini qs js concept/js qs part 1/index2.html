@@ -160,6 +160,72 @@
     }
     console.log(removeDuplicates([1, 2, 3, 3, 4, 5, 5])); // [1,2,3,4,5]
 
+
+    // Your program should:
+
+// ✅ Calculate total marks for each student.
+// ✅ Calculate average marks.
+// ✅ Assign Grade based on average:
+// >=90 → A
+// >=75 → B
+// >=50 → C
+// <50 → F
+// ✅ Find the topper (highest average).
+// ✅ Print a report for each student.
+
+// Student Result Analyzer.
+
+function studentResultAnalyzer(students) {
+  let averageArr = [];
+  let names = [];
+  let winner = { name: "", average: 0 };
+
+  for (let i = 0; i < students.length; i++) {
+    const individual = students[i];
+    names.push(individual.name);
+
+    // total marks of individual
+    let individual_TM = individual.marks.reduce((a, b) => a + b, 0);
+
+    // average of individual student
+    let average = parseFloat((individual_TM / individual.marks.length).toFixed(2));
+    averageArr.push(average);
+
+    // grade of individual student
+    let grade;
+    if (average >= 90) grade = "A";
+    else if (average >= 75) grade = "B";
+    else if (average >= 50) grade = "C";
+    else grade = "F";
+
+    console.log(`${individual.name} => Total: ${individual_TM}, Average: ${average}, Grade: ${grade}`);
+
+    // 🏆 Winner logic
+    if (average > winner.average) {
+      winner.name = individual.name;
+      winner.average = average;
+    }
+  }
+
+  console.log(`\n🏆 Top Student: ${winner.name} with Average: ${winner.average}`);
+}
+
+// =========================
+// Run the function
+// =========================
+let students = [
+  { name: "Zara", marks: [80, 75, 90] },
+  { name: "Ali", marks: [60, 55, 70] },
+  { name: "Usman", marks: [95, 90, 100] },
+  { name: "Omaima", marks: [40, 35, 50] }
+];
+
+studentResultAnalyzer(students);
+
+
+
+
+
   </script>
 
 </body>
