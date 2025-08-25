@@ -209,7 +209,6 @@ function studentResultAnalyzer(students) {
 
   console.log(`\n🏆 Top Student: ${winner.name} with Average: ${winner.average}`);
 }
-
 // =========================
 // Run the function
 // =========================
@@ -222,6 +221,47 @@ let students = [
 
 studentResultAnalyzer(students);
 
+// Write a function wordCounter(text) that:
+// Takes a string as input.
+// Returns an object with:
+// total number of words
+// the longest word
+// the shortest word
+function wordCounter(str) {
+  let obj = {
+    totalWords: 0,
+    longestWord: "",
+    shortestWord: ""
+  };
+
+  let arr = str.split(" ");
+
+  // total words
+  obj.totalWords = arr.length;
+
+  // longest word
+  let long = "";
+  for (const word of arr) {
+    if (word.length > long.length) {
+      long = word;
+    }
+  }
+  obj.longestWord = long;
+
+  // shortest word
+  let shortword = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    let current = arr[i];
+    if (current.length < shortword.length) {
+      shortword = current;
+    }
+  }
+  obj.shortestWord = shortword;
+
+  return obj; // ✅ return the object
+}
+
+console.log(wordCounter("Learning JavaScript is really fun and powerful"));
 
 
 
