@@ -14,112 +14,92 @@
     // Part 01 – JavaScript Practice Exercises
     // ============================
 
+    console.log("🚀 JavaScript Practice Exercises\n");
+
 
     // ✅ Q1: Check Two Numbers for 100
-    // 🧠 Logic: Return true if (num1 === 100) OR (num2 === 100) OR (sum === 100)
+    console.group("Q1: Check Two Numbers for 100");
 
-    console.log("\n NUMBER CHECK :")
-
-    // Method 1: Long version
     function checkhundred(num1, num2) {
       let sum = num1 + num2;
 
       if (num1 === 100 || num2 === 100) {
-        return true;  // any number is 100
+        return true;
       } else if (sum === 100) {
-        return true;  // sum is 100
+        return true;
       } else {
         return false;
       }
     }
-    console.log("Q1: Lengthy way");
-    console.log(checkhundred(100, 1)); // true
 
-    // Method 2: Short arrow function
-    let isequalto100 = (no1, no2) => {
-      return no1 === 100 || no2 === 100 || (no1 + no2) === 100;
-    }
-    console.log("Q1: Smarter way");
-    console.log(isequalto100(10, 10)); // false
+    let isequalto100 = (no1, no2) =>
+      no1 === 100 || no2 === 100 || (no1 + no2) === 100;
+
+    console.log("Lengthy way:", checkhundred(100, 1)); // true
+    console.log("Smarter way:", isequalto100(10, 10)); // false
+    console.groupEnd();
 
 
     // ✅ Q2: Get File Extension
-    // 🧠 Logic: Get last part after "." in filename
+    console.group("Q2: Get File Extension");
 
-    console.log("\n GET FILE EXTENSION:")
-
-    // Method 1: Using split
     let file = "style.css";
-    let parts = file.split(".");          // ["style", "css"]
-    let extension = parts[parts.length - 1]; // last element
-    console.log(extension); // css
+    let parts = file.split(".");
+    let extension = parts[parts.length - 1];
+    console.log("Method 1 (split):", extension);
 
-    // Method 2: Using slice + lastIndexOf
-    let getFileExtention = (str) => {
-      return str.slice(str.lastIndexOf('.')); // cut from last "."
-    }
-    console.log(getFileExtention("index.html")); // .html
+    let getFileExtention = (str) => str.slice(str.lastIndexOf('.'));
+    console.log("Method 2 (slice):", getFileExtention("index.html"));
+    console.groupEnd();
 
 
     // ✅ Q3: Shift Characters in a String
-    // 🧠 Logic: Replace each character with next one in alphabet
-    // Steps: char -> ASCII (charCodeAt) -> +1 -> back to char (fromCharCode)
-
-    console.log("\n MOVE CHAR FORWARD :")
+    console.group("Q3: Shift Characters in a String");
 
     function movesCharForwards(str) {
       return str
-        .split('') // make array of chars
-        .map(char => {
-          let ascii = char.charCodeAt(0);         // ASCII of current char
-          let nextAscii = ascii + 1;              // move forward
-          return String.fromCharCode(nextAscii);  // convert back to char
-        })
-        .join(''); // join back into string
+        .split('')
+        .map(char => String.fromCharCode(char.charCodeAt(0) + 1))
+        .join('');
     }
-    console.log(movesCharForwards("abcd")); // "bcde"
+    console.log(movesCharForwards("abcd")); // bcde
+    console.groupEnd();
 
 
     // ✅ Q4: Get Current Date
-    // 🧠 Logic: Use Date() object and format manually
-
-    console.log("\nGET CURRENT DATE :");
+    console.group("Q4: Get Current Date");
 
     function getDate() {
       let now = new Date();
       let date = now.getDate();
-      let month = now.getMonth() + 1; // +1 because months start at 0
+      let month = now.getMonth() + 1;
       let year = now.getFullYear();
-
       return `${date}/${month}/${year}`;
     }
-    console.log(`Current date:`, getDate());
+    console.log("Current Date:", getDate());
+    console.groupEnd();
 
 
     // ✅ Q5: Add “New!” Prefix
-    // 🧠 Logic: If word already starts with "New!", keep it. Otherwise add prefix.
-
-    console.log("\nADD PREFIX :")
+    console.group("Q5: Add Prefix 'New!'");
 
     let baby = "born";
     let prefix = "New!";
-    let check = baby.startsWith(prefix);
-
-    if (check === true) {
+    if (baby.startsWith(prefix)) {
       console.log(baby);
     } else {
-      console.log(prefix.concat(baby)); // method 1
-      console.log(prefix + baby);       // method 2
+      console.log("Method 1:", prefix.concat(baby));
+      console.log("Method 2:", prefix + baby);
     }
+    console.groupEnd();
 
 
     // ✅ Q6: Longest Word in a String
-    // 🧠 Logic: Split sentence → check lengths → keep longest
+    console.group("Q6: Longest Word in a String");
 
     let longestWord = (str) => {
       let arr = str.split(" ");
       let longword = "";
-
       for (const word of arr) {
         if (word.length > longword.length) {
           longword = word;
@@ -127,145 +107,144 @@
       }
       return longword;
     }
-    console.log(longestWord("my name is zeyden zeyd")); // "zeyden"
-    console.log(longestWord("my name "));               // "name"
-    console.log(longestWord("hey serr"));               // "serr"
+    console.log(longestWord("my name is zeyden zeyd"));
+    console.log(longestWord("my name "));
+    console.log(longestWord("hey serr"));
+    console.groupEnd();
 
 
     // ✅ Q7: Anagram Words Check
-    // 🧠 Logic: Sort both words after removing spaces → compare
+    console.group("Q7: Anagram Words Check");
 
     let isAnagram = (a, b) =>
       a.toLowerCase().replaceAll(" ", "").split("").sort().join("") ===
       b.toLowerCase().replaceAll(" ", "").split("").sort().join("");
 
-    console.log(isAnagram("listen", "silent"));   // true
-    console.log(isAnagram("hay mu name is zeyden", "nedyez is amen umhay")); // true
-    console.log(isAnagram("rat", "car"));         // false
+    console.log("listen vs silent:", isAnagram("listen", "silent"));
+    console.log("hay mu name is zeyden vs nedyez is amen umhay:", isAnagram("hay mu name is zeyden", "nedyez is amen umhay"));
+    console.log("rat vs car:", isAnagram("rat", "car"));
+    console.groupEnd();
 
 
     // ✅ Q8: Remove Duplicates from Array
-    // 🧠 Logic: filter() keeps an item only if its first occurrence index === current index
-    // Example: [1,2,3,3,4,5,5]
-    // - First 3 (index 2) keeps, second 3 (index 3) removed
-    // - First 5 (index 5) keeps, second 5 (index 6) removed
+    console.group("Q8: Remove Duplicates from Array");
 
-    let removeDuplicates = (arr) => {
-      return arr.filter((item, index, arr) => {
-        return arr.indexOf(item) === index;
-        // arr.indexOf(item) → position of FIRST occurrence of item
-        // if that matches current index → it's the first time, keep it
-        // otherwise → duplicate, skip it
-      })
+    let removeDuplicates = (arr) =>
+      arr.filter((item, index, arr) => arr.indexOf(item) === index);
+
+    console.log(removeDuplicates([1, 2, 3, 3, 4, 5, 5]));
+    console.groupEnd();
+
+
+    // ============================
+    // Student Result Analyzer
+    // ============================
+    console.group("📊 Student Result Analyzer");
+
+    function studentResultAnalyzer(students) {
+      let winner = { name: "", average: 0 };
+
+      for (let i = 0; i < students.length; i++) {
+        const individual = students[i];
+
+        let individual_TM = individual.marks.reduce((a, b) => a + b, 0);
+        let average = parseFloat((individual_TM / individual.marks.length).toFixed(2));
+
+        let grade;
+        if (average >= 90) grade = "A";
+        else if (average >= 75) grade = "B";
+        else if (average >= 50) grade = "C";
+        else grade = "F";
+
+        console.log(`${individual.name} => Total: ${individual_TM}, Average: ${average}, Grade: ${grade}`);
+
+        if (average > winner.average) {
+          winner.name = individual.name;
+          winner.average = average;
+        }
+      }
+
+      console.log(`🏆 Top Student: ${winner.name} (Average: ${winner.average})`);
     }
-    console.log(removeDuplicates([1, 2, 3, 3, 4, 5, 5])); // [1,2,3,4,5]
+
+    let students = [
+      { name: "Zara", marks: [80, 75, 90] },
+      { name: "Ali", marks: [60, 55, 70] },
+      { name: "Usman", marks: [95, 90, 100] },
+      { name: "Omaima", marks: [40, 35, 50] }
+    ];
+
+    studentResultAnalyzer(students);
+    console.groupEnd();
 
 
-    // Your program should:
+    // ============================
+    // Word Counter
+    // ============================
+    console.group("🔠 Word Counter");
 
-// ✅ Calculate total marks for each student.
-// ✅ Calculate average marks.
-// ✅ Assign Grade based on average:
-// >=90 → A
-// >=75 → B
-// >=50 → C
-// <50 → F
-// ✅ Find the topper (highest average).
-// ✅ Print a report for each student.
+    function wordCounter(str) {
+      let obj = { totalWords: 0, longestWord: "", shortestWord: "" };
 
-// Student Result Analyzer.
+      let arr = str.split(" ");
+      obj.totalWords = arr.length;
 
-function studentResultAnalyzer(students) {
-  let averageArr = [];
-  let names = [];
-  let winner = { name: "", average: 0 };
+      let long = "";
+      for (const word of arr) {
+        if (word.length > long.length) long = word;
+      }
+      obj.longestWord = long;
 
-  for (let i = 0; i < students.length; i++) {
-    const individual = students[i];
-    names.push(individual.name);
+      let shortword = arr[0];
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i].length < shortword.length) shortword = arr[i];
+      }
+      obj.shortestWord = shortword;
 
-    // total marks of individual
-    let individual_TM = individual.marks.reduce((a, b) => a + b, 0);
-
-    // average of individual student
-    let average = parseFloat((individual_TM / individual.marks.length).toFixed(2));
-    averageArr.push(average);
-
-    // grade of individual student
-    let grade;
-    if (average >= 90) grade = "A";
-    else if (average >= 75) grade = "B";
-    else if (average >= 50) grade = "C";
-    else grade = "F";
-
-    console.log(`${individual.name} => Total: ${individual_TM}, Average: ${average}, Grade: ${grade}`);
-
-    // 🏆 Winner logic
-    if (average > winner.average) {
-      winner.name = individual.name;
-      winner.average = average;
+      return obj;
     }
-  }
 
-  console.log(`\n🏆 Top Student: ${winner.name} with Average: ${winner.average}`);
-}
-// =========================
-// Run the function
-// =========================
-let students = [
-  { name: "Zara", marks: [80, 75, 90] },
-  { name: "Ali", marks: [60, 55, 70] },
-  { name: "Usman", marks: [95, 90, 100] },
-  { name: "Omaima", marks: [40, 35, 50] }
-];
+    console.log(wordCounter("Learning JavaScript is really fun and powerful"));
+    console.groupEnd();
 
-studentResultAnalyzer(students);
+    console.log("\n✅ All tasks executed successfully!");
 
-// Write a function wordCounter(text) that:
-// Takes a string as input.
-// Returns an object with:
-// total number of words
-// the longest word
-// the shortest word
-function wordCounter(str) {
-  let obj = {
-    totalWords: 0,
-    longestWord: "",
-    shortestWord: ""
-  };
 
-  let arr = str.split(" ");
+    // qn0 
+        
+    let sentence = "hello, hello how are you";
 
-  // total words
-  obj.totalWords = arr.length;
 
-  // longest word
-  let long = "";
-  for (const word of arr) {
-    if (word.length > long.length) {
-      long = word;
+    function countingWordsExist(str) {
+      let words = str
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, " ")   // remove punctuation
+        .replace(/\s+/g, " ")         // remove extra spaces
+        .trim()                       // remove first/last space
+        .split(" ");                  // split into array
+      
+      // Step 2: make an object to store counts
+      let freq = {};
+      
+      // Step 3: loop through words
+      for (let i = 0; i < words.length; i++) {
+        let currWord = words[i];
+        
+        if (freq[currWord]) {
+          freq[currWord]++;  // increase count
+        } else {
+          freq[currWord] = 1; // first time
+        }
+      }
+      return freq
     }
-  }
-  obj.longestWord = long;
 
-  // shortest word
-  let shortword = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    let current = arr[i];
-    if (current.length < shortword.length) {
-      shortword = current;
-    }
-  }
-  obj.shortestWord = shortword;
-
-  return obj; // ✅ return the object
-}
-
-console.log(wordCounter("Learning JavaScript is really fun and powerful"));
+    console.log(countingWordsExist("my , name is ummi ummi"))
 
 
 
 
+       
   </script>
 
 </body>
