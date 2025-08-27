@@ -211,7 +211,7 @@
 
 
     // qn0 
-        
+
     let sentence = "hello, hello how are you";
 
 
@@ -222,14 +222,14 @@
         .replace(/\s+/g, " ")         // remove extra spaces
         .trim()                       // remove first/last space
         .split(" ");                  // split into array
-      
+
       // Step 2: make an object to store counts
       let freq = {};
-      
+
       // Step 3: loop through words
       for (let i = 0; i < words.length; i++) {
         let currWord = words[i];
-        
+
         if (freq[currWord]) {
           freq[currWord]++;  // increase count
         } else {
@@ -241,10 +241,28 @@
 
     console.log(countingWordsExist("my , name is ummi ummi"))
 
+    // Task: Find the most frequent word in a sentence
+    // example : Input:  "apple orange apple banana apple orange"
+    // Output:  "apple → 3 times"
+
+    let sentence2 = "apple and apple and banana and papaya";
+
+let freq = sentence2
+  .toLowerCase()
+  .match(/\b\w+\b/g)               
+  .reduce((freq, word) => {
+    freq[word] = (freq[word] || 0) + 1;
+    return freq;                      
+  }, {});
+
+  let mostrepeated =   Object.keys(freq)[0]
+  console.log(mostrepeated)
+ 
+console.log(freq);
 
 
 
-       
+
   </script>
 
 </body>
