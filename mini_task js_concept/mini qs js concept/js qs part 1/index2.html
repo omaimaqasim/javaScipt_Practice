@@ -135,134 +135,46 @@
     console.log(removeDuplicates([1, 2, 3, 3, 4, 5, 5]));
     console.groupEnd();
 
-
-    // ============================
-    // Student Result Analyzer
-    // ============================
-    console.group("📊 Student Result Analyzer");
-
-    function studentResultAnalyzer(students) {
-      let winner = { name: "", average: 0 };
-
-      for (let i = 0; i < students.length; i++) {
-        const individual = students[i];
-
-        let individual_TM = individual.marks.reduce((a, b) => a + b, 0);
-        let average = parseFloat((individual_TM / individual.marks.length).toFixed(2));
-
-        let grade;
-        if (average >= 90) grade = "A";
-        else if (average >= 75) grade = "B";
-        else if (average >= 50) grade = "C";
-        else grade = "F";
-
-        console.log(`${individual.name} => Total: ${individual_TM}, Average: ${average}, Grade: ${grade}`);
-
-        if (average > winner.average) {
-          winner.name = individual.name;
-          winner.average = average;
-        }
-      }
-
-      console.log(`🏆 Top Student: ${winner.name} (Average: ${winner.average})`);
-    }
-
-    let students = [
-      { name: "Zara", marks: [80, 75, 90] },
-      { name: "Ali", marks: [60, 55, 70] },
-      { name: "Usman", marks: [95, 90, 100] },
-      { name: "Omaima", marks: [40, 35, 50] }
-    ];
-
-    studentResultAnalyzer(students);
-    console.groupEnd();
-
-
-    // ============================
-    // Word Counter
-    // ============================
-    console.group("🔠 Word Counter");
-
-    function wordCounter(str) {
-      let obj = { totalWords: 0, longestWord: "", shortestWord: "" };
-
-      let arr = str.split(" ");
-      obj.totalWords = arr.length;
-
-      let long = "";
-      for (const word of arr) {
-        if (word.length > long.length) long = word;
-      }
-      obj.longestWord = long;
-
-      let shortword = arr[0];
-      for (let i = 1; i < arr.length; i++) {
-        if (arr[i].length < shortword.length) shortword = arr[i];
-      }
-      obj.shortestWord = shortword;
-
-      return obj;
-    }
-
-    console.log(wordCounter("Learning JavaScript is really fun and powerful"));
-    console.groupEnd();
-
-    console.log("\n✅ All tasks executed successfully!");
-
-
-    // qn0 
-
-    let sentence = "hello, hello how are you";
-
-
-    function countingWordsExist(str) {
-      let words = str
-        .toLowerCase()
-        .replace(/[^a-z0-9]/g, " ")   // remove punctuation
-        .replace(/\s+/g, " ")         // remove extra spaces
-        .trim()                       // remove first/last space
-        .split(" ");                  // split into array
-
-      // Step 2: make an object to store counts
-      let freq = {};
-
-      // Step 3: loop through words
-      for (let i = 0; i < words.length; i++) {
-        let currWord = words[i];
-
-        if (freq[currWord]) {
-          freq[currWord]++;  // increase count
-        } else {
-          freq[currWord] = 1; // first time
-        }
-      }
-      return freq
-    }
-
-    console.log(countingWordsExist("my , name is ummi ummi"))
-
-    // Task: Find the most frequent word in a sentence
-    // example : Input:  "apple orange apple banana apple orange"
-    // Output:  "apple → 3 times"
+    // ✅ Q12: Most & Least Repeated Word
+    console.group("Q12: Most & Least Repeated Word");
 
     let sentence2 = "apple and apple and banana and papaya";
 
-let freq = sentence2
-  .toLowerCase()
-  .match(/\b\w+\b/g)               
-  .reduce((freq, word) => {
-    freq[word] = (freq[word] || 0) + 1;
-    return freq;                      
-  }, {});
+    let freq = sentence2
+      .toLowerCase()
+      .match(/\b\w+\b/g)
+      .reduce((freq, word) => {
+        freq[word] = (freq[word] || 0) + 1;
+        return freq;
+      }, {});
 
-  let mostrepeated =   Object.keys(freq)[0]
-  console.log(mostrepeated)
- 
-console.log(freq);
+    console.log("📊 Word Frequency:", freq);
 
+    let keys = Object.keys(freq);
+    console.log("🔑 Keys:", keys);
 
+    let mostRepeatedKey = keys[0];
+    let mostRepeatedVal = freq[mostRepeatedKey];
 
+    let nonRepeatedKey = keys[0];
+    let nonRepeatedVal = freq[nonRepeatedKey];
 
+    for (let i = 1; i < keys.length; i++) {
+      let currWord = keys[i];
+      let currVal = freq[currWord];
+
+      if (currVal > mostRepeatedVal) {
+        mostRepeatedKey = currWord;
+        mostRepeatedVal = currVal;
+      }
+
+      if (currVal < nonRepeatedVal) {
+        nonRepeatedKey = currWord;
+        nonRepeatedVal = currVal;
+      }
+    }
+
+    console.log("🔥 Most repeated →", mostRepeatedKey, "→", mostRepeatedVal, "times");
   </script>
 
 </body>
