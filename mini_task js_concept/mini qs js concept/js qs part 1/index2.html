@@ -135,6 +135,7 @@
     console.log(removeDuplicates([1, 2, 3, 3, 4, 5, 5]));
     console.groupEnd();
 
+
     // ✅ Q12: Most & Least Repeated Word
     console.group("Q12: Most & Least Repeated Word");
 
@@ -175,6 +176,46 @@
     }
 
     console.log("🔥 Most repeated →", mostRepeatedKey, "→", mostRepeatedVal, "times");
+    console.groupEnd();
+
+
+    // ✅ Q13: Find the Largest Number
+    console.group("Q13: Find the Largest Number");
+
+    function largestnum(arr) {
+      // assume first number is largest
+      let largestno = arr[0];
+
+      // loop through all numbers
+      for (let i = 1; i < arr.length; i++) {
+        const currentnum = arr[i];
+
+        // update if we find a bigger number
+        if (largestno < currentnum) {
+          largestno = currentnum;
+        }
+      }
+      return largestno;
+    }
+
+    console.log("Largest:", largestnum([22, 1, 33, 44, 55]));
+    console.groupEnd();
+
+
+    // ✅ Q14: Find the Second Largest Number
+    console.group("Q14: Find the Second Largest Number");
+
+    function secondLargest(arr) {
+      // sort array in descending order
+      arr.sort((a, b) => b - a);
+
+      // second element will be the second largest
+      return arr[1];
+    }
+
+    console.log("Second Largest:", secondLargest([22, 1, 33, 44, 55]));
+    console.groupEnd();
+
   </script>
 
 </body>
