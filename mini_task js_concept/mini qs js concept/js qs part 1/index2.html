@@ -216,6 +216,38 @@
     console.log("Second Largest:", secondLargest([22, 1, 33, 44, 55]));
     console.groupEnd();
 
+    // 📝 Task: Flatten a Nested Array
+// Write a function that:
+// Takes a nested array (array inside array).
+// Returns a single flat array with all elements.
+
+ let arr = [1, [2, 3], [4, [5, 6]]]
+ console.log(arr.toString().split(",").map(Number))
+
+// Flatten = take all the individual values out, no matter how many layers of brackets they’re inside.
+
+// 📝 Task: Flatten a Nested Array
+// Function that removes all inner [] and returns only values
+
+function flatten(arr) {
+  let result = [];   // empty array to collect values
+
+  for (let item of arr) {       // go through each element
+    if (Array.isArray(item)) {  // if element is an array
+      result.push(...flatten(item)); // flatten it more (recursion) and merge
+    } else {
+      result.push(item);        // if not array, just push value
+    }
+  }
+
+  return result;   // final flat array
+}
+
+// Example
+let array = [1, [2, 3], [4, [5, 6]]];
+console.log(flatten(array));  
+// Output: [1, 2, 3, 4, 5, 6]
+
   </script>
 
 </body>
