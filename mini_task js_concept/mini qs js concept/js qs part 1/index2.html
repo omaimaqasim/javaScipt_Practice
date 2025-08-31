@@ -215,39 +215,48 @@
 
     console.log("Second Largest:", secondLargest([22, 1, 33, 44, 55]));
     console.groupEnd();
+    // ✅ Q15: Flatten Nested Array (Using toString & split)
+    console.group("Q15: Flatten Nested Array (Method 1)");
 
-    // 📝 Task: Flatten a Nested Array
-// Write a function that:
-// Takes a nested array (array inside array).
-// Returns a single flat array with all elements.
+    let arr = [1, [2, 3], [4, [5, 6]]];
+    let flat1 = arr.toString().split(",").map(Number);
+    console.log("Input:", arr);
+    console.log("Flattened (toString):", flat1);
+    // Output: [1, 2, 3, 4, 5, 6]
 
- let arr = [1, [2, 3], [4, [5, 6]]]
- console.log(arr.toString().split(",").map(Number))
+    console.groupEnd();
 
-// Flatten = take all the individual values out, no matter how many layers of brackets they’re inside.
 
-// 📝 Task: Flatten a Nested Array
-// Function that removes all inner [] and returns only values
+    // ✅ Q16: Flatten Nested Array (Using Recursion)
+    console.group("Q16: Flatten Nested Array (Method 2)");
 
-function flatten(arr) {
-  let result = [];   // empty array to collect values
-
-  for (let item of arr) {       // go through each element
-    if (Array.isArray(item)) {  // if element is an array
-      result.push(...flatten(item)); // flatten it more (recursion) and merge
-    } else {
-      result.push(item);        // if not array, just push value
+    function flatten(arr) {
+      let result = [];
+      for (let item of arr) {
+        if (Array.isArray(item)) {
+          result.push(...flatten(item)); // recursive call
+        } else {
+          result.push(item);
+        }
+      }
+      return result;
     }
-  }
+    // calling function again an again uitl that condition false is called recursive call
 
-  return result;   // final flat array
-}
+    let array = [1, [2, 3], [4, [5, 6]]];
+    console.log("Input:", array);
+    console.log("Flattened (Recursion):", flatten(array));
+    // Output: [1, 2, 3, 4, 5, 6]
 
-// Example
-let array = [1, [2, 3], [4, [5, 6]]];
-console.log(flatten(array));  
-// Output: [1, 2, 3, 4, 5, 6]
+    console.groupEnd();
 
+    console.group("Q17: sum of flatten array ")
+    // task : now give me the sum of flatten array
+    let sumOfFlatArr = (arr) => flatten(arr).reduce((a, b) => {
+      return a + b
+    })
+    console.log(sumOfFlatArr([1, [2, 3], [3, 4], [4, [5, 6]]]))
+    console.groupEnd()
   </script>
 
 </body>
