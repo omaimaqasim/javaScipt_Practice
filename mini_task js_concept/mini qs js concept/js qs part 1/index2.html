@@ -257,6 +257,42 @@
     })
     console.log(sumOfFlatArr([1, [2, 3], [3, 4], [4, [5, 6]]]))
     console.groupEnd()
+
+
+    // 
+
+    let people = [
+  { name: "Ali", surname: "Khan", dob: "1995-03-12", department: "IT", salary: 75000 },
+  { name: "Sara", surname: "Ahmed", dob: "1992-07-25", department: "HR", salary: 65000 },
+  { name: "Usman", surname: "Malik", dob: "1998-01-10", department: "Finance", salary: 80000 },
+  { name: "Ayesha", surname: "Raza", dob: "1990-11-02", department: "Marketing", salary: 70000 },
+  { name: "Bilal", surname: "Shaikh", dob: "1997-06-15", department: "IT", salary: 72000 },
+  { name: "Fatima", surname: "Hussain", dob: "1993-09-21", department: "Finance", salary: 85000 },
+  { name: "Zain", surname: "Ali", dob: "1996-12-05", department: "HR", salary: 60000 }
+];
+
+
+
+
+
+
+// task 1 : what is the avg income of all the people in an array
+let AverageOfIncome = (arr)=>{
+  let totalIncome = 0;
+  for (let i = 0; i < arr.length; i++) {
+    totalIncome += arr[i].salary;
+  }
+  return  "Average Salary:", Math.round(totalIncome / arr.length)
+  
+}
+console.log(AverageOfIncome(people))
+
+
+// task 2 : who the people that are currently older than 30
+let now = new Date()
+console.log(now)
+
+
   </script>
 
 </body>
