@@ -259,38 +259,66 @@
     console.groupEnd()
 
 
-    // 
-
-    let people = [
-  { name: "Ali", surname: "Khan", dob: "1995-03-12", department: "IT", salary: 75000 },
-  { name: "Sara", surname: "Ahmed", dob: "1992-07-25", department: "HR", salary: 65000 },
-  { name: "Usman", surname: "Malik", dob: "1998-01-10", department: "Finance", salary: 80000 },
-  { name: "Ayesha", surname: "Raza", dob: "1990-11-02", department: "Marketing", salary: 70000 },
-  { name: "Bilal", surname: "Shaikh", dob: "1997-06-15", department: "IT", salary: 72000 },
-  { name: "Fatima", surname: "Hussain", dob: "1993-09-21", department: "Finance", salary: 85000 },
-  { name: "Zain", surname: "Ali", dob: "1996-12-05", department: "HR", salary: 60000 }
-];
-
-
-
-
-
-
-// task 1 : what is the avg income of all the people in an array
-let AverageOfIncome = (arr)=>{
-  let totalIncome = 0;
+    
+    
+    
+    
+   
+// ✅ Q17: what is the avg income of all the people in an array
+  
+      let people = [
+    { name: "Ali", surname: "Khan", dob: "1995-03-12", department: "IT", salary: 75000 },
+    { name: "Sara", surname: "Ahmed", dob: "1992-07-25", department: "HR", salary: 65000 },
+    { name: "Usman", surname: "Malik", dob: "1998-01-10", department: "Finance", salary: 80000 },
+    { name: "Ayesha", surname: "Raza", dob: "1990-11-02", department: "Marketing", salary: 70000 },
+    { name: "Bilal", surname: "Shaikh", dob: "1997-06-15", department: "IT", salary: 72000 },
+    { name: "Fatima", surname: "Hussain", dob: "1993-09-21", department: "Finance", salary: 85000 },
+    { name: "Zain", surname: "Ali", dob: "1996-12-05", department: "HR", salary: 60000 }
+  ];
+  
+  console.group("Q17: Average of income");
+  
+    let totalIncome = 0;
+    let AverageOfIncome = (arr)=>{
   for (let i = 0; i < arr.length; i++) {
     totalIncome += arr[i].salary;
   }
-  return  "Average Salary:", Math.round(totalIncome / arr.length)
+  return  "Average Salary:" + Math.round(totalIncome / arr.length)
   
 }
 console.log(AverageOfIncome(people))
+console.groupEnd()
 
+// ✅ Q18: People older than 30
+console.group("Q18: People older than 30");
 
-// task 2 : who the people that are currently older than 30
-let now = new Date()
-console.log(now)
+let isOlderThan30 = (arr) => {
+  let now = new Date();
+  let current = [now.getDate(), now.getMonth() + 1, now.getFullYear()];
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const individual = arr[i];
+    let [birthYear, birthMonth, birthDay] = individual.dob.split("-").map(Number);
+
+    let age = current[2] - birthYear; // current year - birth year
+
+    // adjust if birthday hasn't happened yet this year
+    if (current[1] < birthMonth || (current[1] === birthMonth && current[0] < birthDay)) {
+      age--;
+    }
+
+    if (age > 30) {
+      result.push(individual.name + " (" + age + " years old)");
+    }
+  }
+
+  return result;
+};
+
+console.log(isOlderThan30(people));
+console.groupEnd();
+
 
 
   </script>
