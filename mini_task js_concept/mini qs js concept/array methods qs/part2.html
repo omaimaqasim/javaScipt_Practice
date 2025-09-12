@@ -97,6 +97,9 @@
     let checkSpecificOrder = (arr) => arr.some(order => order.customerId === "123")
     console.log(checkSpecificOrder(orders))
 
+    // qno 5 : have any product with an id of 123 been sold
+    let sold = orders.some(order=> order.delivered && order.items.some(item=>item.productId==="123"))
+     console.log(sold)
   </script>
 </body>
 
