@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array part 3</title>
+</head>
+<body>
+    
+    <script>
+        const users = [
+            { id: '88f24bea-3825-4237-ad01-6fbb92d37d34', firstName: 'Sam', lastName: 'Hughes' },
+            { id: '23a5302d-02e0-4e5a-8058-4fdd94f9a054', firstName: 'Terri', lastName: 'Bishop' },
+            { id: '71585352-7440-4e48-83bb-ddac2466156f', firstName: 'Jari', lastName: 'Burke' },
+            { id: '2d4bc7f5-596a-4224-b38e-285c0fddfe9c', firstName: 'Julio', lastName: 'Miller' },
+            { id: '58a1e37b-4b15-47c1-b95b-11fe016176b4', firstName: 'Chester', lastName: 'Flores' },
+            { id: 'f9390c68-d895-4fac-b731-7d105b3bf27a', firstName: 'Madison', lastName: 'Marshall' },
+            { id: '7d94ddeb-00ad-44e9-8bc9-1c2bbbeff05c', firstName: 'Ava', lastName: 'Pena' },
+            { id: '1f7ec45a-bdca-4067-84f1-dc91e3d6cf16', firstName: 'Gabriella', lastName: 'Steward' },
+            { id: 'e5b2c244-5bdf-4f19-a8fd-3646f3e5fb3e', firstName: 'Charles', lastName: 'Campbell' },
+            { id: 'e78956f1-fa5a-45de-8f66-d216cf995b9e', firstName: 'Madison', lastName: 'Lambert' },
+        ];
+
+        const comments = [
+            { userId: '88f24bea-3825-4237-ad01-6fbb92d37d34', text: 'Great Job!' },
+            { userId: '71585352-7440-4e48-83bb-ddac2466156f', text: 'Well done, I think I understand now!' },
+            { userId: 'e78956f1-fa5a-45de-8f66-d216cf995b9e', text: 'How do you do that? 🤔' },
+            { userId: '71585352-7440-4e48-83bb-ddac2466156f', text: 'OK great thanks 🙌' },
+            { userId: 'da536cb8-b95b-4954-8f8b-d98c6e1f654d', text: 'Nice one 👍.' },
+            { userId: 'e5b2c244-5bdf-4f19-a8fd-3646f3e5fb3e', text: 'Got it... 💯' },
+            { userId: '58a1e37b-4b15-47c1-b95b-11fe016176b4', text: 'Thanks!' },
+            { userId: 'f9390c68-d895-4fac-b731-7d105b3bf27a', text: 'Cool 👏' },
+        ];
+
+        // qno 1 what is medison marshalls user id
+
+        // my way
+        let getUserId = users.filter(user => {
+            return user.firstName.toLowerCase() === "madison" &&
+                   user.lastName.toLowerCase() === "marshall";
+        });
+
+        console.log("id : " + getUserId[0].id);
+
+        // smarter way as find stops searching once the condition is satisfied and it give actual obj /val
+        let user = users.find(user => 
+            user.firstName.toLowerCase() === "madison" &&
+            user.lastName.toLowerCase() === "marshall"
+        );
+
+        console.log("id:", user.id);
+
+    </script>
+</body>
+</html>
