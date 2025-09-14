@@ -6,8 +6,8 @@
     <title>array part 3</title>
 </head>
 <body>
-    
     <script>
+        // ======= Data Arrays =======
         const users = [
             { id: '88f24bea-3825-4237-ad01-6fbb92d37d34', firstName: 'Sam', lastName: 'Hughes' },
             { id: '23a5302d-02e0-4e5a-8058-4fdd94f9a054', firstName: 'Terri', lastName: 'Bishop' },
@@ -32,23 +32,40 @@
             { userId: 'f9390c68-d895-4fac-b731-7d105b3bf27a', text: 'Cool 👏' },
         ];
 
-        // qno 1 what is medison marshalls user id
+        // ======= Q1: What is Madison Marshall's user ID =======
 
-        // my way
+        console.log("Q1: Madison Marshall's User ID");
+
+        // My way using filter
         let getUserId = users.filter(user => {
             return user.firstName.toLowerCase() === "madison" &&
                    user.lastName.toLowerCase() === "marshall";
         });
+        console.log("Using filter: " + getUserId[0].id);
 
-        console.log("id : " + getUserId[0].id);
-
-        // smarter way as find stops searching once the condition is satisfied and it give actual obj /val
+        // Smarter way using find
         let user = users.find(user => 
             user.firstName.toLowerCase() === "madison" &&
             user.lastName.toLowerCase() === "marshall"
         );
+        console.log("Using find: " + user.id);
 
-        console.log("id:", user.id);
+        console.log("--------------------------------------------------");
+
+        // ======= Q2: Who wrote the first comment =======
+
+        console.log("Q2: Author of the first comment");
+
+        // My way
+        let firstCommentUserId = comments[0].userId;
+        let commentedBy = users.find(user => user.id === firstCommentUserId);
+        console.log("Using normal find: " + commentedBy.firstName + " " + commentedBy.lastName);
+
+        // Smarter way using destructuring
+        let { firstName, lastName } = users.find(u => u.id === comments[0].userId);
+        console.log("Using destructuring: " + firstName + " " + lastName);
+
+        console.log("--------------------------------------------------");
 
     </script>
 </body>
