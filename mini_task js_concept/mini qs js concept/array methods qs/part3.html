@@ -67,6 +67,14 @@
 
         console.log("--------------------------------------------------");
 
-    </script>
+    //    qno : 3 which user commented "OK great thanks"
+
+  let findUserid = (comments.find(c => c.text.includes("OK great thanks"))).userId;
+
+let { firstName: fName, lastName: lName } = users.find(u => u.id === findUserid);
+console.log(fName + " " + lName);
+
+
+ </script>
 </body>
 </html>
