@@ -75,6 +75,17 @@ let { firstName: fName, lastName: lName } = users.find(u => u.id === findUserid)
 console.log(fName + " " + lName);
 
 
+// qno 4 : add the user first and last name to each comment in the comments array
+
+   let userr = comments.map(c=>{
+     return  users.find(u=> u.id === c.userId )
+    //   return newarr = [c.text,firstName,lastName]
+    // we will finish it tomorrow
+      
+    } )
+ 
+console.log(userr)
+
  </script>
 </body>
 </html>
