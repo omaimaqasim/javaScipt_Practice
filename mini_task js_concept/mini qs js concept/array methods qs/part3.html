@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>array part 3</title>
 </head>
+
 <body>
     <script>
         // ======= Data Arrays =======
@@ -39,12 +41,12 @@
         // My way using filter
         let getUserId = users.filter(user => {
             return user.firstName.toLowerCase() === "madison" &&
-                   user.lastName.toLowerCase() === "marshall";
+                user.lastName.toLowerCase() === "marshall";
         });
         console.log("Using filter: " + getUserId[0].id);
 
         // Smarter way using find
-        let user = users.find(user => 
+        let user = users.find(user =>
             user.firstName.toLowerCase() === "madison" &&
             user.lastName.toLowerCase() === "marshall"
         );
@@ -67,25 +69,33 @@
 
         console.log("--------------------------------------------------");
 
-    //    qno : 3 which user commented "OK great thanks"
+        //    qno : 3 which user commented "OK great thanks"
 
-  let findUserid = (comments.find(c => c.text.includes("OK great thanks"))).userId;
+        let findUserid = (comments.find(c => c.text.includes("OK great thanks"))).userId;
 
-let { firstName: fName, lastName: lName } = users.find(u => u.id === findUserid);
-console.log(fName + " " + lName);
+        let { firstName: fName, lastName: lName } = users.find(u => u.id === findUserid);
+        console.log(fName + " " + lName);
 
 
-// qno 4 : add the user first and last name to each comment in the comments array
+        // qno 4 : add the user first and last name to each comment in the comments array
 
-   let userr = comments.map(c=>{
-     return  users.find(u=> u.id === c.userId )
-    //   return newarr = [c.text,firstName,lastName]
-    // we will finish it tomorrow
-      
-    } )
- 
-console.log(userr)
+        let userr = comments.map(c => {
+            let founduser = users.find(u => u.id === c.userId)
 
- </script>
+            if (founduser) {
+                let { firstName, lastName } = founduser;
+                return [c.text, firstName, lastName];
+            }
+            else {
+                return [c.text, "Unknown", "User"];
+            }
+
+
+        })
+
+        console.log(userr)
+
+    </script>
 </body>
+
 </html>
