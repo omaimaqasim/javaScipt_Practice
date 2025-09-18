@@ -95,6 +95,11 @@
 
         console.log(userr)
 
+        // qno 5 : get the list of user who have not commented
+        
+        let noncommentedperson = users.filter(u => !comments.some(c => u.id === c.userId))
+        console.log(noncommentedperson)
+
     </script>
 </body>
 
