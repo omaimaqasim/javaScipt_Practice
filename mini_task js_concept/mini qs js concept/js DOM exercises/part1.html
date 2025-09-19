@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM part 1</title>
+</head>
+
+<body>
+    <h1>heading</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quibusdam nobis ipsam, veniam animi rem excepturi
+        eos aperiam hic exercitationem tempore amet quaerat, dolore deserunt cupiditate fugiat magni aliquid provident
+        dolores aspernatur quasi illum tenetur corrupti. Libero veniam esse ut architecto asperiores placeat temporibus.
+    </p>
+
+    <script>
+//    ex1 :hightlight all words over eight chars long in the paragraph text 
+// (with your fav color background)
+
+let dom = document.getElementsByTagName("p")[0].innerText.split(" ").map(w=> {
+    if (w.length>8) {
+               return "<span style='background: yellow'>" + w + "</span>";
+    }
+    else{
+        return w
+    }
+})
+ document.getElementsByTagName("p")[0].innerHTML = dom.join(" ");
+
+    console.log()
+   </script>
+</body>
+
+</html>
