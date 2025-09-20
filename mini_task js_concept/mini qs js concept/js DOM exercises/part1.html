@@ -15,21 +15,30 @@
     </p>
 
     <script>
-//    ex1 :hightlight all words over eight chars long in the paragraph text 
-// (with your fav color background)
+        // Make a variable for <p> so we reuse it everywhere
+        let para = document.getElementsByTagName("p")[0];
 
-let dom = document.getElementsByTagName("p")[0].innerText.split(" ").map(w=> {
-    if (w.length>8) {
-               return "<span style='background: yellow'>" + w + "</span>";
-    }
-    else{
-        return w
-    }
-})
- document.getElementsByTagName("p")[0].innerHTML = dom.join(" ");
+        // ex1 : highlight all words over eight chars long in the paragraph text
+        let dom = para.innerText.split(" ").map(w => {
+            if (w.length > 8) {
+                return "<span style='background: yellow'>" + w + "</span>";
+            } else {
+                return w;
+            }
+        });
+        para.innerHTML = dom.join(" ");
 
-    console.log()
-   </script>
+        // exer : 02 add a link back to the source of the text after the paragraph tag
+        let link = document.createElement("a");
+        link.href = "https://forcecamsum.com";
+        link.innerHTML = "Source";
+        para.insertAdjacentElement("afterend", link);
+
+        // exer : 03 split each new sentence on to a separate line in the paragraph text
+      
+      para.innerHTML =  para.innerText.split(".").join("<br>")
+      
+    </script>
 </body>
 
 </html>
