@@ -35,10 +35,22 @@
         para.insertAdjacentElement("afterend", link);
 
         // exer : 03 split each new sentence on to a separate line in the paragraph text
-      
-      para.innerHTML =  para.innerText.split(".").join("<br>")
-      
+
+        para.innerHTML = para.innerHTML.split(".").join(".<br>")
+
+        //    exer : 04 count the number of words in a para tag and display count after the heading you can assume that 
+        // all words are separated but one singular whitespace 
+        let totalWords = para.innerText.trim().split(/\s+/).length - 1;
+        console.log(totalWords);
+
+        let span= document.createElement("span")
+          span.innerHTML = " (total words : " + totalWords + ")"
+        
+          document.querySelector("h1").insertAdjacentElement("beforeend",span)
+
+
     </script>
+
 </body>
 
 </html>
