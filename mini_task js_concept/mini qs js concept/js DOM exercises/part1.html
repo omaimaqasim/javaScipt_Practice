@@ -9,16 +9,29 @@
 
 <body>
     <h1>heading</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quibusdam nobis ipsam, veniam animi rem excepturi
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quibusdam nobis ipsam, veniam animi rem excepturi
         eos aperiam hic exercitationem tempore amet quaerat, dolore deserunt cupiditate fugiat magni aliquid provident
         dolores aspernatur quasi illum tenetur corrupti. Libero veniam esse ut architecto asperiores placeat temporibus.
     </p>
 
+    <p id="para2">
+        Why didn’t you call me yesterday?
+        I was waiting the whole evening!
+        Do you know how worried I was?
+        Please don’t do that again!
+    </p>
+
     <script>
-        // Make a variable for <p> so we reuse it everywhere
+        // ---------------------------
+        // 1. Make a variable for the first <p> to reuse it everywhere
+        // ---------------------------
         let para = document.getElementsByTagName("p")[0];
 
-        // ex1 : highlight all words over eight chars long in the paragraph text
+        // ---------------------------
+        // ex1: Highlight all words over eight chars long in the paragraph text
+        // ---------------------------
         let dom = para.innerText.split(" ").map(w => {
             if (w.length > 8) {
                 return "<span style='background: yellow'>" + w + "</span>";
@@ -28,29 +41,36 @@
         });
         para.innerHTML = dom.join(" ");
 
-        // exer : 02 add a link back to the source of the text after the paragraph tag
+        // ---------------------------
+        // exer 02: Add a link back to the source of the text after the paragraph tag
+        // ---------------------------
         let link = document.createElement("a");
         link.href = "https://forcecamsum.com";
         link.innerHTML = "Source";
         para.insertAdjacentElement("afterend", link);
 
-        // exer : 03 split each new sentence on to a separate line in the paragraph text
+        // ---------------------------
+        // exer 03: Split each new sentence onto a separate line in the paragraph text
+        // ---------------------------
+        para.innerHTML = para.innerHTML.split(".").join(".<br>");
 
-        para.innerHTML = para.innerHTML.split(".").join(".<br>")
-
-        //    exer : 04 count the number of words in a para tag and display count after the heading you can assume that 
-        // all words are separated but one singular whitespace 
-        let totalWords = para.innerText.trim().split(/\s+/).length - 1;
+        // ---------------------------
+        // exer 04: Count the number of words in the paragraph and display count after the heading
+        // ---------------------------
+        // (Assuming all words are separated by one singular whitespace)
+        let totalWords = para.innerText.trim().split(/\s+/).length;
         console.log(totalWords);
 
-        let span= document.createElement("span")
-          span.innerHTML = " (total words : " + totalWords + ")"
-        
-          document.querySelector("h1").insertAdjacentElement("beforeend",span)
+        let span = document.createElement("span");
+        span.innerHTML = " (total words : " + totalWords + ")";
+        document.querySelector("h1").insertAdjacentElement("beforeend", span);
 
-
+        // ---------------------------
+        // exer 05: Replace all '?' with thinking face and '!' with astonished face in para2
+        // ---------------------------
+        let para2 = document.querySelector("#para2");
+        para2.innerHTML = para2.innerHTML.replaceAll("?", "🤔").replaceAll("!", "😲");
     </script>
-
 </body>
 
 </html>
