@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .form-title {
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #625c5c;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="form-container">
+        <h2 class="form-title">Registration Form</h2>
+        <form action="#" method="post">
+            <input type="text" name="username" >
+            <input type="password" name="password">
+            <input type="password" name="confirm-password" >
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+// ex : 1 add a label too each of the input field : username ,password 
+// confirmpassword
+
+   document.getElementsByName("username")[0].insertAdjacentHTML("beforebegin", '<label for="username">username</label>' )
+   document.getElementsByName("password")[0].insertAdjacentHTML("beforebegin", '<label for="password">password</label>')
+   document.getElementsByName("confirm-password")[0].insertAdjacentHTML("beforebegin",' <label for="password">confirm-password</label> ' )
+    </script>
+</body>
+</html>
