@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,24 +54,57 @@
         }
     </style>
 </head>
+
 <body>
-  
+
     <div class="form-container">
         <h2 class="form-title">Registration Form</h2>
         <form action="#" method="post">
-            <input type="text" name="username" >
+            <label for="username">Username</label>
+            <input type="text" name="username">
+
+            <label for="password">Password</label>
             <input type="password" name="password">
-            <input type="password" name="confirm-password" >
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" name="confirm-password">
+
             <button type="submit">Register</button>
         </form>
     </div>
-    <script>
-// ex : 1 add a label too each of the input field : username ,password 
-// confirmpassword
 
-   document.getElementsByName("username")[0].insertAdjacentHTML("beforebegin", '<label for="username">username</label>' )
-   document.getElementsByName("password")[0].insertAdjacentHTML("beforebegin", '<label for="password">password</label>')
-   document.getElementsByName("confirm-password")[0].insertAdjacentHTML("beforebegin",' <label for="password">confirm-password</label> ' )
+    <script>
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", function (e) {
+            const username = document.getElementsByName("username")[0];
+            const password = document.getElementsByName("password")[0];
+            const confirm = document.getElementsByName("confirm-password")[0];
+
+            let isValid = true;
+
+            function validateField(input) {
+                // remove old error if exists
+                let oldError = input.parentNode.querySelector(".req");
+                if (oldError) oldError.remove();
+
+                if (input.value.trim() === "") {
+                    input.insertAdjacentHTML("afterend",
+                        '<span class="req" style="color: red; font-size: 13px;">Required</span>');
+                    isValid = false;
+                }
+            }
+
+            // validate all three fields
+            validateField(username);
+            validateField(password);
+            validateField(confirm);
+
+            if (!isValid) {
+                e.preventDefault(); // stop form submission
+            }
+        });
     </script>
 </body>
+
 </html>
