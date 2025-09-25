@@ -60,13 +60,13 @@
     <div class="form-container">
         <h2 class="form-title">Registration Form</h2>
         <form action="#" method="post">
-            <label for="username">Username</label>
+           
             <input type="text" name="username">
 
-            <label for="password">Password</label>
+          
             <input type="password" name="password">
 
-            <label for="confirm-password">Confirm Password</label>
+         
             <input type="password" name="confirm-password">
 
             <button type="submit">Register</button>
@@ -74,36 +74,45 @@
     </div>
 
     <script>
+        // ex : 1 add a label too each of the input field : username ,password
+        document.getElementsByName("username")[0].insertAdjacentHTML("beforebegin", '<label for="username">username</label>') 
+        document.getElementsByName("password")[0].insertAdjacentHTML("beforebegin", '<label for="password">password</label>')
+        document.getElementsByName("confirm-password")[0].insertAdjacentHTML("beforebegin", ' <label for="password">confirm password</label> ')
+       
         const form = document.querySelector("form");
 
+        // ex 2
         form.addEventListener("submit", function (e) {
-            const username = document.getElementsByName("username")[0];
-            const password = document.getElementsByName("password")[0];
-            const confirm = document.getElementsByName("confirm-password")[0];
+    const username = document.getElementsByName("username")[0];
+    const password = document.getElementsByName("password")[0];
+    const confirm = document.getElementsByName("confirm-password")[0];
 
-            let isValid = true;
+    let isValid = true;
 
-            function validateField(input) {
-                // remove old error if exists
-                let oldError = input.parentNode.querySelector(".req");
-                if (oldError) oldError.remove();
+    function validateField(input) {
+        // remove old error ONLY if it's right after this input
+        let oldError = input.nextElementSibling;
+        if (oldError && oldError.classList.contains("req")) {
+            oldError.remove();
+        }
 
-                if (input.value.trim() === "") {
-                    input.insertAdjacentHTML("afterend",
-                        '<span class="req" style="color: red; font-size: 13px;">Required</span>');
-                    isValid = false;
-                }
-            }
+        if (input.value.trim() === "") {
+            input.insertAdjacentHTML("afterend",
+                '<div class="req" style="color: red; font-size: 13px;">Required</div>');
+            isValid = false;
+        }
+    }
 
-            // validate all three fields
-            validateField(username);
-            validateField(password);
-            validateField(confirm);
+    // validate all three fields
+    validateField(username);
+    validateField(password);
+    validateField(confirm);
 
-            if (!isValid) {
-                e.preventDefault(); // stop form submission
-            }
-        });
+    if (!isValid) {
+        e.preventDefault(); // stop form submission
+    }
+});
+
     </script>
 </body>
 
