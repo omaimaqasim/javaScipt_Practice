@@ -69,7 +69,7 @@
 
             <input type="password" name="confirm-password">
 
-            <button type="submit">Register</button>
+            <button type="submit" >Register</button>
         </form>
     </div>
 
@@ -121,7 +121,33 @@
                         '<span class="req" style="color: red; font-size: 13px;">Password should match</span>');
                     isValid = false;
             }
+
+            
+            
         });
+
+        // exer : 04 ensure the register button is disable until the user has entered valid data into
+        // all the input fields . once they have ,the register button should then be enable
+
+        const btn = document.querySelector("button[type='submit']");
+
+function checkForm() {
+    if (
+        username.value.trim() !== "" &&
+        password.value.trim() !== "" &&
+        confirm.value.trim() !== ""
+    ) {
+        btn.disabled = false;   // enable button
+    } else {
+        btn.disabled = true;    // keep disabled
+    }
+}
+
+username.addEventListener("input", checkForm);
+password.addEventListener("input", checkForm);
+confirm.addEventListener("input", checkForm);
+
+
 
 
     </script>
