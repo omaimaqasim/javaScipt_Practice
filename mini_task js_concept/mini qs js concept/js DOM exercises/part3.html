@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom part 3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .pricing-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 20px;
+      width: 300px;
+      height: 300px;
+      text-align: center;
+      margin: 15px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.309);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+      color: #555;
+      font-size: 14px;
+    }
+
+    ul li {
+      margin: 6px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: 1px solid #007BFF;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+      transition: 0.3s;
+      
+    }
+
+    .btn:hover {
+      background: #007BFF;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pricing-container">
+    <!-- Pro Plan -->
+    <div class="card " id="pro">
+      <h3>Pro</h3>
+      <div class="price">$30 / month</div>
+      <ul>
+        <li>100 users included</li>
+        <li>20 GB of storage</li>
+        <li>Priority email support</li>
+        <li>Help center access</li>
+       
+      </ul>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+
+    <!-- Basic Plan -->
+    <div class="card" id="basic">
+      <h3>Basic</h3>
+      <div class="price">$10 / month</div>
+      <ul>
+        <li>10 users included</li>
+        <li>2 GB of storage</li>
+        <li>Email support</li>
+        <li>Help center access</li>
+      </ul>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+  </div>
+
+  <script>
+    //ex : 01 a new feature has been added to the pro plan : 24/7 phone support add this using js
+    //js to the list frature of pro plan 
+
+    let pro_ul = document.querySelector("#pro ul")
+      pro_ul.insertAdjacentHTML("beforeend",' <li>24/7 phone support</li>')
+
+    //   ex : 02 to make the ordering of the plan more logical ,using js ,move the basic plan to 
+    // be before (to the left ) of the pro plan 
+     
+    // this is basic method to solve this
+    // let basic_card = document.querySelector("#basic")
+    // basic_card.remove()
+    
+    // document.body.prepend(basic_card)
+
+    // this is smarter method to solve this
+
+
+    let basic_card = document.querySelector("#basic")
+    let pro_card = document.querySelector("#pro")
+    const parentNode = basic_card.parentNode
+
+    parentNode.insertBefore(basic_card,pro_card)
+
+
+  </script>
+
+</body>
+</html>
+
