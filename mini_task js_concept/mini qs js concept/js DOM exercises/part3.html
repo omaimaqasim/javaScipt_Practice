@@ -129,6 +129,41 @@
 
     parentNode.insertBefore(basic_card,pro_card)
 
+    // exer: 03 to make pro plan hover a stronger call  to action . update the current get started
+    //      to be blue with white text and have the text "buy now"
+
+   
+    let proBtn = document.querySelector("#pro .btn");
+    let basicBtn = document.querySelector("#basic .btn");
+    
+    
+         pro_card.addEventListener("mouseover",()=>{
+                proBtn.textContent = "Buy now"
+                proBtn.style.backgroundColor = "blue"
+                proBtn.style.color = "white"
+         
+         })
+         pro_card.addEventListener("mouseout",()=>{
+                proBtn.textContent = "Get started"
+                proBtn.style.backgroundColor = "white"
+                proBtn.style.color = "#007BFF"
+         
+         })
+         basic_card.addEventListener("mouseover",()=>{
+                basicBtn.textContent = "Buy now"
+                basicBtn.style.backgroundColor = "blue"
+                basicBtn.style.color = "white"
+         
+         })
+         basic_card.addEventListener("mouseout",()=>{
+                basicBtn.textContent = "Get started"
+                basicBtn.style.backgroundColor = "white"
+                basicBtn.style.color = "#007BFF"
+         
+         })
+   
+
+
 
   </script>
 
