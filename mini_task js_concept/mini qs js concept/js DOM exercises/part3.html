@@ -82,7 +82,7 @@
       <div class="price">$30 / month</div>
       <ul>
         <li>100 users included</li>
-        <li>20 GB of storage</li>
+        <li><span class="storage_amount">20</span> GB of storage</li>
         <li>Priority email support</li>
         <li>Help center access</li>
        
@@ -96,7 +96,7 @@
       <div class="price">$10 / month</div>
       <ul>
         <li>10 users included</li>
-        <li>2 GB of storage</li>
+        <li> <span class="storage_amount">2 </span>GB of storage</li>
         <li>Email support</li>
         <li>Help center access</li>
       </ul>
@@ -149,20 +149,18 @@
                 proBtn.style.color = "#007BFF"
          
          })
-         basic_card.addEventListener("mouseover",()=>{
-                basicBtn.textContent = "Buy now"
-                basicBtn.style.backgroundColor = "blue"
-                basicBtn.style.color = "white"
-         
-         })
-         basic_card.addEventListener("mouseout",()=>{
-                basicBtn.textContent = "Get started"
-                basicBtn.style.backgroundColor = "white"
-                basicBtn.style.color = "#007BFF"
-         
-         })
-   
+     
+    // exer: 04 there is a special offer on at the moment offering 50% more storage on the 
+    // basic plan update the basic and pro plan cards to reflet the new storage amount being offer
 
+
+    let proStorage = document.querySelector("#pro .storage_amount")
+    let basicStorage = document.querySelector("#basic .storage_amount")
+
+      proStorage.textContent =  Number(proStorage.textContent)+Number(proStorage.textContent)*0.5
+      basicStorage.textContent =  Number(basicStorage.textContent)+Number(basicStorage.textContent)*0.5
+
+      // in js if we use *,-,/ op it will convert string automatically unlike +
 
 
   </script>
