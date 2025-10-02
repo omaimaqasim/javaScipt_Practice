@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,7 +64,7 @@
       color: #007BFF;
       font-weight: bold;
       transition: 0.3s;
-      
+
     }
 
     .btn:hover {
@@ -73,7 +73,18 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!-- <label>
+  <input type="radio" name="billing" value="monthly" checked>
+  Monthly
+</label>
+
+<label>
+  <input type="radio" name="billing" value="annual">
+  Annual
+</label> -->
 
   <div class="pricing-container">
     <!-- Pro Plan -->
@@ -85,7 +96,7 @@
         <li><span class="storage_amount">20</span> GB of storage</li>
         <li>Priority email support</li>
         <li>Help center access</li>
-       
+
       </ul>
       <a href="#" class="btn">Get Started</a>
     </div>
@@ -109,15 +120,15 @@
     //js to the list frature of pro plan 
 
     let pro_ul = document.querySelector("#pro ul")
-      pro_ul.insertAdjacentHTML("beforeend",' <li>24/7 phone support</li>')
+    pro_ul.insertAdjacentHTML("beforeend", ' <li>24/7 phone support</li>')
 
     //   ex : 02 to make the ordering of the plan more logical ,using js ,move the basic plan to 
     // be before (to the left ) of the pro plan 
-     
+
     // this is basic method to solve this
     // let basic_card = document.querySelector("#basic")
     // basic_card.remove()
-    
+
     // document.body.prepend(basic_card)
 
     // this is smarter method to solve this
@@ -127,29 +138,29 @@
     let pro_card = document.querySelector("#pro")
     const parentNode = basic_card.parentNode
 
-    parentNode.insertBefore(basic_card,pro_card)
+    parentNode.insertBefore(basic_card, pro_card)
 
     // exer: 03 to make pro plan hover a stronger call  to action . update the current get started
     //      to be blue with white text and have the text "buy now"
 
-   
+
     let proBtn = document.querySelector("#pro .btn");
     let basicBtn = document.querySelector("#basic .btn");
-    
-    
-         pro_card.addEventListener("mouseover",()=>{
-                proBtn.textContent = "Buy now"
-                proBtn.style.backgroundColor = "blue"
-                proBtn.style.color = "white"
-         
-         })
-         pro_card.addEventListener("mouseout",()=>{
-                proBtn.textContent = "Get started"
-                proBtn.style.backgroundColor = "white"
-                proBtn.style.color = "#007BFF"
-         
-         })
-     
+
+
+    pro_card.addEventListener("mouseover", () => {
+      proBtn.textContent = "Buy now"
+      proBtn.style.backgroundColor = "blue"
+      proBtn.style.color = "white"
+
+    })
+    pro_card.addEventListener("mouseout", () => {
+      proBtn.textContent = "Get started"
+      proBtn.style.backgroundColor = "white"
+      proBtn.style.color = "#007BFF"
+
+    })
+
     // exer: 04 there is a special offer on at the moment offering 50% more storage on the 
     // basic plan update the basic and pro plan cards to reflet the new storage amount being offer
 
@@ -157,14 +168,49 @@
     let proStorage = document.querySelector("#pro .storage_amount")
     let basicStorage = document.querySelector("#basic .storage_amount")
 
-      proStorage.textContent =  Number(proStorage.textContent)+Number(proStorage.textContent)*0.5
-      basicStorage.textContent =  Number(basicStorage.textContent)+Number(basicStorage.textContent)*0.5
+    proStorage.textContent = Number(proStorage.textContent) + Number(proStorage.textContent) * 0.5
+    basicStorage.textContent = Number(basicStorage.textContent) + Number(basicStorage.textContent) * 0.5
 
-      // in js if we use *,-,/ op it will convert string automatically unlike +
+    // in js if we use *,-,/ op it will convert string automatically unlike +
+
+    // exer : 05 you have been asked to add ask a toggle /radio box for annual
+    // monthly payment for the basic and pro plans . add a radio btn to toggle bw monthly and
+    // annual payment options and adjust the prices shown for both plans if the annual option
+    // is selected (give two months free if costumers pay annually)
+
+    document.body.insertAdjacentHTML("afterbegin", `
+  <label>
+    <input type="radio" name="billing" value="monthly" checked >
+    Monthly
+  </label>
+
+  <label>
+    <input type="radio" name="billing" value="annual">
+    Annual
+  </label>
+`);
+
+let proPrice = document.querySelector("#pro .price");
+let basicPrice = document.querySelector("#basic .price");
+
+  let billingradios = document.querySelectorAll("input[name = 'billing']")
+
+ billingradios.forEach(radio => {
+  radio.addEventListener("change", () => {
+    if (radio.value === "monthly") {
+      proPrice.textContent = "$30 / month";
+      basicPrice.textContent = "$10 / month";
+    } else if (radio.value === "annual") {
+      proPrice.textContent = "$300 / year";   // 10 × 30
+      basicPrice.textContent = "$100 / year"; // 10 × 10
+    }
+  });
+});
+
 
 
   </script>
 
 </body>
-</html>
 
+</html>
