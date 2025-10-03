@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    /* Navbar */
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      border-bottom: 2px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff4444;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://picsum.photos/1200/600?blur=3') center/cover no-repeat;
+      padding: 100px 40px;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      /* dark overlay */
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1; /* keep text above dark overlay */
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero p {
+      color: white;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h2>TEST PAGE</h2>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <p>PARA 1: Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam tempora animi voluptate eos repellendus porro aut cumque sit soluta?</p>
+      <p>PARA 2: Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam tempora animi voluptate eos repellendus porro aut cumque sit soluta?</p>
+    </div>
+  </div>
+
+  <script>
+
+// exer : 1 move the contents of two paras into single para and remove all extra para 
+
+     let paras = document.querySelectorAll("p")
+     paras[0].innerText = paras[0].innerText + paras[1].innerHTML
+     paras[1].remove()
+  </script>
+
+</body>
+
+</html>
