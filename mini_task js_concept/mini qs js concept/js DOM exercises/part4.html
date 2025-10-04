@@ -77,7 +77,8 @@
 
     .hero-content {
       position: relative;
-      z-index: 1; /* keep text above dark overlay */
+      z-index: 1;
+      /* keep text above dark overlay */
       max-width: 900px;
       margin: 0 auto;
     }
@@ -107,19 +108,44 @@
   <!-- Hero Section -->
   <div class="hero">
     <div class="hero-content">
-      <p>PARA 1: Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam tempora animi voluptate eos repellendus porro aut cumque sit soluta?</p>
-      <p>PARA 2: Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam tempora animi voluptate eos repellendus porro aut cumque sit soluta?</p>
+      <p>PARA 1: Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam tempora animi voluptate eos
+        repellendus porro aut cumque sit soluta?</p>
+      <p>PARA 2: Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam tempora animi voluptate eos
+        repellendus porro aut cumque sit soluta?</p>
     </div>
   </div>
 
   <script>
+    // exer : 1 move the contents of two paras into single para and remove all extra para 
+    let paras = document.querySelectorAll("p");
+    paras[0].innerText = paras[0].innerText + paras[1].innerHTML;
+    paras[1].remove();
 
-// exer : 1 move the contents of two paras into single para and remove all extra para 
+    // EXER : 02 reduce the font size of the para text to be half the size of the menu text
+    let Para = document.querySelector("p");
+    let menu = document.querySelectorAll("ul li a")[0];
 
-     let paras = document.querySelectorAll("p")
-     paras[0].innerText = paras[0].innerText + paras[1].innerHTML
-     paras[1].remove()
+    // note that window.getComputedStyle(menu) we use this to get all properties of that selected element
+    let menuTextSize = parseInt(window.getComputedStyle(menu).fontSize);
+
+    console.log(Para.style.fontSize = menuTextSize / 2 + "px");
+
+    // Use parseInt() → when extracting a number from a string that may contain extra text (like "200px").
+    // Use Number() → when you’re sure the string is a clean number and you care about decimals.
+
+
+    // smarter way:
+    // Select first menu item and get its font size (as number)
+    let menu1 = document.querySelector("nav ul li a");
+    let menuSize = parseFloat(getComputedStyle(menu).fontSize);
+
+    // Apply half that size to all paragraphs
+    document.querySelectorAll("p").forEach(p => {
+      p.style.fontSize = (menuSize / 2) + "px";
+    });
+
   </script>
+
 
 </body>
 
