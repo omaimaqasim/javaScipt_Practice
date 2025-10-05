@@ -144,6 +144,13 @@
       p.style.fontSize = (menuSize / 2) + "px";
     });
 
+    // exer : 03 remove  services menu item to b before the about menu item after home
+
+        let ul = document.querySelector("ul")
+        let services = document.getElementsByTagName("li")[2]
+        let about =document.getElementsByTagName("li")[1]
+        ul.insertBefore(services,about)
+      
   </script>
 
 
