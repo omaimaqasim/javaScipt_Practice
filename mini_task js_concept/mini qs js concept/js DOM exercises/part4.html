@@ -150,7 +150,30 @@
         let services = document.getElementsByTagName("li")[2]
         let about =document.getElementsByTagName("li")[1]
         ul.insertBefore(services,about)
+
+        // exer : 04 create the following  new entities in the menu : FAQs ,pricing
       
+// exer : 04 create the following new entities in the menu : FAQs , Pricing
+
+
+// Create FAQs li + anchor
+let faqs = document.createElement("li");
+let faqsLink = document.createElement("a");
+faqsLink.textContent = "FAQs";
+faqsLink.href = "#";    
+faqs.appendChild(faqsLink);
+
+// Create Pricing li + anchor
+let pricing = document.createElement("li");
+let pricingLink = document.createElement("a");
+pricingLink.textContent = "Pricing";
+pricingLink.href = "#";
+pricing.appendChild(pricingLink);
+
+// Add them to menu
+ul.append(faqs, pricing);
+
+
   </script>
 
 
