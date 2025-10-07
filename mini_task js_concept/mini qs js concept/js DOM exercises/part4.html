@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,17 +42,14 @@
 
     nav ul li {
       display: inline;
+      transition: transform 0.3s ease; /* smooth scale animation */
     }
 
     nav ul li a {
       text-decoration: none;
       color: #000;
       font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #ff4444;
+      transition: color 0.3s ease; /* smooth color animation */
     }
 
     /* Hero Section */
@@ -71,14 +69,12 @@
       right: 0;
       bottom: 0;
       background: rgba(0, 0, 0, 0.6);
-      /* dark overlay */
       z-index: 0;
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
-      /* keep text above dark overlay */
       max-width: 900px;
       margin: 0 auto;
     }
@@ -116,66 +112,61 @@
   </div>
 
   <script>
-    // exer : 1 move the contents of two paras into single para and remove all extra para 
+    // EXER 1: Merge two paragraphs into one, then remove the second
     let paras = document.querySelectorAll("p");
-    paras[0].innerText = paras[0].innerText + paras[1].innerHTML;
+    paras[0].innerText = paras[0].innerText + " " + paras[1].innerText;
     paras[1].remove();
-
-    // EXER : 02 reduce the font size of the para text to be half the size of the menu text
-    let Para = document.querySelector("p");
-    let menu = document.querySelectorAll("ul li a")[0];
-
-    // note that window.getComputedStyle(menu) we use this to get all properties of that selected element
-    let menuTextSize = parseInt(window.getComputedStyle(menu).fontSize);
-
-    console.log(Para.style.fontSize = menuTextSize / 2 + "px");
-
+    
+    // EXER 2: Reduce paragraph font size to half of menu text
     // Use parseInt() → when extracting a number from a string that may contain extra text (like "200px").
     // Use Number() → when you’re sure the string is a clean number and you care about decimals.
+    let para = document.querySelector("p");
+    let menu = document.querySelector("ul li a");
 
+    // getComputedStyle(element) → Returns all the CSS styles applied to that element (including those from external CSS files)
+    let menuTextSize = parseInt(window.getComputedStyle(menu).fontSize);
+    para.style.fontSize = menuTextSize / 2 + "px";
 
-    // smarter way:
-    // Select first menu item and get its font size (as number)
-    let menu1 = document.querySelector("nav ul li a");
-    let menuSize = parseFloat(getComputedStyle(menu).fontSize);
+    // EXER 3: Move "Services" before "About"
+    const ul = document.querySelector("ul");
+    const about = [...ul.children].find(li => li.textContent.includes("About"));
+    const services = [...ul.children].find(li => li.textContent.includes("Services"));
+    if (services && about) {
+      ul.insertBefore(services, about);
+    }
 
-    // Apply half that size to all paragraphs
-    document.querySelectorAll("p").forEach(p => {
-      p.style.fontSize = (menuSize / 2) + "px";
+    // EXER 4: Create new menu items "FAQs" and "Pricing"
+    let faqs = document.createElement("li");
+    let faqsLink = document.createElement("a");
+    faqsLink.textContent = "FAQs";
+    faqsLink.href = "#";
+    faqs.appendChild(faqsLink);
+
+    let pricing = document.createElement("li");
+    let pricingLink = document.createElement("a");
+    pricingLink.textContent = "Pricing";
+    pricingLink.href = "#";
+    pricing.appendChild(pricingLink);
+
+    ul.append(faqs, pricing);
+
+    // EXER 5: Add hover effect (color + size change)
+    let menuItems = document.querySelectorAll("li");
+
+    menuItems.forEach(item => {
+      const link = item.querySelector("a");
+
+      item.addEventListener("mouseover", () => {
+        link.style.color = "red"; // only this hovered one changes color
+        item.style.transform = "scale(1.2)"; // only this hovered one zooms
+      });
+
+      item.addEventListener("mouseout", () => {
+        link.style.color = "";
+        item.style.transform = "scale(1)";
+      });
     });
-
-    // exer : 03 remove  services menu item to b before the about menu item after home
-
-        let ul = document.querySelector("ul")
-        let services = document.getElementsByTagName("li")[2]
-        let about =document.getElementsByTagName("li")[1]
-        ul.insertBefore(services,about)
-
-        // exer : 04 create the following  new entities in the menu : FAQs ,pricing
-      
-// exer : 04 create the following new entities in the menu : FAQs , Pricing
-
-
-// Create FAQs li + anchor
-let faqs = document.createElement("li");
-let faqsLink = document.createElement("a");
-faqsLink.textContent = "FAQs";
-faqsLink.href = "#";    
-faqs.appendChild(faqsLink);
-
-// Create Pricing li + anchor
-let pricing = document.createElement("li");
-let pricingLink = document.createElement("a");
-pricingLink.textContent = "Pricing";
-pricingLink.href = "#";
-pricing.appendChild(pricingLink);
-
-// Add them to menu
-ul.append(faqs, pricing);
-
-
   </script>
-
 
 </body>
 
