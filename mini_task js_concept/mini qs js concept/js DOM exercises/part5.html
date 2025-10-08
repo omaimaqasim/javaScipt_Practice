@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Board</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #0055ff, #3a3aff);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+    }
+
+    .header p {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .job-info {
+      margin-top: 20px;
+    }
+
+    .job-info h2 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .search-box select,
+    .search-box input {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .search-box input {
+      width: 200px;
+    }
+
+    /* Job Cards */
+    .jobs {
+      padding: 20px;
+      display: grid;
+      gap: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .job-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .job-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .salary {
+      color: #0055ff;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Job Board</h1>
+    <p>Find your dream job.</p>
+    <div class="job-info">
+      <h2>300 Jobs Listed</h2>
+      <div class="search-box">
+        <select>
+          <option>All Jobs</option>
+          <option>Software Engineer</option>
+          <option>Frontend Developer</option>
+          <option>Designer</option>
+        </select>
+        <input type="text" placeholder="Search jobs...">
+      </div>
+    </div>
+  </header>
+
+  <main class="jobs">
+    <div class="job-card">
+      <h3>Software Engineer</h3>
+      <p class="salary">$50,000</p>
+      <ul>
+        <li>Node.js</li>
+        <li>Git</li>
+        <li>AWS</li>
+      </ul>
+    </div>
+
+ 
+ 
+        <script>
+            // exer : 01 add three additional jaobs to the jobs section of the page
+            // by copying the template  in the initial "job-card"
+
+            let job_card = document.querySelector(".job-card")
+            let job_card2 = job_card.cloneNode(true)
+            let job_card3 = job_card.cloneNode(true)
+            let jobs = document.querySelector(".jobs")
+            jobs.insertAdjacentElement("beforeend",job_card2)
+            jobs.insertAdjacentElement("beforeend",job_card3)
+
+            // exercise no 2 : update the job titles of the new jobs to be :
+            // js developer , python developer
+
+          
+               
+        
+
+        </script>
+    
+  </body>
