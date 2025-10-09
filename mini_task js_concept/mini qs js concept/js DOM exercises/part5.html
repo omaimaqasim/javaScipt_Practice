@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,15 +95,16 @@
       font-weight: bold;
       margin-bottom: 10px;
     }
-
   </style>
 </head>
+
 <body>
   <header class="header">
     <h1>Job Board</h1>
     <p>Find your dream job.</p>
     <div class="job-info">
-      <h2>300 Jobs Listed</h2>
+
+      <h2><span>300</span> Jobs Listed</h2>
       <div class="search-box">
         <select>
           <option>All Jobs</option>
@@ -126,26 +128,41 @@
       </ul>
     </div>
 
- 
- 
-        <script>
-            // exer : 01 add three additional jaobs to the jobs section of the page
-            // by copying the template  in the initial "job-card"
 
-            let job_card = document.querySelector(".job-card")
-            let job_card2 = job_card.cloneNode(true)
-            let job_card3 = job_card.cloneNode(true)
-            let jobs = document.querySelector(".jobs")
-            jobs.insertAdjacentElement("beforeend",job_card2)
-            jobs.insertAdjacentElement("beforeend",job_card3)
 
-            // exercise no 2 : update the job titles of the new jobs to be :
-            // js developer , python developer
+    <script>
+      // exer : 01 add three additional jaobs to the jobs section of the page
+      // by copying the template  in the initial "job-card"
 
-          
-               
-        
+      let job_card = document.querySelector(".job-card")
+      let job_card2 = job_card.cloneNode(true)
+      let job_card3 = job_card.cloneNode(true)
+      let jobs = document.querySelector(".jobs")
+      jobs.insertAdjacentElement("beforeend", job_card2)
+      jobs.insertAdjacentElement("beforeend", job_card3)
 
-        </script>
-    
-  </body>
+      // exercise no 2 : update the job titles of the new jobs to be :
+      // js developer , python developer
+      job_card2.querySelector("h3").textContent = "js developer"
+      job_card3.querySelector("h3").textContent = "Python developer"
+
+
+      // exercise no 3 : update the number of jobs listed in the hero section
+      // to indicate how many jobs you have listed in the "jobs section"
+
+
+      let totalJobs = document.querySelector(".job-info span")
+      document.querySelector(".job-info span").textContent = "50"
+
+      // exercise no 4 : configure the search input box to filter jobs listed to only
+      // match the text that has beeb provided in the search . check for the search 
+      // text in the job title heading 
+
+
+
+
+
+
+    </script>
+
+</body>
