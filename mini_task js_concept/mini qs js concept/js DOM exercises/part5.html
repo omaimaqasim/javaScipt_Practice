@@ -158,7 +158,22 @@
       // match the text that has beeb provided in the search . check for the search 
       // text in the job title heading 
 
+      let search_input = document.querySelector(".search-box input");
+      let allJobs = document.querySelectorAll(".job-card");
 
+      search_input.addEventListener("input", () => {
+        let searchText = search_input.value.toLowerCase();
+
+        allJobs.forEach(job => {
+          let title = job.querySelector("h3").textContent.toLowerCase();
+
+          if (title.includes(searchText)) {
+            job.style.display = "block"; // show job if match found
+          } else {
+            job.style.display = "none"; // hide if no match
+          }
+        });
+      });
 
 
 
