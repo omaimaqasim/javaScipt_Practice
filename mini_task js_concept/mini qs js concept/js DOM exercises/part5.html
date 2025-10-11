@@ -127,57 +127,54 @@
         <li>AWS</li>
       </ul>
     </div>
+  </main>
 
+  <script>
+    // Exercise 1: Add three additional jobs by cloning the initial job-card
+    let job_card = document.querySelector(".job-card");
+    let job_card2 = job_card.cloneNode(true);
+    let job_card3 = job_card.cloneNode(true);
+    let jobs = document.querySelector(".jobs");
 
+    jobs.insertAdjacentElement("beforeend", job_card2);
+    jobs.insertAdjacentElement("beforeend", job_card3);
 
-    <script>
-      // exer : 01 add three additional jaobs to the jobs section of the page
-      // by copying the template  in the initial "job-card"
+    // Exercise 2: Update the job titles
+    job_card2.querySelector("h3").textContent = "JS Developer";
+    job_card3.querySelector("h3").textContent = "Python Developer";
 
-      let job_card = document.querySelector(".job-card")
-      let job_card2 = job_card.cloneNode(true)
-      let job_card3 = job_card.cloneNode(true)
-      let jobs = document.querySelector(".jobs")
-      jobs.insertAdjacentElement("beforeend", job_card2)
-      jobs.insertAdjacentElement("beforeend", job_card3)
+    // Exercise 3: Update the total number of jobs listed
+    let totalJobs = document.querySelector(".job-info span");
+    totalJobs.textContent = document.querySelectorAll(".job-card").length;
 
-      // exercise no 2 : update the job titles of the new jobs to be :
-      // js developer , python developer
-      job_card2.querySelector("h3").textContent = "js developer"
-      job_card3.querySelector("h3").textContent = "Python developer"
+    // Exercise 4: Filter jobs based on search input
+    let search_input = document.querySelector(".search-box input");
+    let allJobs = document.querySelectorAll(".job-card");
 
+    search_input.addEventListener("input", () => {
+      let searchText = search_input.value.toLowerCase();
 
-      // exercise no 3 : update the number of jobs listed in the hero section
-      // to indicate how many jobs you have listed in the "jobs section"
+      allJobs.forEach(job => {
+        let title = job.querySelector("h3").textContent.toLowerCase();
 
-
-      let totalJobs = document.querySelector(".job-info span")
-      document.querySelector(".job-info span").textContent = "50"
-
-      // exercise no 4 : configure the search input box to filter jobs listed to only
-      // match the text that has beeb provided in the search . check for the search 
-      // text in the job title heading 
-
-      let search_input = document.querySelector(".search-box input");
-      let allJobs = document.querySelectorAll(".job-card");
-
-      search_input.addEventListener("input", () => {
-        let searchText = search_input.value.toLowerCase();
-
-        allJobs.forEach(job => {
-          let title = job.querySelector("h3").textContent.toLowerCase();
-
-          if (title.includes(searchText)) {
-            job.style.display = "block"; // show job if match found
-          } else {
-            job.style.display = "none"; // hide if no match
-          }
-        });
+        if (title.includes(searchText)) {
+          job.style.display = "block"; // show job if match found
+        } else {
+          job.style.display = "none"; // hide if no match
+        }
       });
+    });
 
+    // Exercise 5: Configure the select dropdown to reset or filter jobs
+    let select = document.querySelector(".search-box select");
 
-
-
-    </script>
+    select.addEventListener("change", () => {
+      if (select.value==="All Jobs") {
+        search_input.value === ""
+      }
+    });
+  </script>
 
 </body>
+
+</html>
