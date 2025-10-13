@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Exercise 06</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #111;
+            color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            background: #1c1c1c;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 12px 20px;
+            text-align: left;
+        }
+
+        thead {
+            background: #222;
+        }
+
+        tr:nth-child(even) {
+            background: #2a2a2a;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Samuel</td>
+                <td>Johnson</td>
+                <td>@samjohnson</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Sally</td>
+                <td>Simpson</td>
+                <td>@ssimpson</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Leona</td>
+                <td>Dixon</td>
+                <td>@ldixon</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Rosa</td>
+                <td>Reed</td>
+                <td>@rreed</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        /*
+        Exercise 01
+        ------------
+        Add a new row to the table with the details:
+        'Sean Reyes' (@sreyes)
+        */
+        let t_body = document.querySelector("tbody")
+        let tr = document.createElement("tr")
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let td3 = document.createElement("td");
+        let td4 = document.createElement("td");
+        td1.textContent = "5";
+        td2.textContent = "Sean";
+        td3.textContent = "Reyes";
+        td4.textContent = "@sreyes";
+        tr.append(td1,td2,td3,td4)
+        t_body.appendChild(tr)
+
+
+
+    </script>
+</body>
+
+</html>

@@ -165,14 +165,21 @@
       });
     });
 
-    // Exercise 5: Configure the select dropdown to reset or filter jobs
-    let select = document.querySelector(".search-box select");
+ // Exercise 5: Configure the select dropdown to reset or filter jobs
+let select = document.querySelector(".search-box select");
 
-    select.addEventListener("change", () => {
-      if (select.value==="All Jobs") {
-        search_input.value === ""
-      }
-    });
+// ✅ Make it a function
+function displayAllJobs(e) {
+  if (select.value === "All Jobs") {
+    search_input.value = "";
+    Array.from(allJobs).forEach(job => job.style.display = "block");
+  }
+}
+
+// ✅ Apply to both events
+select.addEventListener("change", displayAllJobs);
+select.addEventListener("click", displayAllJobs);
+
   </script>
 
 </body>
