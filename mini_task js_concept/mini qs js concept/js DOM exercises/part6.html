@@ -85,18 +85,17 @@
         Add a new row to the table with the details:
         'Sean Reyes' (@sreyes)
         */
-        let t_body = document.querySelector("tbody")
-        let tr = document.createElement("tr")
-        let td1 = document.createElement("td");
-        let td2 = document.createElement("td");
-        let td3 = document.createElement("td");
-        let td4 = document.createElement("td");
-        td1.textContent = "5";
-        td2.textContent = "Sean";
-        td3.textContent = "Reyes";
-        td4.textContent = "@sreyes";
-        tr.append(td1,td2,td3,td4)
-        t_body.appendChild(tr)
+        let t_body = document.querySelector("tbody");
+        let tr = document.createElement("tr");
+        ["5", "Sean", "Reyes", "@sreyes"].forEach(td_text => {
+            const td = document.createElement("td");
+            td.textContent = td_text;
+            tr.append(td);
+        });
+        t_body.appendChild(tr);
+        // exercise no 2 : update leona dixons dandle to @dixonal
+
+     let thirdROw  =   Array.from(t_body.children[2].children)
 
 
 
