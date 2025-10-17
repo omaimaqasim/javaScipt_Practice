@@ -115,6 +115,15 @@
             td.textContent = i+1
           })
 
+        //   exercise no 4 : move the handle col including all of its rows of content 
+        // to be the second col in the table (after the # col )
+        let headerRow = document.querySelector("thead tr");
+        let lastcol = document.querySelectorAll("tbody tr td:nth-child(4)")
+        let sec_col = document.querySelectorAll("tbody tr td:nth-child(2)") 
+
+        headerRow.insertBefore(headerRow.children[3],headerRow.children[1])
+
+
     </script>
 </body>
 
