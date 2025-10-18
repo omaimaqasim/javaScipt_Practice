@@ -118,10 +118,15 @@
         //   exercise no 4 : move the handle col including all of its rows of content 
         // to be the second col in the table (after the # col )
         let headerRow = document.querySelector("thead tr");
-        let lastcol = document.querySelectorAll("tbody tr td:nth-child(4)")
-        let sec_col = document.querySelectorAll("tbody tr td:nth-child(2)") 
+        let body_rows = document.querySelectorAll("tbody tr")
 
         headerRow.insertBefore(headerRow.children[3],headerRow.children[1])
+        Array.from(body_rows).forEach(row=>{
+            row.insertBefore(row.children[3],row.children[1])
+        })
+
+        // remember that insertbefore only works with one element exchange 
+
 
 
     </script>
