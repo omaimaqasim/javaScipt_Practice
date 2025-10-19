@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: #111;
+            background: #111111;
             color: #eee;
             display: flex;
             justify-content: center;
@@ -87,48 +87,54 @@
         */
         let t_body = document.querySelector("tbody");
         let tr = document.createElement("tr");
+
         ["5", "Sean", "Reyes", "@sreyes"].forEach(td_text => {
             const td = document.createElement("td");
             td.textContent = td_text;
             tr.append(td);
         });
+
         t_body.appendChild(tr);
-        // exercise no 2 : update leona dixons dandle to @dixonal
 
-     let thirdROw  =   Array.from(t_body.children[2].children)
-      thirdROw.slice(-1)[0].textContent = "@dixonal"
+        // exercise no 2 : update leona dixons handle to @dixonal
+        let thirdROw = Array.from(t_body.children[2].children)
+        thirdROw.slice(-1)[0].textContent = "@dixonal"
 
-    //   you can also target 5th tr by this
-    let  fifthRow = document.querySelector("tbody tr:nth-child(5) td:nth-child(4)")
+        // you can also target 5th tr by this
+        let fifthRow = document.querySelector("tbody tr:nth-child(5) td:nth-child(4)")
         fifthRow.textContent = "@reyesss"
 
         // exercise no 3 : move rosa reed to the top of the table and
-        // ensure all the number entries in the first col are updated 
-        // accordingly 
-
+        // ensure all the number entries in the first col are updated accordingly 
         let roseRow = document.querySelector("tbody tr:nth-child(4)")
-          t_body.insertAdjacentElement("afterbegin",roseRow)
+        t_body.insertAdjacentElement("afterbegin", roseRow)
 
-          let index = document.querySelectorAll("tbody tr td:first-child")
+        let index = document.querySelectorAll("tbody tr td:first-child")
+        Array.from(index).forEach((td, i) => {
+            td.textContent = i + 1
+        })
 
-          Array.from(index).forEach((td,i)=>{
-            td.textContent = i+1
-          })
-
-        //   exercise no 4 : move the handle col including all of its rows of content 
+        // exercise no 4 : move the handle col including all of its rows of content 
         // to be the second col in the table (after the # col )
         let headerRow = document.querySelector("thead tr");
         let body_rows = document.querySelectorAll("tbody tr")
 
-        headerRow.insertBefore(headerRow.children[3],headerRow.children[1])
-        Array.from(body_rows).forEach(row=>{
-            row.insertBefore(row.children[3],row.children[1])
+        headerRow.insertBefore(headerRow.children[3], headerRow.children[1])
+        Array.from(body_rows).forEach(row => {
+            row.insertBefore(row.children[3], row.children[1])
         })
 
         // remember that insertbefore only works with one element exchange 
 
+        // exercise : 05 to make the table easier to read make every other
+        // row on the table to have a darker ,shaded color 
+        let allRows = document.querySelectorAll("table tr")
 
-
+        Array.from(allRows).forEach((row, index) => {
+            if (index % 2 === 0) {
+                row.style.backgroundColor = "#184f06"
+            }
+        })
     </script>
 </body>
 
