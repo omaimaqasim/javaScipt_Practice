@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>part 4 </title>
+</head>
+<body>
+    <script>
+        const users = [
+  {
+    id: "e0a0afb1-8ac6-48d4-99ee-12af8ddcbdae",
+    email: "tcasaletto08@soundcloud.com",
+    ip_address: "53.215.156.73"
+  },
+  {
+    id: "a7b0221d-5228-4992-a964-b5f3e3d7a022",
+    email: "nmoffett10@paginaegialle.it",
+    ip_address: "34.81.219.4"
+  },
+  {
+    id: "1019b52c-db9d-45a2-975f-40445592a56a",
+    email: "rcrampin20@yale.edu",
+    ip_address: "65.181.114.151"
+  },
+  {
+    id: "7b24d915-3a2f-4d56-9378-4e45dbf60f8f",
+    email: "lfranklin33@outlook.com",
+    ip_address: "192.168.1.47"
+  },
+  {
+    id: "9c3e16b2-71cc-4eb8-b4ef-15b0e2f9c6d1",
+    email: "sroberts44@gmail.com",
+    ip_address: "172.58.102.89"
+  },
+  {
+    id: "5a89b5ce-2e6b-4e24-92f9-9b13e7a04f0b",
+    email: "mjames55@yahoo.com",
+    ip_address: "10.12.54.203"
+  },
+  {
+    id: "f3b5a618-29a3-4d5d-9c73-2c80e6c9b4fa",
+    email: "hpatel66@protonmail.com",
+    ip_address: "83.102.77.165"
+  }
+];
+
+// exercise no 1 : chek wether every email address in the list of user
+// is valid (get a true or false value)
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+     users.every(user=>{
+         user.email.test(emailPattern) ? true : false
+     })
+
+    </script>
+</body>
+</html>
