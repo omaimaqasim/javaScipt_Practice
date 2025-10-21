@@ -45,14 +45,25 @@
   }
 ];
 
-// exercise no 1 : chek wether every email address in the list of user
+// exercise no 1 : check whether every email address in the list of user
 // is valid (get a true or false value)
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-     users.every(user=>{
-         user.email.test(emailPattern) ? true : false
+   let email_validation =   users.every(user=>{
+    // .test return true or false 
+        return  emailPattern.test(user.email) 
      })
+
+     console.log(email_validation)
+
+    //  exercise no 2 : find out how many users have an IP address 
+    // in a class A network  hint : “Go through all users and count how many have an IP address whose first part is between 1 and 126.”
+     
+       users.forEach(user=>{
+        let first_number = user.ip_address.split(".")[0]
+        
+       })
 
     </script>
 </body>
