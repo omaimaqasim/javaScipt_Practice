@@ -83,8 +83,24 @@
     const classACount = users.filter(u => +u.ip_address.split('.')[0] <= 126 && +u.ip_address.split('.')[0] >= 1).length;
     console.log(`There are ${classACount} Class A IP addresses.`);
 
+    // exercise no 3 : find the position in the array of the first 
+    // user object that has a class B ip address + = Number()
+
+    // this will find user 
+    const firstB_user = users.find(user => +user.ip_address.split(".")[0] >= 128 && +user.ip_address.split(".")[0] <= 191)
+    console.log(firstB_user)
+
+    //  this will find its position mean index
+    const firstB_index = users.findIndex(user => {
+      const firstOctet = Number(user.ip_address.split(".")[0]);
+      return firstOctet >= 128 && firstOctet <= 191;
+    });
+
+    console.log(firstB_index);
 
   </script>
+
+
 </body>
 
 </html>
