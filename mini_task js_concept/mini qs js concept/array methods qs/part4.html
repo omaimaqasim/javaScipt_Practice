@@ -98,7 +98,12 @@
 
     console.log(firstB_index);
 
-  </script>
+    // exercise no : 04 find the user object that has the soundcloud 
+    // email address 
+
+     let extract_email = users.find(u=>u.email.split("@")[u.email.split("@").length-1] ==="soundcloud.com")
+       console.log(extract_email)
+</script>
 
 
 </body>
