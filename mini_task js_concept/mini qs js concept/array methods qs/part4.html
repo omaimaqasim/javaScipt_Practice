@@ -9,7 +9,7 @@
 
 <body>
   <script>
-    const users = [
+    let users = [
       {
         id: "e0a0afb1-8ac6-48d4-99ee-12af8ddcbdae",
         email: "tcasaletto08@soundcloud.com",
@@ -103,6 +103,12 @@
 
      let extract_email = users.find(u=>u.email.split("@")[u.email.split("@").length-1] ==="soundcloud.com")
        console.log(extract_email)
+
+      // exercise no 05 : replace all the items in an array with a string value of deleted
+       let  currentUsers = users.forEach((user,index)=>{
+            users[index] = "deleted"
+       })
+      //  replace and replace all is only used for string 
 </script>
 
 
