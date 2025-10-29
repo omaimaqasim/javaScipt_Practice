@@ -169,7 +169,7 @@
         // .includes() only checks the first (top) level of the array.
         // Since "consectetur" is inside a nested array, it returns false.
         // Use .flat() first to make it one-dimensional before using .includes().
-    //   1D array mean one dimentional array that does not contain any nested array
+        //   1D array mean one dimentional array that does not contain any nested array
 
 
 
@@ -180,6 +180,14 @@
          * 
          * Get a list of all the tags for all the accounts and join them together as a string separated by commas.
          */
+
+        let all_tags_acc = accounts.reduce((acc, account) => {
+            return acc.concat(account.tags.flat())
+        }, [])
+        console.log(all_tags_acc.join(" , "))
+
+        //  From this qn i learn  : ✅ Before inserting anything, acc = initial value.
+        // Then, after each iteration, the returned value replaces acc. 
 
 
 
