@@ -189,18 +189,16 @@
         //  From this qn i learn  : ✅ Before inserting anything, acc = initial value.
         // Then, after each iteration, the returned value replaces acc. 
 
-
-
-
-
-
-
-
         /**
          * Exercise 04
          * 
          * Get a list of all the friends for all the user's accounts as an array (don't worry about duplicates)
          */
+
+         let extractFriends = accounts.reduce( (acc,account)=>{
+            return acc.concat(account.friends.map(f=>f.name)) 
+         },[])
+         console.log(extractFriends)
 
 
 
