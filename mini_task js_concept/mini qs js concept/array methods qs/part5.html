@@ -202,17 +202,24 @@
 
 
 
-
-
-
-
-
-
         /**
          * Exercise 05
          * 
          * Get a list of all the friends for all users who are younger than 30 AND have a balance more than $1500
          */
+
+         let getFriends = accounts.filter(acc=>{
+             let age = acc.age
+             let balance = parseInt(acc.balance.replace(/[$,]/g, ""))
+             if () {
+                // will solve tomorrow
+             }
+         })
+
+        //  from this qn i learn that if we want to convert clean number string into specific 
+        // number then use parseint but if you dont concern about weather it convert into float or string
+        // then use number but most important in both conversion first you have to remove 
+        // special char
     </script>
 
 </body>
