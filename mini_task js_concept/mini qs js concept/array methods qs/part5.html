@@ -211,15 +211,18 @@
          let getFriends = accounts.filter(acc=>{
              let age = acc.age
              let balance = parseInt(acc.balance.replace(/[$,]/g, ""))
-             if () {
-                // will solve tomorrow
+             if (age<30 && balance>1500) {
+                return acc
              }
-         })
+         })[0].flatMap(acc => acc.friends.map(f => f.name))
+         console.log(getFriends)
 
         //  from this qn i learn that if we want to convert clean number string into specific 
         // number then use parseint but if you dont concern about weather it convert into float or string
         // then use number but most important in both conversion first you have to remove 
         // special char
+        // and i also learn what flatmap do first i make new array after doing something
+        // with original array then flat all nested arrays in map make it 1d array
     </script>
 
 </body>
