@@ -18,15 +18,15 @@
         // Exercise 01
         // Using a regex pattern, get the 3 letter words in the ex1 string.
 
-          let extract3  = ex1.match(/\b[a-zA-z]{3}\b/g)
-          console.log(extract3)
+        let extract3 = ex1.match(/\b[a-zA-z]{3}\b/g)
+        console.log(extract3)
 
 
 
         // Exercise 02
         // Using a regex pattern, remove all of the numbers from the ex2 string.
 
-        let removeNo = ex2.replace(/[0-9]/g , '')
+        let removeNo = ex2.replace(/[0-9]/g, '')
         console.log(removeNo)
 
 
@@ -34,6 +34,8 @@
         // Exercise 03
         // Using a regex pattern, find the monetary value contained within the ex3 string.
 
+        let monetaryValue = ex3.match(/\$\d+(\.\d+)?/g);
+        console.log(monetaryValue);
 
 
 
