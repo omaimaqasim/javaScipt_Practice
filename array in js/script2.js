@@ -120,3 +120,8 @@ if (/^[a-zA-Z]/.test(new_username)) {
 // e) Print the length of the cleaned username
 let cleaned_username = username.trim();
 console.log("Length of cleaned username is:", cleaned_username.length);
+
+
+// remember this if we use refrence like a=b then if we change anyone 
+// of that array i change both array but if we use spread array then it make other 
+// variable independed if we change b then it does not affected first array 

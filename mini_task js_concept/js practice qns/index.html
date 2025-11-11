@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js</title>
-</head>
-<body>
-    <script>
-        // Write a function that takes an integer minutes and converts it to seconds.
-          function convertToSec(min) {
-            return min*60
-          }
-          console.log(convertToSec(2))
 
-          // Create a function that takes the age in years and returns the age in days
-         let ageInDays = (age)=> age>=0 ? age*365 : undefined
-          console.log(ageInDays(3))
-    </script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js</title>
+</head>
+
+<body>
+  <script>
+    // Write a function that takes an integer minutes and converts it to seconds.
+    function convertToSec(min) {
+      return min * 60
+    }
+    console.log(convertToSec(2))
+
+    // Create a function that takes the age in years and returns the age in days
+    let ageInDays = (age) => age >= 0 ? age * 365 : undefined
+    console.log(ageInDays(3))
+
+    // exer 03 : Create a function which returns the number of true values there are in an array.
+
+    let countTrue = (arr) => arr.filter(v => v == true).length
+    console.log(countTrue([true, false, true, false, true]))
+
+    // exer:04 Write a function redundant that takes in a string str and returns a function that returns str.
+
+    let redundant = (str) => {
+      return function () {
+        return str
+      }
+    }
+    let name = redundant("ummi")
+    console.log(name)
+
+    // exer 05 :In a board game, a piece may advance 1–6 tiles forward depending on the number rolled on a six-sided die. If you advance your piece onto the same tile as another player's piece, both of you earn a bonus.
+    // Create a function that takes your position a and your friend's position b and returns a boolean value (true or false) representing whether it's possible to earn a bonus on any die roll.
+ 
+    let checkposs = (PositionA,positionB)=>{
+       let diff = positionB-PositionA
+       if (PositionA<positionB && (diff<=6 && diff>=1) ) {
+         return true
+       }
+       else{
+        return false
+       }
+    }
+
+    console.log(checkposs(1,6))
+    console.log(checkposs(2,1))
+    console.log(checkposs(1,1))
+ </script>
 </body>
+
 </html>
