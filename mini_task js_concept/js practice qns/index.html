@@ -50,6 +50,16 @@
     console.log(checkposs(1,6))
     console.log(checkposs(2,1))
     console.log(checkposs(1,1))
+
+    // exer no 6 :Write a function that mimics (without the use of >>) the right shift operator and returns the result from the two given integers.
+    // 80 >> 3 = floor(80/2^3) = floor(80/8) = 10 this is example
+
+    let shiftToRight = (num,power)=>{
+           
+      return Math.floor(num/(2**power))
+    }
+
+    console.log(shiftToRight(80,3))
  </script>
 </body>
 
