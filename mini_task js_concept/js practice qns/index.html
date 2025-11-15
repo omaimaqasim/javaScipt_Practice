@@ -36,38 +36,104 @@
 
     // exer 05 :In a board game, a piece may advance 1–6 tiles forward depending on the number rolled on a six-sided die. If you advance your piece onto the same tile as another player's piece, both of you earn a bonus.
     // Create a function that takes your position a and your friend's position b and returns a boolean value (true or false) representing whether it's possible to earn a bonus on any die roll.
- 
-    let checkposs = (PositionA,positionB)=>{
-       let diff = positionB-PositionA
-       if (PositionA<positionB && (diff<=6 && diff>=1) ) {
-         return true
-       }
-       else{
+
+    let checkposs = (PositionA, positionB) => {
+      let diff = positionB - PositionA
+      if (PositionA < positionB && (diff <= 6 && diff >= 1)) {
+        return true
+      }
+      else {
         return false
-       }
+      }
     }
 
-    console.log(checkposs(1,6))
-    console.log(checkposs(2,1))
-    console.log(checkposs(1,1))
+    console.log(checkposs(1, 6))
+    console.log(checkposs(2, 1))
+    console.log(checkposs(1, 1))
 
     // exer no 6 :Write a function that mimics (without the use of >>) the right shift operator and returns the result from the two given integers.
     // 80 >> 3 = floor(80/2^3) = floor(80/8) = 10 this is example
 
-    let shiftToRight = (num,power)=>{
-           
-      return Math.floor(num/(2**power))
+    let shiftToRight = (num, power) => {
+
+      return Math.floor(num / (2 ** power))
     }
 
-    console.log(shiftToRight(80,3))
+    console.log(shiftToRight(80, 3))
 
     // exer : According to the lodash documentation, _.compact creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are falsey.
-// Your task is to build this helper function without using lodash. You will write a function that receives an array and removes all falsey values.
-   let arr = [1,"",false,NaN,3,"ummi",undefined]
+    // Your task is to build this helper function without using lodash. You will write a function that receives an array and removes all falsey values.
+    let arr = [1, "", false, NaN, 3, "ummi", undefined]
 
-   let removefalsey =(array)=> array.filter(e=> e)
-   console.log(removefalsey(arr))
- </script>
+    let removefalsey = (array) => array.filter(e => e)
+    console.log(removefalsey(arr))
+
+    //  exer : Create a function that takes a number x and a character y ("m" for male, "f" for female), and returns the name of an ancestor (m/f) or descendant (m/f).
+    // If the number is negative, return the related ancestor.
+    // If positive, return the related descendant.
+    // You are generation 0. In the case of 0 (male or female), return "me!".
+
+    let checkAnces_desc = (num, char) => {
+      let gender = char.toLowerCase()
+      if (num == 0) {
+        console.log("me!")
+      }
+
+      else if (num == 1) {
+        if (gender == 'm') {
+          console.log("son")
+        }
+        else {
+          console.log("female")
+        }
+      }
+      else if (num == 2) {
+        if (gender == 'm') {
+          console.log("grand son")
+        }
+        else {
+          console.log("grand daughter")
+        }
+      }
+      else if (num == 3) {
+        if (gender == 'm') {
+          console.log("great grand son")
+        }
+        else {
+          console.log("great grand daughter")
+        }
+      }
+      else if (num == -1) {
+        if (gender == 'm') {
+          console.log("father")
+        }
+        else {
+          console.log("mother")
+        }
+      }
+      else if (num == -2) {
+        if (gender == 'm') {
+          console.log("grand father")
+        }
+        else {
+          console.log(" grand mother")
+        }
+      }
+      else if (num == -3) {
+        if (gender == 'm') {
+          console.log("great grand father")
+        }
+        else {
+          console.log("great grand mother")
+        }
+      }
+      else{
+        console.log("enter correct num")
+      }
+    }
+
+    console.log(checkAnces_desc(0,'m'))
+  </script>
 </body>
 
 </html>
