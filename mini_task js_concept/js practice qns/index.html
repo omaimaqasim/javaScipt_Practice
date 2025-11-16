@@ -73,66 +73,38 @@
     // If positive, return the related descendant.
     // You are generation 0. In the case of 0 (male or female), return "me!".
 
-    let checkAnces_desc = (num, char) => {
-      let gender = char.toLowerCase()
-      if (num == 0) {
-        console.log("me!")
-      }
+  let checkAnces_desc = (num, char) => {
+  let gender = char.toLowerCase();
 
-      else if (num == 1) {
-        if (gender == 'm') {
-          console.log("son")
-        }
-        else {
-          console.log("female")
-        }
-      }
-      else if (num == 2) {
-        if (gender == 'm') {
-          console.log("grand son")
-        }
-        else {
-          console.log("grand daughter")
-        }
-      }
-      else if (num == 3) {
-        if (gender == 'm') {
-          console.log("great grand son")
-        }
-        else {
-          console.log("great grand daughter")
-        }
-      }
-      else if (num == -1) {
-        if (gender == 'm') {
-          console.log("father")
-        }
-        else {
-          console.log("mother")
-        }
-      }
-      else if (num == -2) {
-        if (gender == 'm') {
-          console.log("grand father")
-        }
-        else {
-          console.log(" grand mother")
-        }
-      }
-      else if (num == -3) {
-        if (gender == 'm') {
-          console.log("great grand father")
-        }
-        else {
-          console.log("great grand mother")
-        }
-      }
-      else{
-        console.log("enter correct num")
-      }
-    }
+  if (num == 0) {
+    return "me!";
+  }
+  else if (num == 1) {
+    return gender == 'm' ? "son" : "daughter";
+  }
+  else if (num == 2) {
+    return gender == 'm' ? "grandson" : "granddaughter";
+  }
+  else if (num == 3) {
+    return gender == 'm' ? "great grandson" : "great granddaughter";
+  }
+  else if (num == -1) {
+    return gender == 'm' ? "father" : "mother";
+  }
+  else if (num == -2) {
+    return gender == 'm' ? "grandfather" : "grandmother";
+  }
+  else if (num == -3) {
+    return gender == 'm' ? "great grandfather" : "great grandmother";
+  }
+  else {
+    return "enter correct num";
+  }
+}
 
-    console.log(checkAnces_desc(0,'m'))
+console.log(checkAnces_desc(0, 'm')); // ➞ "me!"
+console.log(checkAnces_desc(2, 'f')); // ➞ "granddaughter"
+
   </script>
 </body>
 
