@@ -110,6 +110,18 @@ console.log(checkAnces_desc(2, 'f')); // ➞ "granddaughter"
 
 // all keys in obj are string even if you write num it convert it into string
 
+// exer : Write a function that converts an object into an array, where each element represents a key-value pair in the form of an array.
+
+let convertToArray = (obj)=>{
+  let arr = []
+  Object.keys(obj).forEach(key=>{
+    arr.push([key,obj[key]])
+  })
+  return arr
+}
+
+console.log(convertToArray({name:"ummi",class:9}))
+
   </script>
 </body>
 
