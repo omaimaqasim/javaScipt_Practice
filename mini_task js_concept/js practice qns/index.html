@@ -119,8 +119,19 @@ let convertToArray = (obj)=>{
   })
   return arr
 }
+//Object.entries(obj) takes an object and returns an array of key–value pairs.
 
 console.log(convertToArray({name:"ummi",class:9}))
+
+// exer : Create a function that takes a "base number" as an argument. This function should return another function which takes a new argument, and returns the sum of the "base number" and the new argument.
+
+     let addBase = (baseNo)=>{
+        return function add(secondNo=22) {
+              return baseNo+secondNo
+        }
+     }
+
+     console.log(addBase(10))
 
   </script>
 </body>
