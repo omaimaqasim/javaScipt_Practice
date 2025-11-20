@@ -125,14 +125,18 @@ console.log(convertToArray({name:"ummi",class:9}))
 
 // exer : Create a function that takes a "base number" as an argument. This function should return another function which takes a new argument, and returns the sum of the "base number" and the new argument.
 
-     let addBase = (baseNo)=>{
-        return function add(secondNo=22) {
-              return baseNo+secondNo
-        }
-     }
+      let addBase = (baseNo)=>{
+          function add(secondNo=22) {
+                return baseNo+secondNo
+          }
+          return add
+      }
 
-     console.log(addBase(10))
+      console.log(addBase(10)(33))
 
+    //  what i learn from this qn : “So add returns the whole function, but add() returns the result of that function. add() runs immediately, but add lets us call it later.”
+//     Yes — you can always change the default parameter value later by passing a new value.
+// Defaults are used only when you don’t provide a value.
   </script>
 </body>
 
