@@ -144,9 +144,15 @@ console.log(convertToArray({name:"ummi",class:9}))
 let cAnds = (l,num)=>{
   let t = (l==='s')
    let t2 = (l==='c')
+  //  we just add both formulas because if one is false mean 0 then it automatically 0 all term
+   return (4*num*t) +( 6.28*num*t2)
+   
 }
-
 console.log(cAnds('s',22))
+
+
+// let perimeter = (l,n) => l == "s" && n * 4 || l == "c" &&  6.28  
+// and concept if A is true return B else return A _____ or concept if A is true return A else B
   </script>
 </body>
 
