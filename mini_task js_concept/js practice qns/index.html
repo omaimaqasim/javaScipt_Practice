@@ -173,6 +173,32 @@ let addNew = (obj,name,value)=>{
 console.log(addNew({ring:300},'momo',200))
 // in js if you write key int then it will automatically convert it to string
  
+
+ // exercise : Convenience Store Change Problem
+// --------------------------------
+// You are given an array representing the amount of change you have.
+// The array always follows this order:
+// [quarters, dimes, nickels, pennies]
+//
+// Your task is to write a function changeEnough(change, amountDue)
+// that returns true if the total value of the coins is enough
+// to pay for the item, and false otherwise.
+//
+// Coin values:
+// Quarter = 0.25
+// Dime    = 0.10
+// Nickel  = 0.05
+// Penny   = 0.01
+
+let changeEnough = (change,amountdue)=>{
+
+    totalChange = change[0]*0.25 + change[1]*0.10 + change[2]*0.05 +change[3]*0.01
+
+    return totalChange>=amountdue 
+    //not need to write true or false because comparision opt always return true or false
+}
+
+console.log(changeEnough([11,22,33,4],1.5))
  </script>
 </body>
 
