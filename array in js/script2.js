@@ -125,3 +125,19 @@ console.log("Length of cleaned username is:", cleaned_username.length);
 // remember this if we use refrence like a=b then if we change anyone 
 // of that array i change both array but if we use spread array then it make other 
 // variable independed if we change b then it does not affected first array 
+
+
+
+
+// this refers to the object itself.
+
+// let user = {
+//   name: "Hunza",
+//   intro() {
+//     console.log("My name is " + this.name);
+//   }
+// };
+// user.intro();
+
+// Output:
+// My name is Hunza

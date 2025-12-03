@@ -218,6 +218,17 @@ console.log(changeEnough([11,22,33,4],1.5))
 
  console.log(getDots_tri(6))
 
+//  Write a function that returns an anonymous function, which transforms its input by adding a particular suffix at the end.
+
+let add_suffix = function (word) {
+  
+     return function (suffix) {
+       return word+suffix
+     }
+}
+
+console.log(add_suffix("hopeless")("ly"))
+
  </script>
 </body>
 
