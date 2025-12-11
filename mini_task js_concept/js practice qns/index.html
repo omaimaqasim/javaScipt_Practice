@@ -266,11 +266,16 @@
 
     let remove_extraZeros = (no_string)=>{
 
-        return   no_string.split(".")
+     let array = no_string.split(".")
+        return   array[0].split("").forEach(d=> {
+          if (d!='0') {
+             return d.indexOf()
+          }
+        })
     }
 
 
-    console.log(remove_extraZeros("0001.3000"))
+    console.log(remove_extraZeros("000100.30450"))
 
   </script>
 </body>
