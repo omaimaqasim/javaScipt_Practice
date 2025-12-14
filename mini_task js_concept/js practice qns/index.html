@@ -267,11 +267,18 @@
     let remove_extraZeros = (no_string)=>{
 
      let array = no_string.split(".")
-        return   array[0].split("").forEach(d=> {
-          if (d!='0') {
-             return d.indexOf()
-          }
-        })
+    //  this line remove all leading zero as this regex say remove all starting zeros ^
+        let integer_part = array[0].replace(/^0+/,'');
+        if (integer_part=="") integer_part=0
+
+        // this line remove all zeros from the end as $ say check from end
+        let decimal_part = array[1].replace(/0+$/,"");
+        if (decimal_part=="") {
+           return integer_part
+        }
+        else{
+          return integer_part + "." + decimal_part
+        }
     }
 
 
