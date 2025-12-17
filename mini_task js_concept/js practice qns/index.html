@@ -289,6 +289,24 @@
 
     console.log(remove_extraZeros("000100"))
 
+    // this problem can be solve easily if i know that js automatically remove leading and traling
+    // zeros when convert it to number i just have to convert str to number then again convert to string
+    // The unary + operator converts a string to a number in JavaScript. remember this
+    // '' + (...)  Concatenating with an empty string converts the number back to string
+
+
+let removeLeadingTrailing = (str)=>{
+
+      return  +str.toString();
+
+      
+}
+
+console.log(removeLeadingTrailing("000.33390"))
+      
+    
+
+
   </script>
 </body>
 
