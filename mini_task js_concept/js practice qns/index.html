@@ -249,41 +249,41 @@
 
     //Create a function that takes two numbers as arguments (num, length) and returns an array of multiples of num until the array length reaches length.
 
-    let returnArray = (num,length)=>{
-     let arr = []
+    let returnArray = (num, length) => {
+      let arr = []
 
-    for (let i = 1; i <= length; i++) {
-      
-        arr.push(num*i);
-    }
-        return arr 
+      for (let i = 1; i <= length; i++) {
+
+        arr.push(num * i);
+      }
+      return arr
     }
 
-    console.log(returnArray(2,10))
+    console.log(returnArray(2, 10))
 
     //Create a function that takes in a number as a string n and returns the number without trailing and leading zeros.
     // e.g. the last three zeros in 3.4000 and 3.04000).   e.g. the first three zeros in 000234 and 000230).
 
-    let remove_extraZeros = (no_string)=>{
+    let remove_extraZeros = (no_string) => {
 
       if (!no_string.includes(".")) {
-         no_string = no_string + "."
+        no_string = no_string + "."
       }
-     let array = no_string.split(".")
+      let array = no_string.split(".")
 
-    //  this line remove all leading zero as this regex say remove all starting zeros ^
-        let integer_part = array[0].replace(/^0+/,'');
-        if (integer_part=="") integer_part="0"
-          
+      //  this line remove all leading zero as this regex say remove all starting zeros ^
+      let integer_part = array[0].replace(/^0+/, '');
+      if (integer_part == "") integer_part = "0"
 
-        // this line remove all zeros from the end as $ say check from end
-        let decimal_part = array[1].replace(/0+$/,"");
-        if (decimal_part=="") {
-           return integer_part
-        }
-        else{
-          return integer_part + "." + decimal_part
-        }
+
+      // this line remove all zeros from the end as $ say check from end
+      let decimal_part = array[1].replace(/0+$/, "");
+      if (decimal_part == "") {
+        return integer_part
+      }
+      else {
+        return integer_part + "." + decimal_part
+      }
     }
 
 
@@ -295,31 +295,30 @@
     // '' + (...)  Concatenating with an empty string converts the number back to string
 
 
-let removeLeadingTrailing = (str)=>{
+    let removeLeadingTrailing = (str) => {
 
-      return  +str.toString();
-
-      
-}
-
-console.log(removeLeadingTrailing("000.33390"))
+      return +str.toString();
 
 
-// Is the Number a Repdigit
+    }
 
- let isrepdigit = (no)=>{
+    console.log(removeLeadingTrailing("000.33390"))
 
-     let checkdigits = no.matches()
-       if (no<0) {
-          return false
-       }
 
-       
-      
- }
+    // Is the Number a Repdigit
 
- console.log(isrepdigit(22))
-    
+    let isrepdigit = (no) => {
+           if(no<0) return false;
+
+           let s = no.toString();
+
+           return s.split('').every(d=>d===s[0]);
+     
+
+    }
+
+    console.log(isrepdigit(-2222))
+
 
 
   </script>
