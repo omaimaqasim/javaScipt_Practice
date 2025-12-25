@@ -339,8 +339,11 @@
 
 
 let keys_values = (obj)=>{
-  
+   let arr = [ Object.keys(obj) , Object.values(obj) ]
+  return  arr
 }
+
+console.log(keys_values({ a: 1, b: 2, c: 3 }))
 
 
 
