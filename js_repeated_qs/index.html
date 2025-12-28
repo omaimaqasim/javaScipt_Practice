@@ -29,10 +29,18 @@
         let compare_obj = (obj1,obj2)=>{
              
             for (const key in obj1) {
-                const element = object[key];
+                const value_obj1 = obj1[key];
                 
+                if (key in obj2 ) {
+                    return true
+                }
+                else{
+                    return false
+                }
                 
             }
+          
+            
         }
 
 
