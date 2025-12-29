@@ -31,21 +31,28 @@
             for (const key in obj1) {
                 const value_obj1 = obj1[key];
                 
-                if (key in obj2 ) {
-                    return true
-                }
-                else{
+                if (!(key in obj2 )) {
                     return false
                 }
-                
+               
             }
           
+            return true
             
         }
 
 
     console.log(compare_obj(obj1,obj2));
 
+
+    // smarter way to solve this qn and also check both keys and values same or not
+
+    let com_obj = (obj1,obj2)=>{
+        
+        return Object.keys(obj1).every(key=>key in obj2 && obj1[key]===obj2[key])
+    }
+
+     console.log(com_obj(obj1,obj2));
     </script>
 </body>
 
