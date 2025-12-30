@@ -1,0 +1,32 @@
+/*
+CHALLENGE: Compressed Frequency Encoder
+
+Problem:
+You are given a sentence (string).
+
+Your task is to:
+1. Remove all spaces from the string
+2. Convert all characters to lowercase
+3. Count the frequency of each character
+4. Store the result in an array of strings in the format:
+   character + frequency   (example: "a3")
+5. Sort the resulting array:
+   - First by frequency in descending order
+   - If frequencies are equal, sort alphabetically by character
+
+Input Example:
+let input = "JavaScript Is Challenging";
+
+Expected Output:
+["a3", "i3", "s3", "c2", "g2", "l2", "n2", "r2", "t2", "e1", "h1", "j1", "p1", "v1"]
+
+
+
+Goal:
+This problem tests your understanding of:
+- String traversal
+- Array searching
+- Nested loops
+- Manual sorting logic
+- Algorithmic thinking
+*/
