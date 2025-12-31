@@ -10,11 +10,18 @@
 <body>
     <script>
         function countChars(string) {
-            let count=0
+           
+            let obj = {}
             let refine_str = string.replaceAll(" ", "").toLowerCase()//mynameisummi
-            return  Array.from(refine_str).filter(char=>{
-                
+              Array.from(refine_str).forEach(char=>{
+                if (char in obj) {
+                    obj[char]++
+                }
+                else{
+                    obj[char] = 1
+                }
             })
+            return obj
         }
 
         console.log(countChars("My name is Ummi"))
