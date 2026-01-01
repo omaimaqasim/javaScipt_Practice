@@ -12,6 +12,7 @@
         function countChars(string) {
            
             let obj = {}
+            let arr =[]
             let refine_str = string.replaceAll(" ", "").toLowerCase()//mynameisummi
               Array.from(refine_str).forEach(char=>{
                 if (char in obj) {
@@ -21,7 +22,13 @@
                     obj[char] = 1
                 }
             })
-            return obj
+             for (const alphabet in obj) {
+                const times = obj[alphabet];
+                arr.push(alphabet+times)
+                
+             }
+             return arr
+
         }
 
         console.log(countChars("My name is Ummi"))
