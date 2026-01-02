@@ -24,9 +24,10 @@
             })
              for (const alphabet in obj) {
                 const times = obj[alphabet];
-                arr.push(alphabet+times)
+                arr.push([alphabet,times]) 
                 
              }
+           arr=  arr.sort((a,b)=>b[1]-a[1]).map(([char,count])=>char+count)
              return arr
 
         }
