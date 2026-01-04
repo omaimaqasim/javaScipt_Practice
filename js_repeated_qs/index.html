@@ -29,7 +29,7 @@
         let compare_obj = (obj1,obj2)=>{
              
             for (const key in obj1) {
-                const value_obj1 = obj1[key];
+                
                 
                 if (!(key in obj2 )) {
                     return false
@@ -53,6 +53,21 @@
     }
 
      console.log(com_obj(obj1,obj2));
+
+     //qno 2 : Palindrome check
+   let palindrome_check =(word)=>{
+          let reverse = word.split("").reverse().join("")
+          
+          if (reverse===word) {
+            return true
+          }
+          else{
+            return false
+          }
+          
+      }
+
+      console.log(palindrome_check("mam"))
     </script>
 </body>
 

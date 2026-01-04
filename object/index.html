@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objject rivision</title>
+</head>
+<body>
+    <script>
+        
+/* ================================================
+ 1. What is an Object
+================================================ */
+let user = {
+  name: "Ali",
+  age: 20,
+  isStudent: true
+};
+
+console.log(user);
+// { name: 'Ali', age: 20, isStudent: true }
+
+/* ================================================
+ 2. Accessing Object Properties
+================================================ */
+// Dot notation
+console.log(user.name); // Ali
+
+// Bracket notation
+console.log(user["age"]); // 20
+
+// Bracket notation with variable
+let key = "name";
+console.log(user[key]); // Ali
+
+/* ================================================
+ 3. Add, Update, Delete Properties
+================================================ */
+user.city = "Lahore";     // add
+user.age = 21;           // update
+delete user.isStudent;   // delete
+
+console.log(user);
+// { name: 'Ali', age: 21, city: 'Lahore' }
+
+/* ================================================
+ 4. Object with Method (function inside object)
+================================================ */
+let person = {
+  name: "Sara",
+  greet: function () {
+    return "Hello " + this.name;
+  }
+};
+
+console.log(person.greet()); // Hello Sara
+
+/* ================================================
+ 5. Looping Through Object (for...in)
+================================================ */
+let car = {
+  brand: "Toyota",
+  model: 2022,
+  color: "Black"
+};
+
+for (let key in car) {
+  console.log(key, ":", car[key]);
+}
+// brand : Toyota
+// model : 2022
+// color : Black
+
+/* ================================================
+ 6. Object.keys, Object.values, Object.entries
+================================================ */
+let obj = { a: 1, b: 2 };
+
+console.log(Object.keys(obj));    // ['a', 'b']
+console.log(Object.values(obj));  // [1, 2]
+console.log(Object.entries(obj)); // [['a',1], ['b',2]]
+
+/* ================================================
+ 7. Check Property Exists
+================================================ */
+console.log("name" in user); // true
+console.log(user.hasOwnProperty("age")); // true
+
+/* ================================================
+ 8. Object vs Array
+================================================ */
+let arr = [10, 20, 30]; // index based
+let student = {        // key based
+  name: "Ayaan",
+  marks: 80
+};
+
+console.log(arr[1]);           // 20
+console.log(student.marks);    // 80
+
+/* ================================================
+ 9. Reference Copy (Problem)
+================================================ */
+let obj1 = { x: 10 };
+let obj2 = obj1; // reference copy ❌
+
+obj2.x = 20;
+
+console.log(obj1.x); // 20 (changed)
+
+/* ================================================
+10. Proper Copy using Spread Operator ✅
+================================================ */
+let obj3 = { x: 10 };
+let obj4 = { ...obj3 }; // real copy
+
+obj4.x = 30;
+
+console.log(obj3.x); // 10
+console.log(obj4.x); // 30
+
+/* ================================================
+11. Spread with Multiple Properties
+================================================ */
+let user1 = { name: "Ali", age: 20 };
+let user2 = { ...user1 };
+
+user2.age = 25;
+
+console.log(user1.age); // 20
+console.log(user2.age); // 25
+
+/* ================================================
+12. Shallow Copy Problem (IMPORTANT)
+================================================ */
+let obj5 = {
+  name: "Ali",
+  marks: {
+    math: 90
+  }
+};
+
+let obj6 = { ...obj5 };
+
+obj6.marks.math = 50;
+
+console.log(obj5.marks.math); // 50 (still shared)
+
+/* ================================================
+13. Object Destructuring
+================================================ */
+let user3 = {
+  name: "Zain",
+  age: 18
+};
+
+let { name, age } = user3;
+console.log(name, age); // Zain 18
+
+/* ================================================
+14. Nested Object Access
+================================================ */
+let school = {
+  name: "City School",
+  student: {
+    name: "Ahmed",
+    grade: "A"
+  }
+};
+
+console.log(school.student.name); // Ahmed
+
+/* ================================================
+15. One-Line Revision Summary (IMPORTANT)
+================================================ */
+/*
+Objects store related data using key:value pairs.
+Dot/bracket access values, for...in loops objects,
+methods use `this`, `=` shares reference,
+`...` creates a new (shallow) copy.
+*/
+
+    </script>
+</body>
+</html>
