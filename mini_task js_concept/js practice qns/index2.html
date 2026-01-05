@@ -9,30 +9,51 @@
 
 <body>
     <script>
+        //qno 1 
         function countChars(string) {
-           
+
             let obj = {}
-            let arr =[]
+            let arr = []
             let refine_str = string.replaceAll(" ", "").toLowerCase()//mynameisummi
-              Array.from(refine_str).forEach(char=>{
+            Array.from(refine_str).forEach(char => {
                 if (char in obj) {
                     obj[char]++
                 }
-                else{
+                else {
                     obj[char] = 1
                 }
             })
-             for (const alphabet in obj) {
+            for (const alphabet in obj) {
                 const times = obj[alphabet];
-                arr.push([alphabet,times]) 
-                
-             }
-           arr=  arr.sort((a,b)=>b[1]-a[1]).map(([char,count])=>char+count)
-             return arr
+                arr.push([alphabet, times])
+
+            }
+            arr = arr.sort((a, b) => b[1] - a[1]).map(([char, count]) => char + count)
+            return arr
 
         }
 
         console.log(countChars("My name is Ummi"))
+
+        // qno2: Narcissistic (Armstrong) Number
+        /*
+ For 153:
+Digits: 1, 5, 3
+Number of digits: 3
+Calculation:
+1³ + 5³ + 3³
+Result = 153
+✔ So 153 is a Narcissistic number.  
+        */
+
+    let is_Narcissistic = (no)=>{
+        let total_digits = no.toString().length;
+     return no.toString().split("").map(d=> Math.pow(d,total_digits))
+    }
+
+    console.log(is_Narcissistic(153))
+
+
     </script>
 </body>
 
