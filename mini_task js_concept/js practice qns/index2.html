@@ -48,7 +48,10 @@ Result = 153
 
     let is_Narcissistic = (no)=>{
         let total_digits = no.toString().length;
-     return no.toString().split("").map(d=> Math.pow(d,total_digits))
+        //remember this we convert integer to string but when we use math.pow it automatically convert string digit to number
+     return no.toString().split("").map(d=> Math.pow(d,total_digits)).reduce((acc,current)=>{
+      return acc+current;
+     },0)
     }
 
     console.log(is_Narcissistic(153))
