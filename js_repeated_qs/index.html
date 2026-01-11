@@ -58,16 +58,28 @@
    let palindrome_check =(word)=>{
           let reverse = word.split("").reverse().join("")
           
-          if (reverse===word) {
-            return true
-          }
-          else{
-            return false
-          }
+       return  reverse===word
           
       }
 
       console.log(palindrome_check("mam"))
+
+        // ------------------------------
+    // Q2: Create new string from first 3 + last 3 characters
+    // ------------------------------
+
+
+    let new_string = (str)=>{
+       let first3 = str.slice(0,3);
+       //from this qn i have learn how to extract from last
+       let  last3 =str.slice(-3);
+
+       return first3+last3
+    }
+
+    console.log(new_string("pakistan"))
+
+
     </script>
 </body>
 
