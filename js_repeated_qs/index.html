@@ -71,13 +71,26 @@
 
     let new_string = (str)=>{
        let first3 = str.slice(0,3);
-       //from this qn i have learn how to extract from last
+       //from this qn i have learn how to extract from last 
        let  last3 =str.slice(-3);
 
        return first3+last3
     }
 
     console.log(new_string("pakistan"))
+
+
+        // ------------------------------
+    // Q4: Concatenate two strings excluding their first characters
+    // ------------------------------
+
+    let concate = (str1,str2)=>{
+
+        return str1.slice(1) + str2.slice(1)
+
+    }
+
+    console.log(concate("hello","world"))
 
 
     </script>
