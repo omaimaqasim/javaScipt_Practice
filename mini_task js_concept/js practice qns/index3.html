@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const posts = [
+  {
+    id: 1,
+    user: "alice",
+    content: "Learning JavaScript is fun! #js #coding",
+    likes: 120,
+    comments: ["Great post!", "Very helpful", "Loved it"],
+  },
+  {
+    id: 2,
+    user: "bob",
+    content: "Just finished a React project #react #js",
+    likes: 95,
+    comments: ["Nice work!", "Awesome", "Congrats", "Well done"],
+  },
+  {
+    id: 3,
+    user: "alice",
+    content: "Arrays and objects are powerful #js",
+    likes: 150,
+    comments: ["True!", "Absolutely"],
+  },
+  {
+    id: 4,
+    user: "charlie",
+    content: "Functions make code reusable #coding",
+    likes: 80,
+    comments: [],
+  },
+];
+
+
+function analyzePosts(posts) {
+  let obj = {}
+  let like_s = []
+  
+
+  posts.forEach(post => {
+       like_s.push(post.likes) 
+  });
+
+  return like_s
+}
+
+
+console.log(analyzePosts(posts))
+
+    </script>
+</body>
+</html>
