@@ -41,14 +41,29 @@
 
 function analyzePosts(posts) {
   let obj = {}
-  let like_s = []
+  let top_user = {
+    user : "",
+    likes : 0
+  }
+  let top_user_name 
   
 
   posts.forEach(post => {
-       like_s.push(post.likes) 
+        //remember this braket notation works only when that key is variable not contant you did that mistake
+    if(post.likes>top_user.likes){
+
+      top_user.likes = post.likes;
+      top_user.user = post.user;
+
+    }
+   
+
   });
 
-  return like_s
+  top_user_name =top_user.user
+
+ 
+  
 }
 
 
