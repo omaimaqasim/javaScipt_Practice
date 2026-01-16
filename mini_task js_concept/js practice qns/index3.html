@@ -41,11 +41,14 @@
 
 function analyzePosts(posts) {
   let obj = {}
+
   let top_user = {
     user : "",
     likes : 0
   }
-  let top_user_name 
+
+  let top_user_name ;
+  let hashtags = []
   
 
   posts.forEach(post => {
@@ -56,12 +59,15 @@ function analyzePosts(posts) {
       top_user.user = post.user;
 
     }
+
+    //for hashtags
+    console.log(post.content.split(" "))
    
 
   });
 
   top_user_name =top_user.user
-
+  return top_user_name
  
   
 }
