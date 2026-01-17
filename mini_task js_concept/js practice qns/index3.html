@@ -48,7 +48,8 @@ function analyzePosts(posts) {
   }
 
   let top_user_name ;
-  let hashtags = []
+  let hashtags
+  let allhashtags = []
   
 
   posts.forEach(post => {
@@ -61,13 +62,15 @@ function analyzePosts(posts) {
     }
 
     //for hashtags
-    console.log(post.content.split(" "))
-   
-
-  });
-
-  top_user_name =top_user.user
-  return top_user_name
+    hashtags = post.content.match(/#\w+/g)
+     allhashtags.push(...hashtags)
+     
+    });
+    //counting maximum repeat #
+     allhashtags.f
+    console.log(allhashtags)
+    top_user_name =top_user.user
+    return top_user_name
  
   
 }
