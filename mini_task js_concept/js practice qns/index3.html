@@ -50,7 +50,7 @@ function analyzePosts(posts) {
   let top_user_name ;
   let hashtags
   let allhashtags = []
-  
+  let hashtags_obj = {}
 
   posts.forEach(post => {
         //remember this braket notation works only when that key is variable not contant you did that mistake
@@ -67,7 +67,14 @@ function analyzePosts(posts) {
      
     });
     //counting maximum repeat #
-     allhashtags.f
+    allhashtags.forEach(h=>{
+      if (!(h in hashtags_obj)) {
+          hashtags_obj[h] = 1
+      }
+      else{
+        hashtags_obj[h]++
+      }
+    })
     console.log(allhashtags)
     top_user_name =top_user.user
     return top_user_name
