@@ -51,6 +51,8 @@ function analyzePosts(posts) {
   let hashtags
   let allhashtags = []
   let hashtags_obj = {}
+  let max_hash = 0
+  let max_hash_l ;
 
   posts.forEach(post => {
         //remember this braket notation works only when that key is variable not contant you did that mistake
@@ -75,11 +77,18 @@ function analyzePosts(posts) {
         hashtags_obj[h]++
       }
     })
-    console.log(allhashtags)
+    console.log(hashtags_obj)
+  for (const h in hashtags_obj ) {
+      if (max_hash<hashtags_obj[h]) {
+         max_hash_l = h;
+      }
+    }
     top_user_name =top_user.user
-    return top_user_name
- 
   
+    console.log(" user name of top like: "+top_user_name )
+    console.log(" max hashtag language: "+ max_hash_l)
+ 
+  return ""
 }
 
 
