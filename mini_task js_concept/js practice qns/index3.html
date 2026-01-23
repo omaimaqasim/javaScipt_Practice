@@ -1,99 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <script>
-        const posts = [
-  {
-    id: 1,
-    user: "alice",
-    content: "Learning JavaScript is fun! #js #coding",
-    likes: 120,
-    comments: ["Great post!", "Very helpful", "Loved it"],
-  },
-  {
-    id: 2,
-    user: "bob",
-    content: "Just finished a React project #react #js",
-    likes: 95,
-    comments: ["Nice work!", "Awesome", "Congrats", "Well done"],
-  },
-  {
-    id: 3,
-    user: "alice",
-    content: "Arrays and objects are powerful #js",
-    likes: 150,
-    comments: ["True!", "Absolutely"],
-  },
-  {
-    id: 4,
-    user: "charlie",
-    content: "Functions make code reusable #coding",
-    likes: 80,
-    comments: [],
-  },
+  <script>
+
+    const posts = [
+  { id: 1, user: "alice", content: "Learning JavaScript is fun! #js #coding", likes: 120, comments: ["Great post!", "Very helpful", "Loved it"],shares : 50 },
+  { id: 2, user: "bob", content: "Just finished a React project #react #js", likes: 95, comments: ["Nice work!", "Awesome", "Congrats", "Well done"],shares : 90 },
+  { id: 3, user: "alice", content: "Arrays and objects are powerful #js", likes: 150, comments: ["True!", "Absolutely"],shares : 10 },
+  { id: 4, user: "charlie", content: "Functions make code reusable #coding", likes: 80, comments: [],shares : 100 }
 ];
 
+    function analyzePosts(posts) {
+      let topUser = { user: "", likes: 0 };
+      let hashtagCount = {};
+      let engagement = {};
+      
+      posts.forEach(post => {
+        //engagement 
+         
+          ( engagement[post.user] || 0 )= post.likes + post.shares
+        // Find top liked user
+        if (post.likes > topUser.likes) {
+          topUser = { user: post.user, likes: post.likes };
+        }
 
-function analyzePosts(posts) {
-  let obj = {}
+        // Extract hashtags safely
+        const hashtags = post.content.match(/#\w+/g) || [];
 
-  let top_user = {
-    user : "",
-    likes : 0
-  }
+        hashtags.forEach(tag => {
+          hashtagCount[tag] = (hashtagCount[tag] || 0) + 1;
+        });
+      });
 
-  let top_user_name ;
-  let hashtags
-  let allhashtags = []
-  let hashtags_obj = {}
-  let max_hash = 0
-  let max_hash_l ;
+      // Find most used hashtag
+      let maxHashtag = "";
+      let maxCount = 0;
 
-  posts.forEach(post => {
-        //remember this braket notation works only when that key is variable not contant you did that mistake
-    if(post.likes>top_user.likes){
+      for (const tag in hashtagCount) {
+        if (hashtagCount[tag] > maxCount) {
+          maxCount = hashtagCount[tag];
+          maxHashtag = tag;
+        }
+      }
 
-      top_user.likes = post.likes;
-      top_user.user = post.user;
 
+      return {
+        topUser: topUser.user,
+        mostUsedHashtag: maxHashtag,
+        hashtagStats: hashtagCount,
+        engagement
+      };
     }
 
-    //for hashtags
-    hashtags = post.content.match(/#\w+/g)
-     allhashtags.push(...hashtags)
-     
-    });
-    //counting maximum repeat #
-    allhashtags.forEach(h=>{
-      if (!(h in hashtags_obj)) {
-          hashtags_obj[h] = 1
-      }
-      else{
-        hashtags_obj[h]++
-      }
-    })
-    console.log(hashtags_obj)
-  for (const h in hashtags_obj ) {
-      if (max_hash<hashtags_obj[h]) {
-         max_hash_l = h;
-      }
-    }
-    top_user_name =top_user.user
-  
-    console.log(" user name of top like: "+top_user_name )
-    console.log(" max hashtag language: "+ max_hash_l)
- 
-  return ""
-}
+console.log(analyzePosts(posts));
 
 
-console.log(analyzePosts(posts))
-
-    </script>
+  </script>
 </body>
+
 </html>
