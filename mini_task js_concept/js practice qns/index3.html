@@ -20,12 +20,14 @@
     function analyzePosts(posts) {
       let topUser = { user: "", likes: 0 };
       let hashtagCount = {};
-      let engagement = {};
+      let eng = {};
+      let h_eng = 0;
       
       posts.forEach(post => {
         //engagement 
          
-          ( engagement[post.user] || 0 )= post.likes + post.shares
+          eng[post.user] = post.likes + post.shares + post.comments.length
+          post.engagement = eng[post.user];
         // Find top liked user
         if (post.likes > topUser.likes) {
           topUser = { user: post.user, likes: post.likes };
@@ -50,16 +52,26 @@
         }
       }
 
+      //post with high engagement
+
+      for (const e in eng) { 
+        if (eng[e]>h_eng) {
+           h_eng = eng[e];
+        }
+        
+      }
+
 
       return {
         topUser: topUser.user,
         mostUsedHashtag: maxHashtag,
         hashtagStats: hashtagCount,
-        engagement
+        eng,h_eng
       };
     }
 
 console.log(analyzePosts(posts));
+console.log(posts)
 
 
   </script>
