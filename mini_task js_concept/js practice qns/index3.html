@@ -22,6 +22,7 @@
       let hashtagCount = {};
       let eng = {};
       let h_eng = 0;
+      let post_with_hEng 
       
       posts.forEach(post => {
         //engagement 
@@ -35,10 +36,18 @@
 
         // Extract hashtags safely
         const hashtags = post.content.match(/#\w+/g) || [];
-
+        
         hashtags.forEach(tag => {
           hashtagCount[tag] = (hashtagCount[tag] || 0) + 1;
         });
+        //post with high engagement
+        if (h_eng<post.engagement) {
+           h_eng = post.engagement
+           post_with_hEng = post
+        }
+
+        
+    
       });
 
       // Find most used hashtag
@@ -52,21 +61,16 @@
         }
       }
 
-      //post with high engagement
-
-      for (const e in eng) { 
-        if (eng[e]>h_eng) {
-           h_eng = eng[e];
-        }
-        
-      }
 
 
       return {
         topUser: topUser.user,
         mostUsedHashtag: maxHashtag,
         hashtagStats: hashtagCount,
-        eng,h_eng
+        engagement : eng, 
+        highestEngagment : h_eng,
+        postWithHighEng : post_with_hEng
+
       };
     }
 
