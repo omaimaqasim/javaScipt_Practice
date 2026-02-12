@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Complete the solution so that the function will break up camel casing, using a space between words.
+        function camelCase(string) {
+              let result = "";
+            for (let i = 0; i < string.length; i++) {
+                const char = string[i];
+
+                if (char >= 'A' && char <= 'Z') {
+                    result+= " " + char
+                }
+                else{
+                    result += char
+                }
+               
+                
+            }
+            
+            return result
+
+            
+        }
+
+        console.log(camelCase("hayHowAreYouHunza"))
+    </script>
+</body>
+</html>
