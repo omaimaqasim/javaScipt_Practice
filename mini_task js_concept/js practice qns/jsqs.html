@@ -29,6 +29,96 @@
         }
 
         console.log(camelCase("hayHowAreYouHunza"))
+
+
+        /*
+🧠 LOGIC CHALLENGE: Most Frequent Clean Word
+
+You are given an array of sentences:
+
+const sentences = [
+  "JavaScript is amazing!",
+  "I love JavaScript, it is AMAZING.",
+  "Amazing things happen with JavaScript.",
+  "Do you love coding in javascript?"
+];
+
+--------------------------------------------------
+
+🎯 YOUR TASK:
+
+1. Combine all sentences into one string.
+2. Convert everything to lowercase.
+3. Remove punctuation marks: ! , . ?
+4. Split the string into individual words.
+5. Count how many times each word appears.
+6. Return the word that:
+
+   ✅ Appears the MOST times.
+   ✅ If two words have same frequency → return the LONGER word.
+   ✅ If still tied → return the word that comes FIRST alphabetically.
+
+--------------------------------------------------
+
+🚫 RULES:
+- Do not hardcode answers.
+- Do not use external libraries.
+- Try to solve using loops and basic array/string methods.
+
+--------------------------------------------------
+
+🔥 BONUS (Hard Mode):
+
+Ignore these common words while counting:
+
+["is", "the", "in", "it", "i", "you"]
+
+--------------------------------------------------
+
+Expected Output for given sentences:
+"javascript"
+
+--------------------------------------------------
+
+When you're done, test your function and log the result.
+*/
+
+const sentences = [
+  "JavaScript is amazing!",
+  "I love JavaScript, it is AMAZING.",
+  "Amazing things happen with JavaScript.",
+  "Do you love coding in javascript?"
+];
+
+//combine sentences
+
+ let combined_sentences = sentences.join(" ");
+
+ console.log(combined_sentences)
+
+//  to lowercase
+ console.log(combined_sentences.toLowerCase())
+ 
+//  remove ! , . ?
+let simple_sentence = combined_sentences.toLowerCase().replace(/[!,.?]/g, "")
+
+console.log(simple_sentence)
+
+// all words
+let all_words = simple_sentence.split(" ");
+
+console.log(all_words)
+
+// count frequency
+
+let  Word_frequency = {};
+
+all_words.forEach(word=>{
+    
+    if (word in Word_frequency) {
+         
+    }
+})
     </script>
 </body>
 </html>
