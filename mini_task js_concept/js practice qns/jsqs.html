@@ -116,9 +116,34 @@ let  Word_frequency = {};
 all_words.forEach(word=>{
     
     if (word in Word_frequency) {
-         
+         Word_frequency[word]++
+    }
+    else{
+        Word_frequency[word] = 1;
     }
 })
+
+console.log(Word_frequency)
+
+//word that appears most time
+
+let most_appear = {
+    "js ": 0
+}
+
+for (const word in Word_frequency) {
+    const value= Word_frequency[word];
+    
+    if (value>most_appear[js]) {
+        most_appear[js] = most_appear[word]
+    }
+}
+
+console.log(most_appear)
+
+
+
+
     </script>
 </body>
 </html>
