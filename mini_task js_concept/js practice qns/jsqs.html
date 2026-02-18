@@ -125,17 +125,38 @@ all_words.forEach(word=>{
 
 console.log(Word_frequency)
 
-//word that appears most time
+// word that appears most time
 
 let most_appear = {
-    "js ": 0
+    word : "",
+    count: 0
 }
 
 for (const word in Word_frequency) {
     const value= Word_frequency[word];
     
-    if (value>most_appear[js]) {
-        most_appear[js] = most_appear[word]
+    if (value>most_appear.count) {
+        most_appear.word = word
+        most_appear.count = value
+    }
+    // if frequency same
+    else if (value==most_appear.count ){
+         
+        // if frequency same and length diff
+        if (word.length>most_appear.word.length) {
+               most_appear.word = word
+        most_appear.count = value
+        }
+
+                // if frequency same and length same
+        else if (word.length==most_appear.word.length){
+
+            if (condition) {
+                
+            }
+        }
+     
+
     }
 }
 
