@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // Complete the solution so that the function will break up camel casing, using a space between words.
         function camelCase(string) {
-              let result = "";
+            let result = "";
             for (let i = 0; i < string.length; i++) {
                 const char = string[i];
 
                 if (char >= 'A' && char <= 'Z') {
-                    result+= " " + char
+                    result += " " + char
                 }
-                else{
+                else {
                     result += char
                 }
-               
-                
+
+
             }
-            
+
             return result
 
-            
+
         }
 
         console.log(camelCase("hayHowAreYouHunza"))
@@ -83,88 +85,94 @@ Expected Output for given sentences:
 When you're done, test your function and log the result.
 */
 
-const sentences = [
-  "JavaScript is amazing!",
-  "I love JavaScript, it is AMAZING.",
-  "Amazing things happen with JavaScript.",
-  "Do you love coding in javascript?"
-];
+        const sentences = [
+            "JavaScript is amazing!",
+            "I love JavaScript, it is AMAZING.",
+            "Amazing things happen with JavaScript.",
+            "Do you love coding in javascript?"
+        ];
 
-//combine sentences
+        //combine sentences
 
- let combined_sentences = sentences.join(" ");
+        let combined_sentences = sentences.join(" ");
 
- console.log(combined_sentences)
+        console.log(combined_sentences)
 
-//  to lowercase
- console.log(combined_sentences.toLowerCase())
- 
-//  remove ! , . ?
-let simple_sentence = combined_sentences.toLowerCase().replace(/[!,.?]/g, "")
+        //  to lowercase
+        console.log(combined_sentences.toLowerCase())
 
-console.log(simple_sentence)
+        //  remove ! , . ?
+        let simple_sentence = combined_sentences.toLowerCase().replace(/[!,.?]/g, "")
 
-// all words
-let all_words = simple_sentence.split(" ");
+        console.log(simple_sentence)
 
-console.log(all_words)
+        // all words
+        let all_words = simple_sentence.split(" ");
 
-// count frequency
+        console.log(all_words)
 
-let  Word_frequency = {};
+        // count frequency
 
-all_words.forEach(word=>{
-    
-    if (word in Word_frequency) {
-         Word_frequency[word]++
-    }
-    else{
-        Word_frequency[word] = 1;
-    }
-})
+        let Word_frequency = {};
+        let Ignore = ["is", "the", "in", "it", "i", "you"];
 
-console.log(Word_frequency)
+        all_words.forEach(word => {
+        //   remember that in for each return work like continue works in for loop
+        // it skip the current iteration in for each but in for loop it stops wholeloop
+            if (Ignore.includes(word)) return;
 
-// word that appears most time
+            if (word in Word_frequency) {
+                Word_frequency[word]++
+            }
+            else {
+                Word_frequency[word] = 1;
+            }
+        })
 
-let most_appear = {
-    word : "",
-    count: 0
-}
+        console.log(Word_frequency)
 
-for (const word in Word_frequency) {
-    const value= Word_frequency[word];
-    
-    if (value>most_appear.count) {
-        most_appear.word = word
-        most_appear.count = value
-    }
-    // if frequency same
-    else if (value==most_appear.count ){
-         
-        // if frequency same and length diff
-        if (word.length>most_appear.word.length) {
-               most_appear.word = word
-        most_appear.count = value
+        // word that appears most time
+
+        let most_appear = {
+            word: "",
+            count: 0
         }
+
+        for (const word in Word_frequency) {
+            const value = Word_frequency[word];
+
+            if (value > most_appear.count) {
+                most_appear.word = word
+                most_appear.count = value
+            }
+            // if frequency same
+            else if (value == most_appear.count) {
+
+                // if frequency same and length diff
+                if (word.length > most_appear.word.length) {
+                    most_appear.word = word
+                    most_appear.count = value
+                }
 
                 // if frequency same and length same
-        else if (word.length==most_appear.word.length){
+                else if (word.length == most_appear.word.length) {
 
-            if (condition) {
-                
+                    if (word > most_appear.word) {
+                        most_appear.word = word
+                        most_appear.count = value
+                    }
+                }
+
+
             }
         }
-     
 
-    }
-}
-
-console.log(most_appear)
+        console.log(most_appear)
 
 
 
 
     </script>
 </body>
+
 </html>
