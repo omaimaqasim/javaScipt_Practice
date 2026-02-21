@@ -1,84 +1,32 @@
-/*
-🔥 4-Minute Challenge — Safe Power Calculator
+let base = prompt("Enter base number:");
+let exponent = prompt("Enter exponent number:");
 
-🧠 TASK:
-Write a JavaScript program that calculates the power of a number safely.
+base = parseInt(base);
+exponent = parseInt(exponent);
 
------------------------------------------
-📌 Requirements:
+try {
 
-1️⃣ Take two inputs using prompt():
-   - Base number
-   - Exponent number
+  // Validate numbers
+  if (isNaN(base) || isNaN(exponent)) {
+    throw new Error("❌ Please enter valid numbers!");
+  }
 
-2️⃣ Convert inputs to numbers using:
-   - parseInt() OR Number()
+  // Validate exponent
+  if (exponent < 0) {
+    throw new Error("❌ Negative exponents are not allowed!");
+  }
 
-3️⃣ Validation Rules:
-   - If either input is NOT a valid number → 
-     throw new Error("❌ Please enter valid numbers!")
+  // Calculate power
+  let result = base ** exponent;
 
-   - If exponent is negative →
-     throw new Error("❌ Negative exponents are not allowed!")
+  console.log("✅ Result is:", result);
 
-4️⃣ Use try...catch to handle errors.
+} catch (error) {
 
-5️⃣ If inputs are valid:
-   - Calculate result using Math.pow(base, exponent)
-   - Print:
-     "✅ Result is: <answer>"
+  console.log(error.message);
 
-6️⃣ Use finally block to ALWAYS print:
-   "🔚 Calculation complete."
+} finally {
 
------------------------------------------
-📌 Example 1 (Valid Input):
-Base: 2
-Exponent: 3
+  console.log("🔚 Calculation complete.");
 
-Output:
-✅ Result is: 8
-🔚 Calculation complete.
-
------------------------------------------
-📌 Example 2 (Invalid Input):
-Base: hello
-Exponent: 3
-
-Output:
-❌ Please enter valid numbers!
-🔚 Calculation complete.
-
------------------------------------------
-📌 Example 3 (Negative Exponent):
-Base: 2
-Exponent: -2
-
-Output:
-❌ Negative exponents are not allowed!
-🔚 Calculation complete.
-
------------------------------------------
-⏳ Time Limit: 4 Minutes
-🎯 Goal: Use prompt, parseInt/Number, isNaN, throw, try-catch, and finally correctly.
-*/
-
-
-let base = prompt("enter base number");
- base = parseInt(base);
-
-let exponent = prompt("enter exponent number");
- exponent = parseInt(exponent);
-
- if (isNaN(base) || isNaN(exponent)) {
-    
-    throw  SyntaxError("enter valid number");
-    
- }
-
- try {
-     
- } catch (error) {
-    
- }
-
+}
