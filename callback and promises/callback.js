@@ -80,6 +80,21 @@ birthdayCheck(check, function (func) {
   func();
 });
 
+function add(n1,n2){
+    let sum = n1+n2;
+    console.log(sum)
+}
+
+ function calculate(no1,no2,callback){
+
+  callback(no1,no2);
+ }
+
+ calculate(2,3,add);
+
+// we use callback so if some work is pending then after completting that work run this fn
+
+
 // OR using ternary operator version:
 // let selectedCallback = check === "yes" ? wish : noWish;
 // birthdayCheck(check, selectedCallback);
