@@ -10,7 +10,8 @@ let myPromise = new Promise(function (resolve, reject) {
     reject("❌ Something went wrong"); // rejected
   }
 });
-
+ // ✅ resolve() and reject() produce the result
+// ✅ .then() and .catch() use (handle) that result
 myPromise
   .then((result) => {
     console.log(result); // Runs if resolved

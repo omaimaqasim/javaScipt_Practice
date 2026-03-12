@@ -88,9 +88,10 @@ function add(n1,n2){
  function calculate(no1,no2,callback){
 
   callback(no1,no2);
+  
  }
 
- calculate(2,3,add);
+ calculate(9,3,add);
 
 // we use callback so if some work is pending then after completting that work run this fn
 

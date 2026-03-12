@@ -1,7 +1,7 @@
 // ✅ Function 1: Basic async function returning a value after 2 seconds
 async function getRupees() {
   return new Promise((resolve) => {
-    setTimeout(() => {
+    setTimeout(() => {  
       resolve(20000); // Simulated response after delay
     }, 2000);
   });
