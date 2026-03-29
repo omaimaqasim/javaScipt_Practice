@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order delivery system
+    </title>
+</head>
+<body>
+    <script>
+       function userLogin(username,password) {
+        let promise = new Promise((resolve, reject) => {
+            
+            setTimeout(() => {
+                if (username=="admin" && password == 1234) {
+                    resolve("login successfully!")
+                }
+                else{
+                    reject("enter correct password or username")
+                }
+            }, 2000);
+            
+        })
+       
+
+        promise.then((message)=>{
+            console.log(message)
+        }).catch((error)=>{
+            console.log(error)
+        })
+
+       
+       }
+
+       userLogin("admin",1234);
+    </script>
+</body>
+</html>

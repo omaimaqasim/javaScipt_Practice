@@ -17,7 +17,7 @@ getRupees().then((result) => {
 async function getDataFromAPI() {
   // Fetch returns a built-in Promise
   let response = await fetch('https://jsonplaceholder.typicode.com/todos/1'); // Free fake REST API
-
+// settle mean resolve or reject not pending
   // Convert response (stream) into JavaScript object
   let data = await response.json();
 
