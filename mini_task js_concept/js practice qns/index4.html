@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ===============================
+// REAL-WORLD ARRAY PRACTICE TASK
+// ===============================
+
+const students = [
+  { name: "Ali", marks: 45 },
+  { name: "Sara", marks: 78 },
+  { name: "John", marks: 32 },
+  { name: "Zara", marks: 90 },
+  { name: "Ahmed", marks: 55 }
+];
+
+let new_students = students.filter((e)=> e.marks>=50)
+ console.log(new_students)
+
+ let status = new_students.map(s=> `${s.name} - pass`);
+
+// -------------------------------
+// TASK 1 (FILTER):
+// Create a new array of students who passed (marks >= 50)
+
+// -------------------------------
+// TASK 2 (MAP):
+// From passed students, create a new array like:
+// ["Sara - PASS", "Zara - PASS", "Ahmed - PASS"]
+
+// -------------------------------
+// TASK 3 (REDUCE):
+// Find total marks of ALL students using reduce()
+
+// -------------------------------
+// TASK 4 (BONUS):
+// Find the name of the student with highest marks only
+    </script>
+    
+</body>
+</html>
